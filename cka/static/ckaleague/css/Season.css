@@ -1,0 +1,36 @@
+.NationalLeagueSeason
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 7pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: darkorange;
+    TEXT-ALIGN: center;
+}
+.FirstTeamSeason
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 7pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: gold;
+    TEXT-ALIGN: center;
+}
+.SecondTeamSeason
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 7pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: yellowgreen;
+    TEXT-ALIGN: center;
+}
+.NoStatusSeason
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 7pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #d8d8d8;
+    TEXT-ALIGN: center;
+}

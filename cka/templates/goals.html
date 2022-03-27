@@ -1,0 +1,47 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+    <title></title>
+{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'ckaleague/css/Tigers.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'ckaleague/css/Statistics.css'%}">
+    <script language="javascript" type="text/javascript">
+		var CurrentButton = 'btnALL';
+	</script>
+    <script type="text/javascript" language="javascript" src="{% static 'ckaleague/js/CKA.js' %}"></script>
+    <script type="text/javascript" language="javascript" src="{% static 'ckaleague/js/Tiger_Library.js' %}"></script>
+    <script type="text/javascript" language="javascript" src="{% static 'ckaleague/js/Statistics.js' %}"></script>
+	<script language="javascript" type="text/javascript">
+		UploadDirectory = 'Upload';
+	</script>
+    
+</head>
+
+<body style="background-color:#ffffff; MARGIN-TOP: 0px">
+<div class="StatisticsTitle">
+CKA Player Statistics Report Division {{division}} - {{season_full}}
+<div class="LastUpdated"> Last updated:  {{last_update}}</div>
+</div>
+
+<div class="StatisticsButtons">
+<input id="btnALL" class="TigerButtonsOn" type="button" onclick="MouseClick('btnALL');FilterRow('XXX', 'TEAMCODE', 'ALL');" onmouseout="MouseOut('btnALL')" onmouseover="MouseOver('btnALL')" style="width:64px; height:24px;" value="ALL">
+
+{% for t in teams %}
+<input id="btn{{t.code}}" class="TigerButtonsOff" type="button" onclick="MouseClick('btn{{t.code}}');FilterRow('XXX', 'TEAMCODE', '{{t.code}}');" 
+onmouseout="MouseOut('btn{{t.code}}')" onmouseover="MouseOver('btn{{t.code}}')" style="width:64px; height:24px" value="{{t.short_name}}">
+{% endfor %}
+</div>
+<div class="MainPage" style="height:790; overflow-y:auto">
+<table cellspacing="1" cellpadding="2" style="width:100%; background-color:#ffffff; border-color:black; border-style:solid; border-width:1px">
+<script language="javascript" type="text/javascript">
+var RowCount = 1;
+document.write(PaintStatisticsHeader());
+{% for p in players %}
+{% if p.total > 0 %}
+document.write(PaintStatisticsRow( '{{p.team.code}}', '{{p.team.class_name}}', '{{p.player.name}}', '{{p.team.short_name}}','{{p.games}}','{{p.goals}}','{{p.penalties}}','{{p.total}}','{{p.goal_avg}}')); 
+{% endif %}
+{% endfor %}
+</script>
+</table>
+</div>
+</body>

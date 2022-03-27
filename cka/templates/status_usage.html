@@ -1,0 +1,36 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+    <title></title>
+{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'ckaleague/css/Tigers.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'ckaleague/css/Statistics.css'%}">
+    <script language="javascript" type="text/javascript">
+		var CurrentButton = 'btnALL';
+	</script>
+    <script type="text/javascript" language="javascript" src="{% static 'ckaleague/js/CKA.js' %}"></script>
+    <script type="text/javascript" language="javascript" src="{% static 'ckaleague/js/Tiger_Library.js' %}"></script>
+    <script type="text/javascript" language="javascript" src="{% static 'ckaleague/js/Statistics.js' %}"></script>
+	<script language="javascript" type="text/javascript">
+		UploadDirectory = 'Upload';
+	</script>
+    
+</head>
+
+<body style="background-color:#ffffff; MARGIN-TOP: 0px">
+<div class="StatisticsTitle">
+CKA Player Status Usage - 2015/2016
+<div class="LastUpdated"> Last updated:  {{last_update}}</div>
+<table border=1>
+<tr><td>Team</td><td>Num Matches</td><td>Status Usage</td></tr>
+{% for t in team_list %}
+<tr><td>{{t.name}}</td><td>{{t.num_matches}}</td>
+    <td>{{t.usage}}</td>
+
+</tr>
+{% endfor %}
+
+</table>
+</div>
+
+</body>

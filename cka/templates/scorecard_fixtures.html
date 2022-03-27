@@ -1,0 +1,88 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+.cka-large-font {
+	font-size:20px
+}
+
+.cka-large-font h2 {
+	font-size:20px
+}
+
+td {
+	border-width:  : 1px;
+}
+
+</style>
+
+<h1>Don't forget to check fixtures sheet <a href="http://www.cambskorfball.co.uk/fixtures/Fixtures_2016_web.xls">here</a></h1>
+Click 'Submit' for the fixture you wish to enter the scorecard for.</p>
+There are {{num_staging}} fixtures in staging.
+<a href="clear_staging">Clear Staging</a>
+<p/>
+The checks performed are:
+<ul>
+	<li>Player not in database</li>
+	<li>Gender of substitutes match</li>
+	<li>Team validity as per status rules</li>
+	<li>Poor ref rating</li>
+	<li>Scores do not align with divisions</li>
+</ul>
+<div style="height:50px"></div>
+<table style="width:1000px">
+<thead>
+	<td>Date</td><td>Time</td><td>Division</td><td>Home Team</td>
+	<td>Away Team</td><td>Referee</td><td>Venue</td><td>Score</td><td>Notes</td><td>Action</td>
+</thead>
+<tbody>
+
+{% for f in fixture_list %}
+<tr>
+<td>{{f.date|date:"D d M Y"}}</td>
+<td>{{f.time_text}}</td>
+<td>{{f.division}}</td>
+<td>{{f.home_team}}</td>
+<td>{{f.away_team}}</td>
+<td>{{f.referee_team}}</td>
+<td>{{f.venue}}</td>
+<td>{{f.score}}</td>
+
+<td>{{f.changenotes}}</td>
+
+<!-- Can be one of 'View', 'Approve', 'Submit' -->
+{% if f.has_staging %}
+<td><a href="{{f.code}}">View</a></p><a href="http://127.0.0.1:8000/cka/results/Upload/{{f.code}}_int.htm">ViewInt</a></td>
+<td><a href="form/{{f.code}}">Edit</a></td>
+	{% if f.can_approve %}
+	<td><a href="approve/{{f.code}}">Approve</a></td>
+	{% else %}
+	<td>Cannot approve</a>
+	{% endif %}
+{% else %}
+<td><a href="form/{{f.code}}">Submit</a></td>
+<td><a href="formxml/{{f.code}}">Submit XML</a></td>
+  {% if f.can_load_from_fl %}
+     <td><a href="load_fl/{{f.code}}">Load from FL</a></td>
+  {% endif %}
+{% endif %}
+{% if f.has_xml_file %}
+<td><a href="loadxml/{{f.code}}">Load XML</a></td>
+{% endif %}
+<td style="{{f.status_valid_style}}">Status Valid: {{f.status_valid}}</td>
+<td style="{{f.player_valid.style}}">Player Valid: {{f.player_valid}}</td>
+<td style={{f.ref_home_rating_style}}>Ref Home Rating : {{f.ref_home_rating}} </td>
+<td style={{f.ref_away_rating_style}}>Ref Away Rating : {{f.ref_away_rating}} </td>
+<td>Private Notes {{f.private_notes}} </td>
+<td>Checks {{f.check_ok}}</td>
+</tr>
+{% endfor %}
+
+
+
+</tbody>
+</table>
+
+
+{% endblock %}

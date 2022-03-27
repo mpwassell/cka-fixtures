@@ -1,0 +1,61 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+    <title></title>
+{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'ckaleague/css/Tigers.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'ckaleague/css/FixtureList.css'%}">
+    <script type="text/javascript" language="javascript" src="{% static 'ckaleague/js/CKA.js' %}"></script>
+    <script type="text/javascript" language="javascript" src="{% static 'ckaleague/js/Tiger_Library.js' %}"></script>
+    <script type="text/javascript" language="javascript" src="{% static 'ckaleague/js/Button.js' %}"></script>
+    <script type="text/javascript" language="javascript" src="{% static 'ckaleague/js/FixtureList.js' %}"></script>
+    
+    <script type="text/javascript" language="javascript">
+      UploadDirectory = 'cka/results/Upload';
+    </script>
+  </head>
+  <body style="background-color:#ffffff; margin-top:0px">
+   <script type="text/javascript" language="javascript">
+    document.write(PaintPageTitle('CKA League Division {{division}} - {{season_start}}/{{season_end}}'));
+   </script>
+  <table style="background-color:#fffff; width:100%; border-color:black; border-style:solid; border-width:1px" align="center" cellpadding="1" cellspacing="1">
+    <tbody><tr>
+      <td class="OrangeOnBlack" width="12%">TEAMS</td>
+       <script type="text/javascript" language="javascript">
+{% for t in team_list %}    
+        document.write(PaintFixtureTeamName('{{t.class_name}}','{{t.short_name}}','true'));
+{% endfor %}
+       </script>
+        </tr>
+{% for a_row in row_list %}
+      <tr>
+      <script>
+      {% autoescape off %}
+      {{ a_row }}
+      {% endautoescape %}
+      </script>
+      </tr>
+{% endfor %}
+</tbody></table>
+<table><tbody><tr><td style="font-size:1pt"> </td></tr></tbody></table>
+
+<table cellspacing="1" cellpadding="2" align="center" style="width:100%; border-color:black; border-style:solid; border-width:1px">
+<script>
+    document.write(PaintTableHeader());
+{% for trow in league_table %}
+document.write(PaintTableRow('{{trow.team.class_name}}','{{trow.team.short_name}}',{{trow.played}},
+    {{trow.home_won}},{{trow.home_drawn}},{{trow.home_lost}},{{trow.home_goals_for}},{{trow.home_goals_aga}},
+    {{trow.away_won}},{{trow.away_drawn}},{{trow.away_lost}},{{trow.away_goals_for}},{{trow.away_goals_aga}},
+    {{trow.goal_diff}},{{trow.score}})); 
+{% endfor %}
+</script>
+</table>
+  
+  
+  <div style="width:100%; font-family:tahoma; font-size:8pt" align="right">
+    Last updated: {{last_update}}
+  </div>
+  
+
+
+</body></html>

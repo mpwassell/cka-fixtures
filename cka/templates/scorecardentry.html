@@ -1,0 +1,373 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+
+<html>
+<head>
+    {% load static %}
+    <!-- Add Scorecard styles -->
+    
+    <!-- FIXME - Are these needed now -->
+    <script src="{% static 'ckaleague/js/dhtmlxcommon.js' %} "></script>
+    <script src="{% static 'ckaleague/js/dhtmlxcombo.js' %}"></script>
+    <link rel="STYLESHEET" type="text/css" href="{% static 'ckaleague/css/dhtmlxcombo.css' %}">
+
+    <link href="{% static 'ckaleague/css/Scorecard.css' %}" type="text/css" rel="stylesheet" />	
+		
+    <!-- Add routines to show attachments -->
+    <script type="text/javascript" src="{% static 'ckaleague/js/Scorecard.js' %}"></script>
+    <script type="text/javascript" src="{% static 'ckaleague/js/DateBox.js' %}"></script>
+
+    <script type="text/javascript" src="{% static 'ckaleague/js/scorecardentry.js' %}"></script>
+    
+    <script language="javascript">
+        //Create a new DateBox object with a date delimiter of "/" and date format of "UK" (eg "dd/mm/yyyy")
+        var dateBox = new DateBox("/", "UK", "DateWarning");
+
+        //Create a new TimeBox object with a time delimiter of ":" and time format of "hh:mm")
+        var timeBox = new TimeBox(":", "hhmm", "TimeWarning");
+    </script>
+
+    <!--
+    <script src="{% static 'ckaleague/js/jquery/jquery-1.9.1.js' %} "></script>
+    <script src="{% static 'ckaleague/js/jquery/jquery-ui-1.10.3.custom.js' %} "></script>
+	-->
+	<script src="//code.jquery.com/jquery-1.10.2.js"></script>
+	<script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+	 <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+
+<style>
+.custom-combobox {
+position: relative;
+display: inline-block;
+font-size: 12px;
+}
+.custom-combobox-toggle {
+position: absolute;
+top: 0;
+bottom: 0;
+margin-left: -1px;
+padding: 0px;
+/*height: 20px;*/
+}
+.custom-combobox-input {
+margin: 0;
+padding: 5px 10px;
+height: 15px;
+}
+
+.ui-state-default,.ui-widget-content .ui-state-default,.ui-widget-header .ui-state-default {
+	border: 1px solid #d3d3d3;
+	background: #FFFFFF;
+	font-weight: normal;
+	/*color: #555555;*/
+}
+
+body {
+
+}
+
+.ui-autocomplete { 
+    /* same as above */
+    max-height:200px; 
+    max-width: 236px; 
+
+    /* note that x is hidden now */
+    overflow-x:hidden;
+    overflow-y:scroll;
+
+    
+}  
+
+</style>
+
+
+
+	<!--link rel="stylesheet" href="http://jqueryui.com/resources/demos/style.css" -->
+
+	<script src="{% static 'ckaleague/js/jquery/combobox.js' %} "></script>
+
+    <script language="javascript">
+     $(function() {
+     	setupForm();
+	 });
+	 </script>
+</head>
+
+<body>
+
+<form action="/cka/scorecard/post/{{fixture.code}}" method="post">
+<input name="referer" value="{{referer}}" type=hidden>
+{% csrf_token %}
+
+<table width="100%" height="100%" cellspacing="1px" cellpadding="1px" border="0px" style="border:0px solid black">
+<colgroup>
+    <col width="1.74%">
+    <col width="2.77%">
+    <col width="4.77%">
+    <col width="19.59%">
+    <col width="5.06%">
+    <col width="5.68%">
+    <col width="1.74%">
+    <col width="3.92%">
+    <col width="1.00%">
+    <col width="3.77%">
+    <col width="2.77%">
+    <col width="4.77%">
+    <col width="1.00%">
+    <col width="3.92%">
+    <col width="1.74%">
+    <col width="13.79%">
+    <col width="5.06%">
+    <col width="6.98%">
+    <col width="9.00%">
+    <col width="1.74%">
+</colgroup>  
+<tbody>
+<tr class="RowHeightDefault">
+	<td>&nbsp;</td>
+	<td colspan="6" rowspan="3" class="LargeFont">Cambridgeshire Korfball League</td>
+    <td colspan="8" rowspan="2" align="center">&nbsp;</td>
+	<td colspan="2">&nbsp;</td>
+	<td class="TextRight">Date&nbsp;</td>
+	<td class="CellBottom">
+	    <input name="txtDate" id="txtDate" >
+	</td>
+	<td>&nbsp;</td>
+</tr>
+
+              
+<tr class="RowHeightDefault">
+    <td>&nbsp;</td>
+	<td colspan="2">&nbsp;</td>
+	<td class="TextRight">Time&nbsp;</td>
+	<td class="CellBottom">
+	    <input style="color: rgb(192, 192, 192);" name="txtTime" id="txtTime" type="text">
+        <span id="TimeWarning" class="Warning" style="visibility:hidden; display:none"></span>
+	</td>
+	<td>&nbsp;</td>
+</tr>
+
+<tr class="RowHeightDefault">
+    <td>&nbsp;</td>
+	<td class="TextCenter">FT</td>
+	<td colspan="5">&nbsp;</td>
+	<td class="TextCenter">FT</td>
+	<td colspan="3">&nbsp;</td>
+	<td class="TextRight">Division&nbsp;</td>
+	<td class="TextLeft">
+	<select name="cboDivision" id="cboDivision" style="width:75%; text-align:left" class="CellInput ScoreFont TextLeft" tabindex="40" title="Choose the division this match is played in">
+    </select>
+	</td>
+	<td>&nbsp;</td>
+</tr>
+              
+ <tr class="RowHeightDefault">
+	<td>&nbsp;</td>
+	<td colspan="5" rowspan="2" class="TextBottom">
+	<select name="cboHome_Team" id="cboHome_Team" style="width:100%; font-weight:bold" class="TeamFont" tabindex="50" title="Choose the name of the home team">
+    </select></td>
+    <td>&nbsp;</td>
+	<td rowspan="2" class="CellAll TextCenter">
+			  <input name="txtHome_Score_FT" id="txtHome_Score_FT" maxlength="2" class="TextCenter ScoreFont CellInput" tabindex="60" title="Enter the Full Time score for the home team" type="text" value="">
+	</td>
+	<td>&nbsp;</td>
+	<td class="TextCenter">HT</td>
+	<td rowspan="2" class="TextCenter LargeFont" style="vertical-align:bottom">V</td>
+	<td class="TextCenter">HT</td>
+	<td>&nbsp;</td>
+	<td rowspan="2" class="CellAll TextCenter ScoreFontCellInput">
+	  <input name="txtAway_Score_FT" id="txtAway_Score_FT" maxlength="2" class="TextCenter ScoreFont CellInput" tabindex="90" title="Enter the Full Time score for the away team" type="text" value="">
+	</td>
+	<td>&nbsp;</td>
+	<td colspan="4" rowspan="2" class="TextRight TextBottom">
+        <select name="cboAway_Team" id="cboAway_Team" style="width:100%; font-weight:bold" class="TeamFont" tabindex="100" title="Choose the name of the away team">
+        </select></td>
+	<td>&nbsp;</td>
+</tr>
+
+
+<tr class="RowHeightDefault">
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td class="CellAll">
+	  <input name="txtHome_Score_HT" id="txtHome_Score_HT" maxlength="2" class="TextCenter ScoreFont CellInput" tabindex="70" title="Enter the Half Time score for the home team" type="text" value="">
+	</td>
+	<td class="CellAll">
+	  <input name="txtAway_Score_HT" id="txtAway_Score_HT" maxlength="2" class="TextCenter ScoreFont CellInput" tabindex="80" title="Enter the Half Time score for the away team" type="text" value="">
+	</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+</tr>
+
+<tr class="RowHeightDefault SmallFont">
+    <td>&nbsp;</td>
+	<td colspan="2" class="TextLeft TextTop">Home Team</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td colspan="3" class="TextCenter TextTop">Home Score</td>
+	<td>&nbsp;</td>
+	<td colspan="3" class="TextCenter TextTop">Away Score</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td>&nbsp;</td>
+	<td class="TextRight TextTop">Away Team</td>
+	<td>&nbsp;</td>
+</tr>
+
+
+<tr class="RowHeightDefault MediumFont">
+    <td>&nbsp;</td>
+  	<td colspan="5">
+  	<select name="cboRefHomeRating" id="cboRefHomeRating" style="width:100%;" class="WhenFont" tabindex="4010" title="Enter the referee's rating of the Home Team">
+        <option value="7">EXEMPLARY - attitude and sportsmanship was exemplary</option>
+        <option value="6">VERY GOOD - Attitude and sportsmanship was very good</option>
+        <option value="5">GOOD - Attitude and sportsmanship was good</option>
+        <option value="4">OK - Attitude and sportsmanship was ok</option>
+        <option value="3">POOR - A few incidents of poor attitude or bad sportsmanship</option>
+        <option value="2">VERY POOR - There were several incidents of poor attitude and bad sportsmanship</option>
+        <option value="1">UNACCEPTABLE - The attitude and sportsmanship was at an unacceptably bad level</option>
+       
+    </select></td>
+    <td colspan="9" class="TextCenter TextTop">&lt;--- Referee's Team Rating ---&gt;</td>
+  	<td colspan="4">
+  	    <select name="cboRefAwayRating" id="cboRefAwayRating" style="width:100%;" class="WhenFont" tabindex="4010" title="Enter the referee's rating of the Away Team">
+            <option value="7">EXEMPLARY - attitude and sportsmanship was exemplary throughout</option>
+            <option value="6">VERY GOOD - Attitude and sportsmanship was very good</option>
+            <option value="5">GOOD - Attitude and sportsmanship was good</option>
+            <option value="4">OK - Attitude and sportsmanship was ok</option>
+            <option value="3">POOR - A few incidents of poor attitude or bad sportsmanship</option>
+            <option value="2">VERY POOR - There were several incidents of poor attitude and bad sportsmanship</option>
+            <option value="1">UNACCEPTABLE - The attitude and sportsmanship was at an unacceptably bad level</option>
+        </select>
+  	</td>
+  	<td>&nbsp;</td>
+</tr>
+
+<tr class="RowHeightDefault MediumFont TextCenter" id="playerHeader">
+    <td>&nbsp;</td>
+	<td colspan="2" class="CellAll CellShade">Player</td>
+	<td class="CellAll CellShade">Name</td>
+	<td class="CellAll CellShade">U18</td>
+	<td class="CellAll CellShade">Pens</td>
+	<td colspan="4" class="CellAll CellShade">Goals</td>
+	<td colspan="2" class="CellAll CellShade">Player</td>
+	<td colspan="4" class="CellAll CellShade">Name</td>
+	<td class="CellAll CellShade">U18</td>
+	<td class="CellAll CellShade">Pens</td>
+	<td class="CellAll CellShade">Goals</td>
+	<td>&nbsp;</td>
+</tr>
+<tr class="RowHeightDefault MediumFont TextCenter" id="playerRow">
+    <td>&nbsp;</td>
+	<td colspan="2" class="CellAll playerNum">8</td>
+	<td class="CellAll playerName"></td>
+	<td class="CellAll "></td>
+	<td class="CellAll "></td>
+	<td colspan="4" class="CellAll "></td>
+	<td colspan="2" class="CellAll playerNum">8</td>
+	<td colspan="4" class="CellAll playerName"></td>
+	<td class="CellAll "></td>
+	<td class="CellAll "></td>
+	<td class="CellAll "></td>
+	<td>&nbsp;</td>
+</tr>
+
+			  <tr class="RowHeightDefault">
+				  <td>&nbsp;</td>
+				  <td colspan="2" class="TextLeft TextBottom">Notes</td>
+				  <td>&nbsp;</td>
+				  <td class="NotesFont TextRight">Written by&nbsp;</td>
+				  <td colspan="5" class="TextLeft CellBottom">
+				    <input name="txtWritten_By" id="txtWritten_By" style="width:80%" class="CellInput TextLeft TextBottom MediumFont" tabindex="5000" title="Enter the name of the person who wrote the match comments" type="text" value="{{fixture.notes_by}}">
+				  </td>
+				  <td>&nbsp;</td>
+				  <td colspan="3" class="TextRight TextBottom">Home Captain&nbsp;</td>
+				  <td colspan="5" class="TextLeft CellBottom SmallFont TextBottom">
+				  	<!--
+				    <div id="cboHome_Captain" style="width:100%"><div class="dhx_combo_box"><input value="Aaron Du" tabindex="6000" style="width: 81px;" class="dhx_combo_input" type="text"><input value="5078" name="frmPlayers" type="hidden"><input value="false" name="frmPlayers_new_value" type="hidden"><img style="display: none;" src="a_data/combo_select.htm" class="dhx_combo_img"></div></div>
+					  <input name="txtHome_Captain" id="txtHome_Captain" style="width:100%;" class="TextLeft CellInput" tabindex="6000" title="Enter the full name of the Home captain" type="hidden">
+					-->
+					 <select class="playerCombo" name="txtHome_Captain">
+{% if fixture.home_captain %}
+		<option selected="selected" value="{{fixture.home_captain.name}}">{{fixture.home_captain.name}}</option>
+{% else %}
+		<option value=""></option>
+{% endif %}
+{% for p in home_players %}
+		<option value="{{p.name}}">{{p.name}}</option>
+{% endfor %}
+		</select>
+				  </td>
+				  <td>&nbsp;</td>
+			  </tr>
+
+			  <tr class="RowHeightDefault">
+				  <td>&nbsp;</td>
+				  <td colspan="9" rowspan="3" class="TextLeft">
+				    <textarea name="txtNotes" id="txtNotes" rows="5" class="TextLeft WhenFont" style="width:99%; font-family: tahoma"
+				    tabindex="5010" title="Enter the notes for the match" value="{{fixture.notes}}" >{{fixture.notes}}</textarea>
+				  </td>
+				  <td colspan="4" class="TextRight TextBottom">Away Captain&nbsp;</td>
+				  <td colspan="5" class="TextLeft CellBottom SmallFont TextBottom">
+				  		<!--
+					  <div id="cboAway_Captain" style="width:100%"><div class="dhx_combo_box"><input tabindex="6010" style="width: 81px;" class="dhx_combo_input" type="text"><input name="frmPlayers" type="hidden"><input value="true" name="frmPlayers_new_value" type="hidden"><img style="display: none;" src="a_data/combo_select.htm" class="dhx_combo_img"></div></div>
+					  <input name="txtAway_Captain" id="txtAway_Captain" style="width:100%;" class="TextLeft CellInput" tabindex="6010" title="Enter the full name of the Away captain" type="hidden">
+					-->
+				 <select class="playerCombo" name="txtAway_Captain">
+{% if fixture.away_captain %}
+		<option selected="selected" value="{{fixture.away_captain.name}}">{{fixture.away_captain.namehome}}</option>
+{% else %}
+		<option value=""></option>
+{% endif %}
+{% for p in away_players %}
+		<option value="{{p.name}}">{{p.name}}</option>
+{% endfor %}
+		</select>
+				  </td><td>&nbsp;</td>
+			  </tr>
+
+			  <tr class="RowHeightDefault">
+			    <td>&nbsp;</td>
+				  <td colspan="4" class="TextRight TextBottom">Referee&nbsp;</td>
+				  <td colspan="3" class="TextLeft CellBottom SmallFont TextBottom">
+				  	<!--
+					  <div id="cboReferee" style="width:100%"><div class="dhx_combo_box"><input tabindex="6020" style="width: 81px;" class="dhx_combo_input" type="text"><input name="frmPlayers" type="hidden"><input value="true" name="frmPlayers_new_value" type="hidden"><img style="display: none;" src="a_data/combo_select.htm" class="dhx_combo_img"></div></div>-->
+					  <!--input name="txtReferee" id="txtReferee" style="width:100%;" class="TextLeft CellInput" tabindex="6020" title="Enter the full name of the Referee" value="{{fixture.referee.name}}"-->
+
+					<select class="playerCombo" name="txtReferee">
+						{% if fixture.referee %}
+							<option selected="selected" value="{{fixture.referee.name}}">{{fixture.referee.name}}</option>
+						{% else %}
+							<option value=""></option>
+						{% endif %}
+						{% for p in ref_players %}
+							<option value="{{p.name}}">{{p.name}}</option>
+						{% endfor %}
+					</select>
+
+				  </td>
+				  <td class="TextRight TextBottom">Club&nbsp;</td>
+				  <td class="TextLeft CellBottom SmallFont TextBottom">
+					  <input name="txtReferee_Club" id="txtReferee_Club" style="width:100%;" class="TextLeft CellInput" tabindex="6030" title="Enter the name of the club that the referee represents" type="text" value="{{fixture.referee_team.name}}">
+				  </td>
+				  <td>&nbsp;</td>
+			  </tr>
+			  <tr class="RowHeightDefault">
+			    <td>&nbsp;</td>
+				<td colspan="4" class="TextRight TextBottom">Ref's Email Address&nbsp;</td>
+				<td colspan="5" class="TextLeft CellBottom SmallFont TextBottom">
+			      <input name="txtEmailAddress" id="txtEmailAddress" style="width:100%;" class="TextLeft CellInput" tabindex="6040" title="Enter the email address name of the person submitting the scorecard" type="text" value="{{fixture.email}}">
+				</td>
+				<td>&nbsp;</td>				
+			  </tr>	
+
+</tbody>
+</table>
+
+<input type="submit" value="Submit"/>
+
+</form>

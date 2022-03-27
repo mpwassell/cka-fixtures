@@ -1,0 +1,19 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+
+<html>
+<head>
+    {% load static %}
+</head>
+
+<body>
+<form action="/cka/scorecard/postxml/{{fixture_code}}" method="post">
+	{% csrf_token %}
+<textarea name="txtXML" id="txtXML" 
+	rows="20" 
+	class="TextLeft WhenFont" style="width:99%; font-family: tahoma"
+				    tabindex="5010" title="Enter the notes for the match" value="">
+</textarea>
+
+<input type="submit" value="Submit"/>
+
+</form>

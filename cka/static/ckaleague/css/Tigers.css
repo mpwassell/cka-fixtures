@@ -1,0 +1,790 @@
+BODY
+{
+    MARGIN: 0px 4px;
+}
+.TigerButtons
+{
+    BORDER-RIGHT: 1px solid;
+    BORDER-TOP: #ffffff 1px solid;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    BORDER-LEFT: #ffffff 1px solid;
+    COLOR: #000000;
+    BORDER-BOTTOM: 1px solid;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: orange;
+}
+.TigerButtonsOn
+{
+    BORDER-RIGHT: 1px solid;
+    BORDER-TOP: #ffffff 1px solid;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    BORDER-LEFT: #ffffff 1px solid;
+    COLOR: #000000;
+    BORDER-BOTTOM: 1px solid;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: gold;
+}
+.TigerButtonsOff
+{
+    BORDER-RIGHT: 1px solid;
+    BORDER-TOP: #ffffff 1px solid;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    BORDER-LEFT: #ffffff 1px solid;
+    COLOR: #000000;
+    BORDER-BOTTOM: 1px solid;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: darkorange;
+}
+.MenuOn
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    CURSOR: hand;
+    COLOR: gold;
+    FONT-FAMILY: "Arial";
+    ALIGN: "left";
+}
+.MenuOff
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    CURSOR: hand;
+    COLOR: #000000;
+    FONT-FAMILY: "Arial";
+    ALIGN: "left";
+}
+.MenuOver
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    CURSOR: hand;
+    COLOR: #0000ff;
+    FONT-FAMILY: "Arial";
+    TEXT-DECORATION: underline;
+    ALIGN: "left";
+}
+.DateButtonsOver
+{
+    BORDER-RIGHT: #000066 1px solid;
+    BORDER-TOP: #000066 1px solid;
+    FONT-SIZE: 8pt;
+    BORDER-LEFT: #000066 1px solid;
+    CURSOR: hand;
+    COLOR: #ffffff;
+    BORDER-BOTTOM: #000066 1px solid;
+    FONT-FAMILY: Tahoma;
+    BACKGROUND-COLOR: #000066;
+}
+.DateButtonsOut
+{
+    BORDER-RIGHT: #666699 1px solid;
+    BORDER-TOP: #666699 1px solid;
+    FONT-SIZE: 8pt;
+    BORDER-LEFT: #666699 1px solid;
+    CURSOR: hand;
+    COLOR: #ffffff;
+    BORDER-BOTTOM: #666699 1px solid;
+    FONT-FAMILY: Tahoma;
+    BACKGROUND-COLOR: #666699;
+}
+.DateButtonsHover
+{
+    BORDER-RIGHT: #9999cc 1px solid;
+    BORDER-TOP: #9999cc 1px solid;
+    FONT-SIZE: 8pt;
+    BORDER-LEFT: #9999cc 1px solid;
+    CURSOR: hand;
+    COLOR: #ffffff;
+    BORDER-BOTTOM: #9999cc 1px solid;
+    FONT-FAMILY: Tahoma;
+    BACKGROUND-COLOR: #9999cc;
+}
+.DiaryButtonsOver
+{
+    BORDER-RIGHT: gold 1px solid;
+    BORDER-TOP: gold 1px solid;
+    FONT-SIZE: 8pt;
+    BORDER-LEFT: gold 1px solid;
+    CURSOR: hand;
+    COLOR: #ffffff;
+    BORDER-BOTTOM: gold 1px solid;
+    FONT-FAMILY: Tahoma;
+    BACKGROUND-COLOR: gold;
+}
+.DiaryButtonsOut
+{
+    BORDER-RIGHT: darkorange 1px solid;
+    BORDER-TOP: darkorange 1px solid;
+    FONT-SIZE: 8pt;
+    BORDER-LEFT: darkorange 1px solid;
+    CURSOR: hand;
+    COLOR: #ffffff;
+    BORDER-BOTTOM: darkorange 1px solid;
+    FONT-FAMILY: Tahoma;
+    BACKGROUND-COLOR: darkorange;
+}
+.DiaryButtonsHover
+{
+    BORDER-RIGHT: orange 1px solid;
+    BORDER-TOP: orange 1px solid;
+    FONT-SIZE: 8pt;
+    BORDER-LEFT: orange 1px solid;
+    CURSOR: hand;
+    COLOR: #ffffff;
+    BORDER-BOTTOM: orange 1px solid;
+    FONT-FAMILY: Tahoma;
+    BACKGROUND-COLOR: orange;
+}
+.DiaryButtonsBlank
+{
+    BORDER-RIGHT: #666699 0px solid;
+    BORDER-TOP: #666699 0px solid;
+    FONT-SIZE: 8pt;
+    BORDER-LEFT: #666699 0px solid;
+    CURSOR: hand;
+    COLOR: #ffffff;
+    BORDER-BOTTOM: #666699 0px solid;
+    FONT-FAMILY: Tahoma;
+    BACKGROUND-COLOR: darkorange;
+}
+.DiaryText
+{
+    FONT-SIZE: 8pt;
+    COLOR: #000000;
+    FONT-FAMILY: tahoma;
+    BACKGROUND-COLOR: #ffffff;
+    TEXT-ALIGN: left;
+}
+.CalButtonsOff
+{
+    BORDER-RIGHT: #000066 0px solid;
+    BORDER-TOP: #000066 0px solid;
+    FONT-SIZE: 8pt;
+    BORDER-LEFT: #000066 0px solid;
+    COLOR: #ffffff;
+    TEXT-INDENT: 0pt;
+    BORDER-BOTTOM: #000066 0px solid;
+    FONT-FAMILY: Tahoma;
+    BACKGROUND-COLOR: #000066;
+    TEXT-ALIGN: center;
+}
+.CalButtonsOn
+{
+    BORDER-RIGHT: #000066 0px solid;
+    BORDER-TOP: #000066 0px solid;
+    FONT-SIZE: 8pt;
+    BORDER-LEFT: #000066 0px solid;
+    CURSOR: hand;
+    COLOR: #ffffff;
+    BORDER-BOTTOM: #000066 0px solid;
+    FONT-FAMILY: Tahoma;
+    BACKGROUND-COLOR: #000066;
+}
+.BlackOnOrange
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: darkorange;
+    TEXT-ALIGN: center;
+}
+.OrangeOnBlack
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: orange;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #000000;
+    TEXT-ALIGN: center;
+}
+.BlackOnOrangeFixture
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 7pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: darkorange;
+    TEXT-ALIGN: center;
+}
+.NoFixture
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #000000;
+    TEXT-ALIGN: center;
+}
+.ResultsUpdated
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 7pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #ffffff;
+    TEXT-ALIGN: center;
+}
+.PhotoSignature
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #ff0000;
+    FONT-FAMILY: Tahoma;
+    TEXT-ALIGN: center;
+}
+.PhotoRole
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: Tahoma;
+    TEXT-ALIGN: center;
+}
+.PhotoTitle
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 16pt;
+    COLOR: #ff0000;
+    FONT-FAMILY: Tahoma;
+    TEXT-ALIGN: left;
+    PADDING-TOP: 16px;
+    PADDING-LEFT: 10px;
+}
+.RulesTitle
+{
+    BORDER-RIGHT: #000000 1px solid;
+    BORDER-TOP: gold 1px solid;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 28pt;
+    BORDER-LEFT: gold 1px solid;
+    COLOR: #000000;
+    BORDER-BOTTOM: #000000 1px solid;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: orange;
+    TEXT-ALIGN: center;
+}
+.RulesSection
+{
+    BORDER-RIGHT: #000000 1px solid;
+    BORDER-TOP: gold 1px solid;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 14pt;
+    BORDER-LEFT: gold 1px solid;
+    COLOR: #000000;
+    BORDER-BOTTOM: #000000 1px solid;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: orange;
+    TEXT-ALIGN: left;
+}
+.RulesHeading
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    MARGIN-LEFT: 8mm;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: darkorange;
+    TEXT-ALIGN: left;
+}
+.RulesText
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 9pt;
+    MARGIN-LEFT: 8mm;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: darkorange;
+    TEXT-ALIGN: left;
+}
+.RulesComment
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 9pt;
+    MARGIN-LEFT: 12mm;
+    COLOR: #0000ff;
+    FONT-STYLE: oblique;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: darkorange;
+    TEXT-ALIGN: left;
+}
+.NewsDate
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 9pt;
+    MARGIN-LEFT: 0mm;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #f0f0f0;
+    TEXT-ALIGN: left;
+}
+.NewsHeading1
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 16pt;
+    COLOR: #000000;
+    FONT-FAMILY: serif;
+    TEXT-ALIGN: center;
+}
+.NewsHeading2
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 12pt;
+    COLOR: #000000;
+    FONT-FAMILY: serif;
+    TEXT-ALIGN: center;
+}
+.NewsHeading3
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    COLOR: #000000;
+    FONT-FAMILY: serif;
+    TEXT-ALIGN: center;
+}
+.NewsTextInitial
+{
+    FONT-SIZE: 12pt;
+    FONT-WEIGHT: bold;
+    COLOR: #000000;
+    FONT-FAMILY: serif;
+    TEXT-ALIGN: left;
+}
+.NewsText
+{
+    FONT-SIZE: 11pt;
+    COLOR: #000000;
+    FONT-FAMILY: serif;
+    TEXT-ALIGN: left;
+}
+.NewsMonospace
+{
+    FONT-SIZE: 8pt;
+    COLOR: #000000;
+    FONT-FAMILY: monospace;
+    TEXT-ALIGN: left;
+}
+.ScorecardTitle
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 18pt;
+    MARGIN-LEFT: 0mm;
+    COLOR: #000000;
+    FONT-FAMILY: Comic Sans MS;
+    BACKGROUND-COLOR: #ffffff;
+    TEXT-ALIGN: left;
+}
+.Ink
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    MARGIN-LEFT: 0mm;
+    COLOR: #000000;
+    FONT-FAMILY: Tahoma;
+    BACKGROUND-COLOR: #ffffff;
+    TEXT-ALIGN: center;
+}
+.InkFooter
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 7pt;
+    MARGIN-LEFT: 0mm;
+    COLOR: #000000;
+    BORDER-BOTTOM: #000000 1px solid;
+    FONT-FAMILY: Tahoma;
+    BACKGROUND-COLOR: #ffffff;
+    TEXT-ALIGN: right;
+}
+.Pencil
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 14pt;
+    MARGIN-LEFT: 0mm;
+    COLOR: firebrick;
+    FONT-FAMILY: Bradley Hand ITC;
+    BACKGROUND-COLOR: #ffffff;
+    TEXT-ALIGN: center;
+}
+.PencilTeams
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 14pt;
+    MARGIN-LEFT: 0mm;
+    COLOR: firebrick;
+    BORDER-BOTTOM: #000000 1px solid;
+    FONT-FAMILY: Bradley Hand ITC;
+    BACKGROUND-COLOR: #ffffff;
+    TEXT-ALIGN: center;
+}
+.PencilFooter
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 12pt;
+    MARGIN-LEFT: 0mm;
+    COLOR: firebrick;
+    BORDER-BOTTOM: #000000 1px solid;
+    FONT-FAMILY: Bradley Hand ITC;
+    BACKGROUND-COLOR: #ffffff;
+    TEXT-ALIGN: center;
+}
+.InkBox
+{
+    BORDER-RIGHT: #000000 1px solid;
+    BORDER-TOP: #000000 1px solid;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    MARGIN-LEFT: 0mm;
+    BORDER-LEFT: #000000 1px solid;
+    COLOR: #000000;
+    BORDER-BOTTOM: #000000 1px solid;
+    FONT-FAMILY: Tahoma;
+    BACKGROUND-COLOR: lightgrey;
+    TEXT-ALIGN: center;
+}
+.PencilBox
+{
+    BORDER-RIGHT: #000000 1px solid;
+    BORDER-TOP: #000000 1px solid;
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 11pt;
+    MARGIN-LEFT: 0mm;
+    BORDER-LEFT: #000000 1px solid;
+    COLOR: firebrick;
+    BORDER-BOTTOM: #000000 1px solid;
+    FONT-FAMILY: Bradley Hand ITC;
+    BACKGROUND-COLOR: #ffffff;
+    TEXT-ALIGN: center;
+}
+.FixtureDate
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 7pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: darkorange;
+    TEXT-ALIGN: left;
+}
+.FixtureScore
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 11pt;
+    COLOR: #0000ff;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: darkorange;
+    TEXT-ALIGN: left;
+}
+.FixtureRef
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 6pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: darkorange;
+    TEXT-ALIGN: right;
+}
+.FixtureTime
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 7pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: darkorange;
+    TEXT-ALIGN: right;
+}
+.Season
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 7pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: transparent;
+    TEXT-ALIGN: center;
+}
+.Cambridge
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: darkslateblue;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: aqua;
+    TEXT-ALIGN: center;
+}
+.NationalLeague
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: darkorange;
+    TEXT-ALIGN: center;
+}
+.NationalLeagueSeason
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 7pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: darkorange;
+    TEXT-ALIGN: center;
+}
+.FirstTeam
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: gold;
+    TEXT-ALIGN: center;
+}
+.FirstTeamSeason
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 7pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: gold;
+    TEXT-ALIGN: center;
+}
+.DivTitle
+{
+    FONT-SIZE: 18pt;
+    COLOR: darkblue;
+    FONT-FAMILY: 'Verdana';
+    TEXT-ALIGN: center;
+}
+.SecondTeam
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: yellowgreen;
+    TEXT-ALIGN: center;
+}
+.SecondTeamSeason
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 7pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: yellowgreen;
+    TEXT-ALIGN: center;
+}
+.DivisionOne
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: yellowgreen;
+    TEXT-ALIGN: center;
+}
+.DivisionOneSeason
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 7pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: yellowgreen;
+    TEXT-ALIGN: center;
+}
+.NoStatus
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #f0f0f0;
+    TEXT-ALIGN: center;
+}
+.NoStatusSeason
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 7pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #d8d8d8;
+    TEXT-ALIGN: center;
+}
+.GridScrollbars
+{
+    SCROLLBAR-FACE-COLOR: #676798;
+    OVERFLOW: auto;
+    SCROLLBAR-SHADOW-COLOR: #676798;
+    SCROLLBAR-3DLIGHT-COLOR: #676798;
+    SCROLLBAR-ARROW-COLOR: #ffffff;
+    SCROLLBAR-DARKSHADOW-COLOR: #676798;
+    SCROLLBAR-BASE-COLOR: #676798;
+    HEIGHT: 27px;
+    BACKGROUND-COLOR: #ffffff;
+}
+.GridScrollbarsWhite
+{
+    SCROLLBAR-FACE-COLOR: #ffffff;
+    OVERFLOW: auto;
+    SCROLLBAR-SHADOW-COLOR: #ffffff;
+    SCROLLBAR-3DLIGHT-COLOR: #ffffff;
+    SCROLLBAR-ARROW-COLOR: #ffffff;
+    SCROLLBAR-DARKSHADOW-COLOR: #ffffff;
+    SCROLLBAR-BASE-COLOR: #ffffff;
+    HEIGHT: 27px;
+    BACKGROUND-COLOR: #ffffff;
+}
+
+
+.TigersOne, .TigersThree, .TigersFive
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: darkorange;
+    TEXT-ALIGN: center; 
+}
+.TigersTwo, .TigersFour
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: orange;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #000000;
+    TEXT-ALIGN: center;
+}
+.CityOne, .CityThree, .CityFive
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #ff0000;
+    TEXT-ALIGN: center;
+}
+.CityTwo, .CityFour, .CitySix
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #ff0000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #000000;
+    TEXT-ALIGN: center;
+}
+.PhoenixOne, .PhoenixThree, .PhoenixFive
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #ffff33;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #008000;
+    TEXT-ALIGN: center;
+}
+.PhoenixTwo, .PhoenixFour
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #008000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #ffff33;
+    TEXT-ALIGN: center;
+}
+.KitesOne, .KitesThree
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #ffff33;
+    TEXT-ALIGN: center;
+}
+.KitesTwo
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #ffff33;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #000000;
+    TEXT-ALIGN: center;
+}
+.UniOne, .UniThree
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #f0f0f0;
+    TEXT-ALIGN: center;
+}
+.UniTwo
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #ffffff;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #000000;
+    TEXT-ALIGN: center;
+}
+.LionsOne, .LionsThree
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #ffff33;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #0000ff;
+    TEXT-ALIGN: center;
+}
+.LionsTwo, .LionsFour
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #0000ff;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #ffff33;
+    TEXT-ALIGN: center;
+}
+.KnightsOne
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #0000ff;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #f0f0f0;
+    TEXT-ALIGN: center;
+}
+.KnightsTwo
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #f0f0f0;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #0000ff;
+    TEXT-ALIGN: center;
+}
+.MercuryOne
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #f0f0f0;
+    TEXT-ALIGN: center;
+}
+.VikingsOne, .VikingsThree, .VikingsFive
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 9pt;
+    COLOR: #000000;
+    FONT-FAMILY: Arial;
+    BACKGROUND-COLOR: #ffff33;
+    TEXT-ALIGN: center;
+}
+.VikingsTwo, .VikingsFour
+{
+    font-weight: bold;
+    font-size: 9pt;
+    color: #ffff33;
+    font-family: Arial;
+    background-color: #000000;
+    text-align: center;
+}

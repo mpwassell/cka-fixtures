@@ -1,0 +1,54 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+
+<html>
+  <head>
+    <title></title>
+    {% load static %}
+    <link rel='stylesheet' type='text/css' href="{% static 'ckaleague/css/Tigers.css' %}"/>
+    <link rel='stylesheet' type='text/css' href="{% static 'ckaleague/css/Season.css' %}"/>
+
+    <script type='text/javascript' language='javascript' src="{% static 'ckaleague/js/CKA.js' %}"></script>
+    <script type='text/javascript' language='javascript' src="{% static 'ckaleague/js/Tiger_Library.js' %}"></script>
+    <script type='text/javascript' language='javascript' src="{% static 'ckaleague/js/Mouse.js' %}"></script>
+    <script type='text/javascript' language='javascript' src="{% static 'ckaleague/js/Season.js' %}"></script>
+    <script type='text/javascript' language='javascript'>
+      UploadDirectory = 'Upload';
+    </script>
+  </head>
+
+<body rightmargin='0px' topmargin='0px' leftmargin='0px' style='width:99%; background-color:#fffff; position:absolute; left:0px; top:0px' scroll='auto'>
+  <table cellspacing='1' cellpadding='2' style='width:100%; background-color:#ffffff; border:1px solid black'>
+    <tr><td class="{{team_compact_name}}" colspan="{{colspan}}">{{team_long_name}}</td></tr>
+    <script type='text/javascript' language='javascript'>
+
+
+document.write(PaintSeasonHeaderOuter('BEGIN', '{{team_compact_name}}'));
+{% for f in fixtures %}
+document.write(PaintSeasonHeaderInner('5.79','{{f.text}}','{{f.index}}'));
+{% endfor %}
+document.write(PaintSeasonHeaderOuter('END', '{{team_compact_name}}'));
+
+{% for p in players %}
+document.write(PaintSeasonRowBegin('{{team_compact_name}}','{{p.name}}'));
+document.write(PaintSeasonRowInner('{{p.num_matches}}','2.08','1.85','{{p.statuslist}}','{{p.playlist}}','{{p.goallist}}','{{p.penlist}}'));
+document.write(PaintSeasonRowEnd('{{team_compact_name}}','{{p.games}}','{{p.goals}}','{{p.penalties}}'));
+{% endfor %}
+
+    </script>
+  </table>
+    <div style='width:100%; font-family:tahoma; font-size:8pt' align=right>
+      Last updated: {{last_update}}
+    </div>
+  </body>
+</html>
+
+<!-- Example
+document.write(PaintSeasonRowBegin('PhoenixFive','Adrian Dobbyne'));^M
+document.write(PaintSeasonRowInner('14','2.08','1.85','3;3;3;3;3;3;3;3;3;3;3;3;3;3','0;1234;0;1234;1234;0;1234;0;0;1234;0;1234;0;0','0;0;0;0;1;0;2;0;0;2;0;2;0;0','0;0;0;0;0;0;0;0;0;0;0;0;0;0'));^M
+document.write(PaintSeasonRowEnd('PhoenixFive','6','7','0'));^M
+^M
+
+
+-->
+
+

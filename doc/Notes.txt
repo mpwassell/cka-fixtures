@@ -1,0 +1,216 @@
+** Notes from discussion with Adam on setting up server 
+
+
+I have no idea about your knowledge level in some of these things  - if you need more info on any step let me know.  I've setup this up how I use Django to depoy a lot websites at work, and it works fairly well.
+
+1) Install Required software: 
+a) git client - if you use cygwin - suggest you install via there, you can use a graphical client like smartgit, but I think the command line will be easier
+b) install pip (try easy_install pip)
+c) install virtualenv (try pip instal virtualenv)
+
+
+2)  Give me your ssh public key.  If you know what I mean great. If you don't  try running "ssh-keygen" in cygwin, and it should create an id_rsa.pub (or id_dsa.pub) file.  
+
+----
+$ ssh-keygen
+Generating public/private rsa key pair.
+Enter file in which to save the key (/home/User/.ssh/id_rsa):
+Enter passphrase (empty for no passphrase):
+Enter same passphrase again:
+Your identification has been saved in /home/User/.ssh/id_rsa.
+Your public key has been saved in /home/User/.ssh/id_rsa.pub.
+The key fingerprint is:
+ea:09:04:21:26:78:12:67:50:60:ab:8a:00:71:b8:9f User@User-PC
+The key's randomart image is:
++--[ RSA 2048]----+
+|OO*              |
+|B*o.             |
+|.=.              |
+|+  .             |
+|o. ..   S        |
+|+ E.   .         |
+|o   . .          |
+|     o .         |
+|      o          |
++-----------------+
+
+$ cat id_rsa.pub
+ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABAQCfuO/5Lcvd0uek4JPIqWSHSWRMIOrAXyxZzfhO6e4//56NriGcJK5HrGoaiAHjudBBpQGiwChZr1KHsXGxNltO5L6YLyvKaYq5wfLz7NVOUyEmMKZf0KkAe0PQy/lnxukFYwV43TZjR1B8JWMl5JsjWNLtpywrEhvEcaTYbAYVfaqAMIOyCy19ghWeyOgUnf869CxchWyccIBWIT7c4EfxXGjB6PYhHSxuN+IResNRJ8BZPmjzrfmhQEuHyqdhgKFxfgZHCkah7EPiISDcIHYxsBOqFTJMyaqkUJoHoXnyEe8vbQgCGMpxCk+TAePZBzlhSeZNiLy6HER3A9qCSIan
+
+MPW: Use ssh-keygen -y to verify passphrase - its same as pwd
+
+------
+
+Wait for me to add that to the server
+
+3) Clone the repo I have made
+
+In your work directory - do a "git clone giolite@git.versio4.com:cka-fixtures"
+
+MPW: Should be gitolite@git.atwiss.com:cka-fixtures
+
+git submodule init
+git submodule update
+
+4) Create a virtualenv  - with something like 
+virtualenv --prompt "(cka fixtures) " env
+
+(if not installed  pip install virtualenv)
+
+5) activate the env and install the packages
+  Scripts/activate.bat
+
+*** PROBLEM HERE - Env not activating (Django installed over existing one) wgeb running from cygwin
+INSTEAD RUN FROM WINDOWS PROMPT
+
+
+For step 5 - if you're using cygwin, I am not sure if you need the Unix cmd:
+   . bin/activate  (note dot space at start)
+
+ 
+   pip install -r requirements.txt
+If you want to add new python libs to the project, pip install them into the virtual env and do a pip freeze > requirements.txt - this ensures the server has the same packages and same versions of the packages installed.
+
+** GET
+Command E:\Mark\CKAWebSite\CKAServer\env\Scripts\python.exe -c "import setuptools;__file__='E:\\Mark\\CKAWebSite\\CKAServer\\env\\build\\pycrypto\\setup.py';exec(compile(open(__file__).read().replace('\r\n', '\n'), __file__, 'exec'))" install --record c:\users\user\appdata\local\temp\pip-mowrle-record\install-record.txt --single-version-externally-managed --install-headers E:\Mark\CKAWebSite\CKAServer\env\include\site\python2.7 failed with error code 1 in E:\Mark\CKAWebSite\CKAServer\env\build\pycrypto
+Storing complete log in C:\Users\User\pip\pip.log
+**
+
+6) Put your app into the structure I've done.  Import your models, views etc.  
+
+MPW: python manage.py startapp cka
+Add to INSTALLED_APPS
+
+7) Having done an initial syncdb, we'll need to create an initial south migration with 
+ python manage.py schemamigration --initial
+
+
+MPW: Syncdb, created 'admin' user. Password is ck@league
+ python manage.py schemamigration cka --initial
+
+8) About this point let me review the project. There are some minor steps I may have missed out
+
+MPW: Install pycrypto. Need to get windows binary and copy from main Python site-packages to env/Lib/site-packages
+
+9) You should then be able to do:
+
+   fab staging deploy       which deploys to cka-fixtures-test.atwiss.com
+   fab production deploy which deploys to cka-fixtures.atwiss.com
+
+MPW: Resent to Adam public key. fab still asking for password but this is actually passphrase. Copied private key 
+to ssh/deploykey
+
+If howard sorts out the CKA domain - we can have it on a CKA domain easily instead.
+
+
+I am sure I've missed out a few bits, and I'll be amazed if you go through all that without a few probs.
+
+You can get me on skype (adamtwiss), phone (07711 500295) or via email as and when you need help.
+
+
+-----
+[13/08/2014 15:14:13] Adam Twiss: http://cka-fixtures-test.atwiss.com/admin/
+[13/08/2014 15:14:21] Adam Twiss: So the templates etc are not there  ...
+[13/08/2014 15:15:24] Mark Wassell: Thanks. I will take a look when I get home.
+[13/08/2014 15:18:08] Adam Twiss: Right - works now. Last problem was you'd put a specific path into the STATIC_DIR path that was a windows path on your machine
+[13/08/2014 15:18:16] Adam Twiss: It should work fine for you still in your development environment if you just do a pull
+[13/08/2014 15:18:58] Mark Wassell: Thanks.
+[13/08/2014 15:25:25] Adam Twiss: At the moment that's all running on cka-fixtures-test.  You may recall the setup I recommend is having two 'live' systems - one as a test one, and one on production. Just means you can check all your code works on the server first and avoid outages
+[13/08/2014 16:55:49] Mark Wassell: Hi, what is the Djongo admin password for http://cka-fixtures-test.atwiss.com/admin/ (I assume I can have it)
+
+user: mark  password: mpw should work now
+
+-----------
+Further notes
+
+FAB - Basically a wrapper round ssh. Can write run() commands to do other things
+Database is postgres but can't as yet access it directly.
+
+# After changes
+python manage.py schemamigration cka  --auto
+
+===================
+
+Settup to use build-a-team
+
+For the moment, my system is master.
+Cycle:
+	Dump data in source
+	Commit and Push
+	Clear data in target?
+	Deploy and load data ie run fab
+	Check
+
+Build a team:
+	Scorecard form
+	Show status colours for player
+	When team becomes illegal, put up red flag
+
+
+Notes For New Site
+
+TODO
+Dump data from old to new. need to change app name from ckaleague to cka
+Tests of some sort
+
+Manual tests - 
+	Loading existing scorecards and check - scorecards show player status
+		fixtures updated
+		tables updated
+		division goals scored
+		season goals - this needs to work without dumping out
+
+Rollout Plan
+1. Use new site locally on PC; dump and load onto website as before. Upload XML
+2. Use new site on server; dump and load as before. Upload XML from old form. Better snapshot mechanism.
+3. Get Phoenix refs to use new form live on site.
+4. Get other refs to use new form.
+
+
+
+created 'admin' user. Password is ck@league
+
+
+Use
+http://django-tables2.readthedocs.org/en/latest/
+
+Dump from old system and convert ckaleage to cka
+python manage.py dumpdata cka.Club cka.Team cka.Player > data/clubs.json
+python manage.py dumpdata cka.Fixture > data/fixtures.json
+python manage.py dumpdata cka.Match cka.LeagueTable cka.PlayerStatistics cka.PlayerStatus > data/postmatch.json
+
+Need status overrides as well
+How to clear data in target db?
+
+To load this data
+
+python manage.py loaddata data\postmatch.json
+
+
+at start         at end       1234  8
+during 1st half  at end        234  6
+at half time     at end         34  4
+during 2nd half  at end          4  2
+
+at start        during 2nd half    123  6
+during 1st half during 2nd half     23  4
+at half time    during 2nd half      3  2
+during 2nd half during 2nd half      3  2
+
+
+at start        at half time      12   4
+during 1st half at half time       2   2
+
+at start         during 1st half   1   2
+during 1st half  during 1st half   2   2
+
+
+1. Add field on_court
+2. Add field off_court
+3. Values for these: start, 1st, HT, 2nd, end
+4. Add status_points = calculate as per above table
+
+All starters have 'sub_on' = start, sub_off = end
+For each sub - set sub_on to sub at on card , set sub_off = end
+               set other players sub_off
+For all players calculate status_points - update the status_points table as well.

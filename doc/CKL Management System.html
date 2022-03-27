@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="iso-8859-1"?>
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <meta http-equiv="content-type" content="text/html; charset=iso-8859-1" />
+  <title></title>
+</head>
+
+<body>
+<h1>Actors</h1>
+
+<p>The following 'actors' will be interacting with the CKLMS in someway. We
+describe below what these actors do without being too specific about what any
+system does do, does not do or will do. We limit ourselves to using abstract
+terms 'website' and 'database'. Subsequent sections will detail what the actual
+website and database are currently and what they should become.</p>
+
+<h2>Fixtures Officer</h2>
+<ul>
+  <li>Organises league division proposal for voting on by CKA commitee.</li>
+  <li>Organises league schedule: 
+    <ul>
+      <li>Obtains from clubs list of home match times and no-go times.</li>
+      <li>Publishes first draft and gathers feedback. Iterate.</li>
+      <li>Publish final schedule.</li>
+    </ul>
+  </li>
+  <li>League schedule shows: 
+    <ul>
+      <li>Date, time and venue for matches.</li>
+      <li>Home and away teams.</li>
+      <li>Team allocated to provide referee.</li>
+    </ul>
+  </li>
+  <li>Handles schedule change requests from clubs; liases with all parties to
+    approve changes and publish updates.</li>
+  <li>Publishes schedule on Fixtures Live.</li>
+  <li>Be able to provide an audit trail of changes when requested by clubs or
+    league administrators.</li>
+</ul>
+
+<h2>Results Officer</h2>
+<ul>
+  <li>Receive scorecards.</li>
+  <li>Add new players to database. Update players in database.</li>
+  <li>Check and approve scorecards: 
+    <ul>
+      <li>Check player status.</li>
+      <li>Check U18 players are registered and approved.</li>
+      <li>Monitors referee team ratings for unacceptable behaviour.</li>
+    </ul>
+  </li>
+  <li>Update league tables and player statistics.</li>
+  <li>Calculate league status for status period and requests clubs for tie
+    resolution. Publish final status table for period.</li>
+  <li>Updates Fixtures Live with match scores.</li>
+  <li>Be able to provide an audit trail of changes and prior versions of
+    website pages when requested by clubs or league administrators.</li>
+</ul>
+
+<h2>Referee</h2>
+<ul>
+  <li>View schedule for upcoming matches.</li>
+  <li>Submit scorecard. Information on the score card is: 
+    <ul>
+      <li>Home and away team names.</li>
+    </ul>
+    <ul>
+      <li>Time of match</li>
+    </ul>
+    <ul>
+      <li>Score at half-time and full-time</li>
+      <li>Starting line-up of each team divided into divisions with correct
+        assignment of starting home division.</li>
+      <li>Goals and penalties score by each player.</li>
+      <li>Substitutions made.</li>
+      <li>Referee's rating for home and away team behaviour.</li>
+      <li>Home and away captain.</li>
+      <li>Referee's name.</li>
+      <li>Referee's comments.</li>
+    </ul>
+  </li>
+</ul>
+
+<p></p>
+
+<h2>Club Representatives</h2>
+<ul>
+  <li>Provide fixture officer with home match times/venues and 'no-go'
+  times.</li>
+  <li>Receive draft schedule and provide fixture officer with updates.</li>
+  <li>Provide fixture officer with schedule changes throughout season and liase
+    with other clubs and fixture officers.</li>
+  <li>Submit requests for U18 players.</li>
+  <li>Check status and ensure lineup of matches confirms to league rules.</li>
+  <li>Fills in match details on fixtures live.</li>
+  <li>Allocate referees from club to clubs referee commitments.</li>
+</ul>
+
+<p></p>
+
+<h2>Viewers</h2>
+<ul>
+  <li>View schedule, league tables, scorecards, player statistics and status.
+  </li>
+  <li>View data from previous seasons.</li>
+</ul>
+
+<p></p>
+
+<h1>The System</h1>
+
+<p>Back of the mind question: What should the relationship between CKLMS and
+Fixtures Live be?</p>
+
+<p>Authentication and Roles/Groups</p>
+
+<p>Access to parts of the system will be controlled by membership of a group.
+These groups will be:</p>
+<ul>
+  <li>Admin [ Django admin user]</li>
+  <li>League Admin - Manage fixtures and approve score cards</li>
+  <li>Club Admin - Manage player names (Need to make sure a club admin can only
+    admin details for their club)</li>
+  <li>Referee - Ability to enter score cards</li>
+  <li>Public - View fixtures, league tables and statistics.</li>
+</ul>
+
+<p>All except 'Public' role will require the user to authenticate ie public
+role. </p>
+
+<p>Django: Use the 'permissions_required' decorator:</p>
+
+<p>Leage admin -
+@permission_required('ckl.can_approve_scorecard|can_edit_scorecard|can_edit_player')</p>
+
+<p>Club Admin -
+@permission_required('ckl.can_view_own_players|can_edit_own_players')</p>
+
+<p>Referee - @permission_required('ckl.can_edit_own_scorecard')</p>
+
+<p>And no decorator for public pages.</p>
+
+<p>Will need to add club name for people added to Django user table OR make it
+a relationship to their entry in the 'players' table.</p>
+
+<h2>Fixtures Display</h2>
+
+<p>View table of fixtures for current season</p>
+
+<p>View scores for fixtures that have been player; link provided to view
+scorecard</p>
+
+<p>Be able to filter by: Division, Club, Team, Period, Played and not played
+yet</p>
+
+<p>View fixtures that have changes pending</p>
+
+<h2>Fixture Changes</h2>
+
+<p>Allow suitably authorised people to:</p>
+<ul>
+  <li>Make a change that will be marked as pending. The fixtures list will
+    include an indication that a change is pending.</li>
+  <li>Approve a pending change</li>
+</ul>
+
+<h2>Player Administration</h2>
+
+<p>The system should provide the means to:</p>
+<ol>
+  <li>Add new players to the database. With facility for clubs to easily check
+    players registered in the database and to make or request changes.</li>
+  <li>Mark players as inactive (so that they for example don't appear in the
+    player lists on the scorecard entry form).</li>
+  <li>Handle name changes.</li>
+  <li>Handle the case where there two entries in the database for the same
+    player - player merging. (This is not required if there is water-tight
+    control over entry of players).</li>
+  <li>Handle U18 players as per the league rules that apply.</li>
+</ol>
+
+<p>Authorisation for the above should be such that a club admin can only edit
+</p>
+
+<h2>Scorecard Entry</h2>
+
+<p>Either from the fixtures paage (via a link only visible to referees) or via
+a page showing only that referees commitments, allow access to a scorecard</p>
+
+<p>It coming to scorecard form a link on fixtures page or commitment list,
+prefill with fixture information.</p>
+
+<p>Provide option to prefill player names with names from last match for each
+team. </p>
+
+<p>Do some/all of the checks listed below</p>
+
+<h2>Scorecard Processing and Display</h2>
+
+<p>Processing of the scorecard needs to handle the following:</p>
+<ul>
+  <li>Line up is not 8 players either at start, during match or the end.</li>
+  <li>Starting line up is not 8 players and a sub comes on to fill empty
+  slot.</li>
+  <li>Player comes off but is not replaced.</li>
+  <li>Record player's time on court to enable status calculation to be carried
+    out.</li>
+  <li>Player name is not in player table. System should allow referee to enter
+    scorecard but scorecard should not be approved until the name appears in
+    the database.</li>
+</ul>
+
+<p>Needs to check the following:</p>
+<ul>
+  <li>Status of players conforms to league rules.</li>
+  <li>Names not in database are flagged.</li>
+  <li>Goal arrangment matches accepted pattern.</li>
+  <li>Ref rating of team behaviour.</li>
+</ul>
+
+<p>Processing should be a two step process - referee submits scorecard and then
+results officer approves it. For the following:</p>
+<ul>
+  <li>Gives the results officer the chance to catch any errors.</li>
+  <li>Prevents accidental or malicious manipulation of results.</li>
+</ul>
+
+<p>When a scorecard is approved the following needs to happen:</p>
+<ul>
+  <li>Match details moved from staging to main tables. The played fixture will
+    show up on the fixtures table and the scorecard will be accessible.</li>
+  <li>League tables are updated.</li>
+  <li>Player goal and match appearance statistics are updated.</li>
+  <li>Player status points are updated. Pending status page reflects this
+    update.</li>
+</ul>
+
+<p>Scorecards should *not* display the U18 tag for any player.</p>
+
+<h2>Player Status</h2>
+
+<p>For a walkover ruling occuring after the match has been played, the match
+does not count toward status count [CHECK]</p>
+
+<h3>League Tables</h3>
+
+<p>Matches against development teams do not count for any metric in the league
+table.</p>
+
+<h2>Player Statistics</h2>
+
+<p>Player statistics (matches played and goals scored) will be shown on a
+simple goals scored table and a more complex 'pie' table.</p>
+
+<p>Walkover games do not count towards either goals score nor the count of
+matches played. However development team matches do (?)</p>
+
+<p></p>
+
+<h2>Audit Trail</h2>
+
+<p>Make it easy to view history of pages. With a batch based approach of
+loading scorecards and then dumping and upload to server, it was easy to do
+this.</p>
+
+<p>What about a weekly snap shot with </p>
+
+<h2>Feed to fixtures live</h2>
+
+<p>Entering of goals score can be done using results officer login</p>
+
+<p>Match details can only be entered by appropriate team in match. For an
+automatic system to be used, this system will need the club's fixtures live
+login.</p>
+
+<p>Selenium is one option for automating the entry but is slow and a little
+buggy. PhantonJS is another and allows the server to do the task without having
+to popup a browser window.</p>
+
+<h2>Pages</h2>
+
+<p>All/most pages directly accesssible. If login is required, will go to login
+page and if logged in successfuly redirect back to first page</p>
+
+<p>Also provide an index page:</p>
+<ul>
+  <li>Anonymous user - show publicable accessible pages. Include a 'login'
+  link</li>
+  <li>For a logged in user, depending on their role, show additional links to
+    other pages</li>
+</ul>
+
+<p>Public links - All these are HTML</p>
+<ul>
+  <li>cka/fixtures - Main fixtures page</li>
+  <li>cka/division/table?division=&lt;division_num&gt; - Division table divison
+    OR cka/division/&lt;division_num&gt;/table</li>
+  <li>cka/division/goals?division=&lt;division_num&gt; - Goal scorers by
+    divison OR ...</li>
+  <li>cka/player/goals</li>
+  <li>cka/player/status</li>
+</ul>
+
+<p>Referee</p>
+<ul>
+  <li>cka/scorecard/entry?fixture=&lt;fixture id&gt; OR
+    cka/scorecard/&lt;fixture_id&gt;/entry [GET] - HTML</li>
+  <li>cka/scorecard/&lt;fixture_id&gt;/add [POST]</li>
+</ul>
+
+<p>Club Admin</p>
+<ul>
+  <li>cka/club/players?name=&lt;club name&gt; OR cka/club/&lt;club
+    name&gt;/players - HTML</li>
+  <li>cka/player/&lt;player_id&gt;/add [POST]</li>
+  <li>cka/player/&lt;player_id&gt;/update [POST]</li>
+  <li>cka/player/&lt;player_id&gt; [GET] </li>
+</ul>
+
+<p>League Admin</p>
+<ul>
+  <li>cka/scorecard/pending [GET] - HTML</li>
+  <li>cka/scorecard/&lt;fixture_id&gt; [GET]</li>
+  <li>cka/scorecard/&lt;fixture_id&gt;/update [POST]</li>
+  <li>cka/scorecard/&lt;fixture_id&gt;/approve [PUT]</li>
+</ul>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+
+<p></p>
+</body>
+</html>

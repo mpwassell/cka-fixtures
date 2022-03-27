@@ -1,0 +1,31 @@
+Please check existing players and make changes. Do not change the ID column!
+If player is not playing, please put False in the last column.
+If a U18 player is now over 18 please change the entry in the U18 columns.
+At the end of the sheet, leave one line gap and add any new players. Leave ID blank.
+ID,Name,Sex,U18,Active
+9020,Alan Campbell,M,False,True
+9024,Alex Railton-Smith,M,False,True
+9012,Alfie Maynard,M,True,True
+9014,Cameron Zinzan,M,True,True
+9001,Chelsie Browne,F,False,True
+9016,Daniel Forgacs,M,False,True
+9017,Daniel Wood,M,False,True
+9019,Derek Chung,M,False,True
+9007,Emma Cash,F,False,True
+9003,Emma Collins,F,False,True
+9004,Emma Lawson,F,False,True
+9008,Emma Walton,F,False,True
+9023,Emma Watson,F,False,True
+9018,Gregg Anscomb,M,False,True
+9011,Jeni Sanderson,F,False,True
+9013,Joe Dyson,M,True,True
+9010,Kelly Crabtree,F,False,True
+9002,Lianne Anscomb,F,False,True
+9025,Luke Read,M,False,True
+9005,Megan Allen,F,False,True
+9021,Mike Walsh,M,False,True
+9026,Nathan Charlesworth,M,False,True
+9009,Nicki Studman,F,False,True
+9015,Ronald Sin,M,False,True
+9022,Sam Bailey,M,False,True
+9006,Victoria Sloyan,F,False,True

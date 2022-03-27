@@ -1,0 +1,370 @@
+ .watermark {
+    position: absolute;
+    z-index:1;
+    color: lightgray;
+    opacity: 0.25;
+    left:30%;
+    text-align:center;
+    font-size: 1em;
+}
+
+::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+  color: #EEEEEE;
+}
+::-moz-placeholder { /* Firefox 19+ */
+  color: #EEEEEE;
+}
+:-ms-input-placeholder { /* IE 10+ */
+  color: #EEEEEE;
+}
+:-moz-placeholder { /* Firefox 18- */
+  color: #EEEEEE;
+}
+
+
+.watermark1 {
+    position: absolute;
+    color: lightgray;
+    opacity: 0.25;
+    font-size: 4em;
+    width: 100%;
+    top: 35%;    
+    left: 27%;
+    content: "HELLO";
+
+    z-index: 0;
+}
+.watermark2 {
+    position: absolute;
+    color: lightgray;
+    opacity: 0.25;
+    font-size: 4em;
+    width: 100%;
+    top: 50%;    
+    left: 75%;
+
+    z-index: 0;
+}
+
+  .player-num-header {
+     background-color: #E0E0E0;
+     text-align: center;
+     width: 10%;
+     border:1px solid black;
+  }
+
+  .player-num {
+    background-color: #E0E0E0;
+    text-align: center;
+    width:10%;
+    border:1px solid black;
+  }
+
+  .player-sub-for {
+    border:1px solid black;
+  }
+
+  .player-sub-for input {
+    width : 90%;
+
+  }
+
+
+  .ft-box input {
+    width : 100%;
+  }
+
+
+
+{
+    margin:5px;
+    position:absolute;
+    left:0px;
+    top:0px;
+    background-color:white;
+}
+.ScorecardTitle
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 18pt;
+    MARGIN-LEFT: 0mm;
+    COLOR: black;
+    FONT-FAMILY: Comic Sans MS;
+    BACKGROUND-COLOR: white;
+    TEXT-ALIGN: left
+}
+.Ink
+{
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    MARGIN-LEFT: 0mm;
+    COLOR: black;
+    FONT-FAMILY: Tahoma;
+    BACKGROUND-COLOR: white;
+    TEXT-ALIGN: center
+}
+.InkBox
+{
+    BORDER-RIGHT: black 1px solid;
+    BORDER-TOP: black 1px solid;
+    FONT-WEIGHT: bold;
+    FONT-SIZE: 10pt;
+    MARGIN-LEFT: 0mm;
+    BORDER-LEFT: black 1px solid;
+    COLOR: black;
+    BORDER-BOTTOM: black 1px solid;
+    FONT-FAMILY: Tahoma;
+    BACKGROUND-COLOR: #e0e0e0;
+    TEXT-ALIGN: center
+}
+.InkFooter
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 7pt;
+    MARGIN-LEFT: 0mm;
+    COLOR: black;
+    FONT-FAMILY: Tahoma;
+    BACKGROUND-COLOR: white;
+    TEXT-ALIGN: right
+}
+.Pencil
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 14pt;
+    MARGIN-LEFT: 0mm;
+    COLOR: #404040;
+    FONT-FAMILY: Comic Sans MS;
+    BACKGROUND-COLOR: white;
+    TEXT-ALIGN: center
+}
+.PencilHT
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    MARGIN-LEFT: 0mm;
+    COLOR: #404040;
+    FONT-FAMILY: Comic Sans MS;
+    BACKGROUND-COLOR: white;
+    TEXT-ALIGN: center;
+}
+.PencilBox
+{
+    BORDER-RIGHT: black 1px solid;
+    BORDER-TOP: black 1px solid;
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 10pt;
+    MARGIN-LEFT: 0mm;
+    BORDER-LEFT: black 1px solid;
+    COLOR: #404040;
+    BORDER-BOTTOM: black 1px solid;
+    FONT-FAMILY: Comic Sans MS;
+    BACKGROUND-COLOR: white;
+    TEXT-ALIGN: center
+}
+.PencilBoxFT
+{
+    BORDER-RIGHT: black 1px solid;
+    BORDER-TOP: black 1px solid;
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 14pt;
+    MARGIN-LEFT: 0mm;
+    BORDER-LEFT: black 1px solid;
+    BORDER-BOTTOM: black 1px solid;
+    FONT-FAMILY: Comic Sans MS;
+    BACKGROUND-COLOR: red;
+    COLOR: white;
+    TEXT-ALIGN: center
+}
+.PencilFooter
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 12pt;
+    MARGIN-LEFT: 0mm;
+    COLOR: #404040;
+    FONT-FAMILY: Comic Sans MS;
+    TEXT-ALIGN: center
+}
+.PencilTeams
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 14pt;
+    MARGIN-LEFT: 0mm;
+    COLOR: #404040;
+    FONT-FAMILY: Comic Sans MS;
+    TEXT-ALIGN: center
+}
+.PencilSigned
+{
+    FONT-WEIGHT: normal;
+    FONT-SIZE: 12pt;
+    MARGIN-LEFT: 0mm;
+    COLOR: #404040;
+    FONT-FAMILY: Comic Sans MS;
+    TEXT-ALIGN: center
+}
+
+
+.Body {
+    background-color: #FFFFFF;
+    border: 0 none;
+    font-family: tahoma;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.SmallFont {
+    font-size: 8pt !important;
+}
+
+.WhenFont, .NotesFont {
+    font-size: 10pt !important;
+}
+
+.MediumFont {
+    font-size: 12pt !important;
+}
+.TeamFont {
+    font-size: 10pt !important;
+}
+.LargeFont {
+    font-size: 22pt !important;
+    font-weight: bold;
+}
+.ScoreFont {
+    font-size: 14pt !important;
+    font-weight: bold;
+}
+.RowHeader {
+    background-color: #E0E0E0;
+    height: 20px;
+    text-align: center;
+}
+.RowHeightDefault {
+    height: 20px;
+}
+.TextLeft {
+    text-align: left;
+}
+.TextCenter {
+    text-align: center;
+}
+.TextRight {
+    text-align: right;
+}
+.TextTop {
+    vertical-align: top;
+}
+.TextBottom {
+    vertical-align: bottom;
+}
+.CellBottom {
+    border-bottom: 1px solid black;
+}
+.CellTop {
+    border-top: 1px solid black;
+}
+.CellLeft {
+    border-left: 1px solid black;
+}
+.CellRight {
+    border-right: 1px solid black;
+}
+.CellAll {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+}
+.CellShade {
+    background-color: #E0E0E0;
+}
+.CellInput {
+    background-color: #FFFFFF;
+    border: 0 none;
+    color: #000000;
+    font-size: 14pt;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+}
+.Footer {
+    bottom: 0;
+    position: absolute;
+    right: 0;
+}
+.BigButton {
+    height: 60px;
+    width: 140px;
+}
+.dhx_combo_box {
+    border: 0 none !important;
+    width: 100% !important;
+}
+.dhx_combo_list, .dhx_combo_input {
+    font-family: tahoma !important;
+    text-align: left !important;
+    width: 300px !important;
+}
+.dhx_combo_input {
+    font-size: 11pt !important;
+}
+.dhx_combo_list {
+    font-size: 8pt !important;
+}
+#btnSend {
+    bottom: 1%;
+    height: 60px;
+    position: absolute;
+    right: 1%;
+    width: 120px;
+}
+
+  #sortable1, #sortable2 {
+    border: 1px solid #eee;
+    width: 250px;
+    min-height: 20px;
+    list-style-type: none;
+    margin: 5px;
+    padding: 5px;
+    float: left;
+    
+  }
+  #sortable1 li, #sortable2 li {
+    margin: 5px;
+    padding: 5px;
+    font-size: 1.2em;
+    width: 200px;
+    background-color: #eeeeee;
+  }
+
+  .draggable { width: 100px; height: 10px; padding: 0.5em; float: left; 
+    margin: 10px 10px 10px 0; position:relative; }
+  .droppable { width: 150px; height: 15px; padding: 0.5em; float: left; margin: 10px; }
+  
+  #sortable2 { overflow-y:auto; height:500px;}
+
+  .player-delete-x {
+    float:right
+  }
+
+  .delete-hide {
+    display:none;
+  }
+
+  .delete-show {
+    display:inline;
+  }
+
+  .player-table {
+    width:100%;
+  }
+
+  .no-border {
+    border: 0;
+  }
+
+  .player-select {
+    text-align:left;
+    width:150px;
+  }
+

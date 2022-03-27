@@ -1,0 +1,27 @@
+server {
+    listen 80;
+    root  $apppath;
+    server_name $webname;
+    access_log /var/log/nginx/$appname.log;
+    error_log /var/log/nginx/$appname-error.log;
+
+    location /static/  {
+       alias $apppath/combined_static/;
+       expires 1w;
+    }
+
+    location /data/  {
+       alias $apppath/data/;
+    }
+
+    client_max_body_size 500m;
+    
+    location / {
+        proxy_set_header X-Forwarded-For $$proxy_add_x_forwarded_for;
+        proxy_set_header Host $$http_host;
+        proxy_redirect off;
+        proxy_pass  http://unix:/var/tmp/$appname.sock;
+    }
+    
+    $nginx_extra_config
+}

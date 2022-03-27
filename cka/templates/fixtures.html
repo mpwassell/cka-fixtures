@@ -1,0 +1,499 @@
+<html>
+<head>
+{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'ckaleague/css/Tigers.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'ckaleague/css/FixtureList.css'%}">
+    <script type="text/javascript" language="javascript" src="{% static 'ckaleague/js/CKA.js' %}"></script>
+    <script type="text/javascript" language="javascript" src="{% static 'ckaleague/js/Tiger_Library.js' %}"></script>
+    <script type="text/javascript" language="javascript" src="{% static 'ckaleague/js/Button.js' %}"></script>
+    <script type="text/javascript" language="javascript" src="{% static 'ckaleague/js/FixtureList.js' %}"></script>
+
+    <script type="text/javascript" language="javascript">
+      var bba = new ButtonBar("All");
+      var bbc = new ButtonBar("Clubs");
+      var bbd = new ButtonBar("Divisions");
+      var bbt = new ButtonBar("Type");
+
+      //Now create all the buttons that are defined on this page
+      var bg = new ButtonGroup(0);
+      var b = new Button('AllMatches', 'ALL', 'TRUE', false, 'Out');
+      b.GroupButton = true;
+      bg.AddButton(b);
+      var b = new Button('Results', 'RESULT', 'TRUE', false);
+      bg.AddButton(b);
+      var b = new Button('Fixtures', 'RESULT', 'FALSE', false);
+      bg.AddButton(b);
+      bba.AddButtonGroup(bg);
+
+      var bg = new ButtonGroup(0);
+      var b = new Button('AllPeriods', 'PERIOD', null, true, 'Out');
+      b.SpecialButton = true;
+      b.GroupButton = true;
+      bg.AddButton(b);
+      var b = new Button('Period1', 'PERIOD', '1', true, 'Out');
+      bg.AddButton(b);
+      var b = new Button('Sep', 'MONTH', '1-09', false);
+      bg.AddButton(b);
+      var b = new Button('Oct', 'MONTH', '1-10', false);
+      bg.AddButton(b);
+      var b = new Button('Nov', 'MONTH', '1-11', false);
+      bg.AddButton(b);
+      var b = new Button('Dec', 'MONTH', '1-12', false);
+      bg.AddButton(b);
+      bbt.AddButtonGroup(bg);
+
+      var bg = new ButtonGroup(1);
+      var b = new Button('Period2', 'PERIOD', '2', true, 'Out');
+      bg.AddButton(b);
+      var b = new Button('Dec1', 'MONTH', '2-12', false);
+      bg.AddButton(b);
+      var b = new Button('Jan', 'MONTH', '2-01', false);
+      bg.AddButton(b);
+      var b = new Button('Feb', 'MONTH', '2-02', false);
+      bg.AddButton(b);
+      bbt.AddButtonGroup(bg);
+
+      var bg = new ButtonGroup(2);
+      var b = new Button('Period3', 'PERIOD', '3', true, 'Out');
+      bg.AddButton(b);
+      var b = new Button('Feb1', 'MONTH', '3-02', false);
+      bg.AddButton(b);
+      var b = new Button('Mar', 'MONTH', '3-03', false);
+      bg.AddButton(b);
+      var b = new Button('Apr', 'MONTH', '3-04', false);
+      bg.AddButton(b);
+      var b = new Button('May', 'MONTH', '3-05', false);
+      bg.AddButton(b);
+      bbt.AddButtonGroup(bg);
+
+      var bg = new ButtonGroup(0);
+      var b = new Button('DivAll', 'DIVISION', null, true, 'Out');
+      bg.AddButton(b);
+      var b = new Button('DivNL', 'DIVISION', 'NL');
+      bg.AddButton(b);
+      var b = new Button('Div-1', 'DIVISION', 'SERL');
+      bg.AddButton(b);
+      //var b = new Button('Div-2', 'DIVISION', 'SERL2');
+      //bg.AddButton(b);
+      var b = new Button('Div1', 'DIVISION', 1);
+      bg.AddButton(b);
+      var b = new Button('Div2', 'DIVISION', 2);
+      bg.AddButton(b);
+      //var b = new Button('Div3', 'DIVISION', 3);
+      //bg.AddButton(b);
+      bbd.AddButtonGroup(bg);
+
+      var bg = new ButtonGroup(0);
+      var b = new Button('AllClubs', 'ALL', 'TRUE', true, 'Out');
+      b.SpecialButton = true;
+      bg.AddButton(b);
+      bbc.AddButtonGroup(bg);
+
+      bg = new ButtonGroup(1);
+      bg.AddButton(new Button('CIT', 'TEAMREFCODE', null, true, 'Out', true));
+      bg.AddButton(new Button('CIT0', 'TEAMCODE'));
+      //bg.AddButton(new Button('CAM2', 'TEAMCODE'));
+      bg.AddButton(new Button('CIT1', 'TEAMCODE'));
+      bg.AddButton(new Button('CIT2', 'TEAMCODE'));
+      bg.AddButton(new Button('CIT3', 'TEAMCODE'));
+      bg.AddButton(new Button('CIT4', 'TEAMCODE'));
+      bg.AddButton(new Button('CIT5', 'TEAMCODE'));
+      bg.AddButton(new Button('CITRef', 'REFCODE', 'CIT'));
+      bbc.AddButtonGroup(bg);
+
+      bg = new ButtonGroup(2);
+      bg.AddButton(new Button('LIT', 'TEAMREFCODE', null, true, 'Out', true));
+      bg.AddButton(new Button('LIT0', 'TEAMCODE'));
+      bg.AddButton(new Button('LIT1', 'TEAMCODE'));
+      bg.AddButton(new Button('LIT2', 'TEAMCODE'));
+      bg.AddButton(new Button('LITRef', 'REFCODE', 'LIT'));
+      bbc.AddButtonGroup(bg);
+
+      bg = new ButtonGroup(3);
+      bg.AddButton(new Button('PHO', 'TEAMREFCODE', null, true, 'Out', true));
+      //bg.AddButton(new Button('PHO0', 'TEAMCODE'));
+      bg.AddButton(new Button('PHO1', 'TEAMCODE'));
+      bg.AddButton(new Button('PHO2', 'TEAMCODE'));
+      bg.AddButton(new Button('PHO3', 'TEAMCODE'));
+      bg.AddButton(new Button('PHO4', 'TEAMCODE'));
+      //bg.AddButton(new Button('PHO5', 'TEAMCODE'));
+      bg.AddButton(new Button('PHORef', 'REFCODE', 'PHO'));
+      bbc.AddButtonGroup(bg);
+
+      bg = new ButtonGroup(4);
+      bg.AddButton(new Button('TIG', 'TEAMREFCODE', null, true, 'Out', true));
+      bg.AddButton(new Button('TIGNL', 'TEAMCODE'));
+      bg.AddButton(new Button('TIG0', 'TEAMCODE'));
+      bg.AddButton(new Button('TIG1', 'TEAMCODE'));
+      bg.AddButton(new Button('TIG2', 'TEAMCODE'));
+      bg.AddButton(new Button('TIG3', 'TEAMCODE'));
+      bg.AddButton(new Button('TIG4', 'TEAMCODE'));
+      //bg.AddButton(new Button('TIG5', 'TEAMCODE'));
+      bg.AddButton(new Button('TIGRef', 'REFCODE', 'TIG'));
+      bg.AddButton(new Button('TIGRef', 'REFCODE', 'NLREF')); // Dummy button so that filtering doesn't exclude NL matches
+      bbc.AddButtonGroup(bg);
+
+      bg = new ButtonGroup(5);
+      bg.AddButton(new Button('UNI', 'TEAMREFCODE', null, true, 'Out', true));
+      bg.AddButton(new Button('UNI1', 'TEAMCODE'));
+      bg.AddButton(new Button('UNI2', 'TEAMCODE'));
+      bg.AddButton(new Button('UNIRef', 'REFCODE', 'UNI'));
+      bbc.AddButtonGroup(bg);
+
+      bg = new ButtonGroup(6);
+      bg.AddButton(new Button('VIK', 'TEAMREFCODE', null, true, 'Out', true));
+      bg.AddButton(new Button('VIK0', 'TEAMCODE'));
+      bg.AddButton(new Button('VIK1', 'TEAMCODE'));
+      bg.AddButton(new Button('VIK2', 'TEAMCODE'));
+      bg.AddButton(new Button('VIK3', 'TEAMCODE'));
+      //bg.AddButton(new Button('VIK4', 'TEAMCODE'));
+      bg.AddButton(new Button('VIKRef', 'REFCODE', 'VIK'));
+      bbc.AddButtonGroup(bg);
+
+      //bg = new ButtonGroup(7);
+      //bg.AddButton(new Button('MKL', 'TEAMREFCODE', null, true, 'Out', true));
+      //bg.AddButton(new Button('MKL0', 'TEAMCODE'));
+      //bg.AddButton(new Button('MKL1', 'TEAMCODE'));
+      //bg.AddButton(new Button('MKLRef', 'REFCODE', 'MKL'));
+      //bbc.AddButtonGroup(bg);
+
+      //Now group all the Button Bars together in one Button Bar Filter object
+      var bbf = new ButtonBarFilter();
+      bbf.AddButtonBar(bba);
+      bbf.AddButtonBar(bbc);
+      bbf.AddButtonBar(bbd);
+      bbf.AddButtonBar(bbt);
+
+      UploadDirectory = 'cka/results/Upload';
+</script>
+</head>
+
+  <body onload="CalculateInitialStats()">
+    <div class="FixtureListTitle">
+      <span id="btnStats" onmouseover="Tooltip('Over')" onmouseout="Tooltip('Out')">CKA Fixture List - {{season_full}}</span>
+      <div class="LastUpdated">
+        Last Updated: {{last_update}}
+      </div>
+    </div>
+
+    <div style="left: 24px; top: 41px; visibility: hidden;" id="Tooltip" class="Tooltip">
+      <div id="TooltipHeader" class="TooltipHeader">CKA Statistics (106 games selected)</div>
+      <div id="TooltipBody" class="TooltipBody">Games already played: 103<br>&nbsp;&nbsp;&nbsp;&nbsp;Per Division: 0&nbsp;&nbsp;34&nbsp;&nbsp;23&nbsp;&nbsp;39<br>&nbsp;&nbsp;&nbsp;&nbsp;Home Wins: 42<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Per Division: 0&nbsp;&nbsp;17&nbsp;&nbsp;9&nbsp;&nbsp;12<br>&nbsp;&nbsp;&nbsp;&nbsp;Away Wins: 47<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Per Division: 0&nbsp;&nbsp;16&nbsp;&nbsp;11&nbsp;&nbsp;17<br>&nbsp;&nbsp;&nbsp;&nbsp;Draws: 14<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Per Division: 0&nbsp;&nbsp;1&nbsp;&nbsp;3&nbsp;&nbsp;10<br><br>Games still to play: 3<br>&nbsp;&nbsp;&nbsp;&nbsp;Per Division: 0&nbsp;&nbsp;0&nbsp;&nbsp;0&nbsp;&nbsp;0<br><br>Total number of goals scored: 1751<br>&nbsp;&nbsp;&nbsp;&nbsp;Per Division: 0&nbsp;&nbsp;751&nbsp;&nbsp;356&nbsp;&nbsp;456<br>&nbsp;&nbsp;&nbsp;&nbsp;Home goals: 833<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Per Division: 0&nbsp;&nbsp;351&nbsp;&nbsp;170&nbsp;&nbsp;214<br>&nbsp;&nbsp;&nbsp;&nbsp;Away goals: 918<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Per Division: 0&nbsp;&nbsp;400&nbsp;&nbsp;186&nbsp;&nbsp;242<br><br>Average goals scored per game: 17<br>&nbsp;&nbsp;&nbsp;&nbsp;Per Division: 0&nbsp;&nbsp;22.08&nbsp;&nbsp;15.47&nbsp;&nbsp;11.69<br>&nbsp;&nbsp;&nbsp;&nbsp;Home average: 8.08<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Per Division: 0&nbsp;&nbsp;10.32&nbsp;&nbsp;7.39&nbsp;&nbsp;5.48<br>&nbsp;&nbsp;&nbsp;&nbsp;Away average: 8.91<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Per Division: 0&nbsp;&nbsp;11.76&nbsp;&nbsp;8.08&nbsp;&nbsp;6.2<br><br>Highest and Lowest<br>&nbsp;&nbsp;&nbsp;&nbsp;Highest home score: 23<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;By:City 1 SERL<br>&nbsp;&nbsp;&nbsp;&nbsp;Highest away score: 24<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;By:City 1<br>&nbsp;&nbsp;&nbsp;&nbsp;Lowest home score: 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;By:Tigers
+ 5 (Dev), Vikings 4, Norwich Ice, Phoenix 5 (Dev), Tigers 4, Tigers 5
+(Dev)<br>&nbsp;&nbsp;&nbsp;&nbsp;Lowest away score: 0<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;By:Tigers 4, Tigers 5 (Dev), Tigers 5 (Dev), Tigers 5 (Dev), Phoenix 5 (Dev)<br></div>
+    </div>
+
+    <div class="Tip">
+      Notes: Hold the CTRL key down to select matches from more than one team or club.&nbsp;&nbsp;&nbsp;&nbsp;Dates and times for matches are as per fixtures list provided by CKA Fixtures Officer.<br>
+      In the 'Notes' column CA = 'Change Approved' and CP = 'Change Pending'. Click on CA or CP for details.
+    </div>
+  <div class="FixtureListFilterButtons">
+<table border="0" cellpadding="0" cellspacing="0" height="10%" width="94%">
+ <tbody><tr>
+  <td width="10%">
+    <table align="CENTER" border="0" cellpadding="0" cellspacing="1" height="10%" width="100%">
+      <tbody><tr height="50%">
+        <td colspan="7" align="CENTER" width="100%">
+          <input value="City" style="width:100%; height:24px" id="btnCIT" class="TigerButtons OutCIT" onmouseover="bbc.MouseOver('CIT')" onmouseout="bbc.MouseOut('CIT')" onclick="bbc.MouseClick(event, 'CIT'); bbf.ApplyFilters();" type="button">
+        </td>
+      </tr>
+      <tr height="50%">
+        <td align="CENTER" width="14%">
+          <input value="S" style="width:100%; height:24px" id="btnCIT0" class="TigerButtons Out" onmouseover="bbc.MouseOver('CIT0')" onmouseout="bbc.MouseOut('CIT0')" onclick="bbc.MouseClick(event, 'CIT0'); bbf.ApplyFilters();" type="button">
+        </td>
+        <!--
+        <td align="CENTER" width="12%">
+          <input value="SERL2" style="width:100%; height:24px" id="btnCAM2" class="TigerButtons Out" onmouseover="bbc.MouseOver('CAM2')" onmouseout="bbc.MouseOut('CAM2')" onclick="bbc.MouseClick(event, 'CAM2'); bbf.ApplyFilters();" type="button">
+        </td>
+      -->
+        <td align="CENTER" width="17%">
+          <input value="1" style="width:100%; height:24px" id="btnCIT1" class="TigerButtons Out" onmouseover="bbc.MouseOver('CIT1')" onmouseout="bbc.MouseOut('CIT1')" onclick="bbc.MouseClick(event, 'CIT1'); bbf.ApplyFilters();" type="button">
+        </td>
+        <td align="CENTER" width="17%">
+          <input value="2" style="width:100%; height:24px" id="btnCIT2" class="TigerButtons Out" onmouseover="bbc.MouseOver('CIT2')" onmouseout="bbc.MouseOut('CIT2')" onclick="bbc.MouseClick(event, 'CIT2'); bbf.ApplyFilters();" type="button">
+        </td>
+        <td align="CENTER" width="17%">
+          <input value="3" style="width:100%; height:24px" id="btnCIT3" class="TigerButtons Out" onmouseover="bbc.MouseOver('CIT3')" onmouseout="bbc.MouseOut('CIT3')" onclick="bbc.MouseClick(event, 'CIT3'); bbf.ApplyFilters();" type="button">
+        </td>
+        <td align="CENTER" width="17%">
+          <input value="4" style="width:100%; height:24px" id="btnCIT4" class="TigerButtons Out" onmouseover="bbc.MouseOver('CIT4')" onmouseout="bbc.MouseOut('CIT4')" onclick="bbc.MouseClick(event, 'CIT4'); bbf.ApplyFilters();" type="button">
+        </td>
+        <td align="CENTER" width="12%">
+          <input value="5" style="width:100%; height:24px" id="btnCIT5" class="TigerButtons Out" onmouseover="bbc.MouseOver('CIT5')" onmouseout="bbc.MouseOut('CIT5')" onclick="bbc.MouseClick(event, 'CIT5'); bbf.ApplyFilters();" type="button">
+        </td>
+        <td align="CENTER" width="17%">
+          <input value="Ref" style="width:100%; height:24px" id="btnCITRef" class="TigerButtons Out" onmouseover="bbc.MouseOver('CITRef')" onmouseout="bbc.MouseOut('CITRef')" onclick="bbc.MouseClick(event, 'CITRef'); bbf.ApplyFilters();" type="button">
+        </td>
+        <td align="CENTER" width="5%">
+          &nbsp;
+        </td>
+      </tr>
+    </tbody></table>
+  </td>
+
+  <td width="10%">
+    <table align="CENTER" border="0" cellpadding="0" cellspacing="1" height="10%" width="100%">
+      <tbody><tr height="50%">
+        <td colspan="4" align="CENTER" width="100%">
+          <input value="Lions" style="width:100%; height:24px" id="btnLIT" class="TigerButtons OutLIT" onmouseover="bbc.MouseOver('LIT')" onmouseout="bbc.MouseOut('LIT')" onclick="bbc.MouseClick(event, 'LIT'); bbf.ApplyFilters();" type="button">
+        </td>
+      </tr>
+      <tr height="50%">
+        <td align="CENTER" width="35%">
+          <input value="1" style="width:100%; height:24px" id="btnLIT1" class="TigerButtons Out" onmouseover="bbc.MouseOver('LIT1')" onmouseout="bbc.MouseOut('LIT1')" onclick="bbc.MouseClick(event, 'LIT1'); bbf.ApplyFilters();" type="button">
+        </td>
+        <td align="CENTER" width="35%">
+          <input value="2" style="width:100%; height:24px" id="btnLIT2" class="TigerButtons Out" onmouseover="bbc.MouseOver('LIT2')" onmouseout="bbc.MouseOut('LIT2')" onclick="bbc.MouseClick(event, 'LIT2'); bbf.ApplyFilters();" type="button">
+        </td>
+        <td align="CENTER" width="30%">
+          <input value="Ref" style="width:100%; height:24px" id="btnLITRef" class="TigerButtons Out" onmouseover="bbc.MouseOver('LITRef')" onmouseout="bbc.MouseOut('LITRef')" onclick="bbc.MouseClick(event, 'LITRef'); bbf.ApplyFilters();" type="button">
+        </td>
+        <!--td align="CENTER" width="0%">
+          &nbsp;
+        </td-->
+      </tr>
+    </tbody></table>
+  </td>
+
+  <td width="10%">
+    <table align="CENTER" border="0" cellpadding="0" cellspacing="1" height="10%" width="100%">
+      <tbody><tr height="50%">
+        <td colspan="6" align="CENTER" width="100%">
+          <input value="Phoenix" style="width:100%; height:24px" id="btnPHO" class="TigerButtons OutPHO" onmouseover="bbc.MouseOver('PHO')" onmouseout="bbc.MouseOut('PHO')" onclick="bbc.MouseClick(event, 'PHO'); bbf.ApplyFilters();" type="button">
+        </td>
+      </tr>
+      <tr height="50%">
+        <!--td align="CENTER" width="16%">
+          <input value="S" style="width:100%; height:24px" id="btnPHO0" class="TigerButtons Out" onmouseover="bbc.MouseOver('PHO0')" onmouseout="bbc.MouseOut('PHO0')" onclick="bbc.MouseClick(event, 'PHO0'); bbf.ApplyFilters();" type="button"-->
+        </td>
+        <td align="CENTER" width="17%">
+          <input value="1" style="width:100%; height:24px" id="btnPHO1" class="TigerButtons Out" onmouseover="bbc.MouseOver('PHO1')" onmouseout="bbc.MouseOut('PHO1')" onclick="bbc.MouseClick(event, 'PHO1'); bbf.ApplyFilters();" type="button">
+        </td>
+        <td align="CENTER" width="17%">
+          <input value="2" style="width:100%; height:24px" id="btnPHO2" class="TigerButtons Out" onmouseover="bbc.MouseOver('PHO2')" onmouseout="bbc.MouseOut('PHO2')" onclick="bbc.MouseClick(event, 'PHO2'); bbf.ApplyFilters();" type="button">
+        </td>
+        <td align="CENTER" width="17%">
+          <input value="3" style="width:100%; height:24px" id="btnPHO3" class="TigerButtons Out" onmouseover="bbc.MouseOver('PHO3')" onmouseout="bbc.MouseOut('PHO3')" onclick="bbc.MouseClick(event, 'PHO3'); bbf.ApplyFilters();" type="button">
+        </td>
+        <!--td align="CENTER" width="17%">
+          <input value="4" style="width:100%; height:24px" id="btnPHO4" class="TigerButtons Out" onmouseover="bbc.MouseOver('PHO4')" onmouseout="bbc.MouseOut('PHO4')" onclick="bbc.MouseClick(event, 'PHO4'); bbf.ApplyFilters();" type="button">
+        </td-->
+        <!--
+        <td align="CENTER" width="14%">
+          <input value="5" style="width:100%; height:24px" id="btnPHO5" class="TigerButtons Out" onmouseover="bbc.MouseOver('PHO5')" onmouseout="bbc.MouseOut('PHO5')" onclick="bbc.MouseClick(event, 'PHO5'); bbf.ApplyFilters();" type="button">
+        </td>
+        -->
+        <td align="CENTER" width="13%">
+          <input value="Ref" style="width:100%; height:24px" id="btnPHORef" class="TigerButtons Out" onmouseover="bbc.MouseOver('PHORef')" onmouseout="bbc.MouseOut('PHORef')" onclick="bbc.MouseClick(event, 'PHORef'); bbf.ApplyFilters();" type="button">
+        </td>
+        <!--td align="CENTER" width="3%">
+          &nbsp;
+        </td-->
+      </tr>
+    </tbody></table>
+  </td>
+
+  <td width="10%">
+    <table align="CENTER" border="0" cellpadding="0" cellspacing="1" height="10%" width="100%">
+      <tbody><tr height="50%">
+        <td colspan="7" align="CENTER" width="100%">
+          <input value="Tigers" style="width:100%; height:24px" id="btnTIG" class="TigerButtons OutTIG" onmouseover="bbc.MouseOver('TIG')" onmouseout="bbc.MouseOut('TIG')" onclick="bbc.MouseClick(event, 'TIG'); bbf.ApplyFilters();" type="button">
+        </td>
+      </tr>
+      <tr height="50%">
+        <td align="CENTER" width="14%">
+          <input value="1" style="width:100%; height:24px" id="btnTIGNL" class="TigerButtons Click" onmouseover="bbc.MouseOver('TIGNL')" onmouseout="bbc.MouseOut('TIGNL')" onclick="bbc.MouseClick(event, 'TIGNL'); bbf.ApplyFilters();" type="button">
+        </td>
+        <td align="CENTER" width="14%">
+          <input value="2" style="width:100%; height:24px" id="btnTIG0" class="TigerButtons Click" onmouseover="bbc.MouseOver('TIG0')" onmouseout="bbc.MouseOut('TIG0')" onclick="bbc.MouseClick(event, 'TIG0'); bbf.ApplyFilters();" type="button">
+        </td>
+        <td align="CENTER" width="14%">
+          <input value="3" style="width:100%; height:24px" id="btnTIG1" class="TigerButtons Click" onmouseover="bbc.MouseOver('TIG1')" onmouseout="bbc.MouseOut('TIG1')" onclick="bbc.MouseClick(event, 'TIG1'); bbf.ApplyFilters();" type="button">
+        </td>
+        <td align="CENTER" width="14%">
+          <input value="4" style="width:100%; height:24px" id="btnTIG2" class="TigerButtons Click" onmouseover="bbc.MouseOver('TIG2')" onmouseout="bbc.MouseOut('TIG2')" onclick="bbc.MouseClick(event, 'TIG2'); bbf.ApplyFilters();" type="button">
+        </td>
+        <td align="CENTER" width="14%">
+          <input value="5" style="width:100%; height:24px" id="btnTIG3" class="TigerButtons Click" onmouseover="bbc.MouseOver('TIG3')" onmouseout="bbc.MouseOut('TIG3')" onclick="bbc.MouseClick(event, 'TIG3'); bbf.ApplyFilters();" type="button">
+        </td>
+        <td align="CENTER" width="14%">
+          <input value="6" style="width:100%; height:24px" id="btnTIG4" class="TigerButtons Click" onmouseover="bbc.MouseOver('TIG4')" onmouseout="bbc.MouseOut('TIG4')" onclick="bbc.MouseClick(event, 'TIG4'); bbf.ApplyFilters();" type="button">
+        </td>
+        <!--td align="CENTER" width="14%">
+          <input value="5" style="width:100%; height:24px" id="btnTIG5" class="TigerButtons Click" onmouseover="bbc.MouseOver('TIG5')" onmouseout="bbc.MouseOut('TIG5')" onclick="bbc.MouseClick(event, 'TIG5'); bbf.ApplyFilters();" type="button">
+        </td-->
+        <td align="CENTER" width="13%">
+          <input value="Ref" style="width:100%; height:24px" id="btnTIGRef" class="TigerButtons Click" onmouseover="bbc.MouseOver('TIGRef')" onmouseout="bbc.MouseOut('TIGRef')" onclick="bbc.MouseClick(event, 'TIGRef'); bbf.ApplyFilters();" type="button">
+        </td>
+        <!--td align="CENTER" width="3%">
+          &nbsp;
+        </td-->
+      </tr>
+    </tbody></table>
+  </td>
+
+  <td width="10%">
+    <table align="CENTER" border="0" cellpadding="0" cellspacing="1" height="10%" width="100%">
+      <tbody><tr height="50%">
+        <td colspan="3" align="CENTER" width="100%">
+          <input value="University" style="width:100%; height:24px" id="btnUNI" class="TigerButtons OutUNI" onmouseover="bbc.MouseOver('UNI')" onmouseout="bbc.MouseOut('UNI')" onclick="bbc.MouseClick(event, 'UNI'); bbf.ApplyFilters();" type="button">
+        </td>
+      </tr>
+      <tr height="50%">
+        <td align="CENTER" width="42%">
+          <input value="1" style="width:100%; height:24px" id="btnUNI1" class="TigerButtons Out" onmouseover="bbc.MouseOver('UNI1')" onmouseout="bbc.MouseOut('UNI1')" onclick="bbc.MouseClick(event, 'UNI1'); bbf.ApplyFilters();" type="button">
+        </td>
+        <td align="CENTER" width="42%">
+          <input value="2" style="width:100%; height:24px" id="btnUNI2" class="TigerButtons Out" onmouseover="bbc.MouseOver('UNI2')" onmouseout="bbc.MouseOut('UNI2')" onclick="bbc.MouseClick(event, 'UNI2'); bbf.ApplyFilters();" type="button">
+        </td>
+        <td align="CENTER" width="13%">
+          <input value="Ref" style="width:100%; height:24px" id="btnUNIRef" class="TigerButtons Out" onmouseover="bbc.MouseOver('UNIRef')" onmouseout="bbc.MouseOut('UNIRef')" onclick="bbc.MouseClick(event, 'UNIRef'); bbf.ApplyFilters();" type="button">
+        </td>
+        <td align="CENTER" width="3%">
+          &nbsp;
+        </td>
+      </tr>
+    </tbody></table>
+  </td>
+
+  <td width="10%">
+    <table align="CENTER" border="0" cellpadding="0" cellspacing="1" height="10%" width="100%">
+      <tbody><tr height="50%">
+        <td colspan="6" align="CENTER" width="100%">
+          <input value="Vikings" style="width:100%; height:24px" id="btnVIK" class="TigerButtons OutVIK" onmouseover="bbc.MouseOver('VIK')" onmouseout="bbc.MouseOut('VIK')" onclick="bbc.MouseClick(event, 'VIK'); bbf.ApplyFilters();" type="button">
+        </td>
+      </tr>
+      <tr height="50%">
+        <!--td align="CENTER" width="16%">
+          <input value="SERL" style="width:100%; height:24px" id="btnVIK0" class="TigerButtons Out" onmouseover="bbc.MouseOver('VIK0')" onmouseout="bbc.MouseOut('VIK0')" onclick="bbc.MouseClick(event, 'VIK0'); bbf.ApplyFilters();" type="button">
+        </td-->
+        <td align="CENTER" width="17%">
+          <input value="1" style="width:100%; height:24px" id="btnVIK1" class="TigerButtons Out" onmouseover="bbc.MouseOver('VIK1')" onmouseout="bbc.MouseOut('VIK1')" onclick="bbc.MouseClick(event, 'VIK1'); bbf.ApplyFilters();" type="button">
+        </td>
+        <td align="CENTER" width="17%">
+          <input value="2" style="width:100%; height:24px" id="btnVIK2" class="TigerButtons Out" onmouseover="bbc.MouseOver('VIK2')" onmouseout="bbc.MouseOut('VIK2')" onclick="bbc.MouseClick(event, 'VIK2'); bbf.ApplyFilters();" type="button">
+        </td>
+        <td align="CENTER" width="17%">
+          <input value="3" style="width:100%; height:24px" id="btnVIK3" class="TigerButtons Out" onmouseover="bbc.MouseOver('VIK3')" onmouseout="bbc.MouseOut('VIK3')" onclick="bbc.MouseClick(event, 'VIK3'); bbf.ApplyFilters();" type="button">
+        </td>
+        <!--td align="CENTER" width="17%">
+          <input value="4" style="width:100%; height:24px" id="btnVIK4" class="TigerButtons Out" onmouseover="bbc.MouseOver('VIK4')" onmouseout="bbc.MouseOut('VIK4')" onclick="bbc.MouseClick(event, 'VIK4'); bbf.ApplyFilters();" type="button">
+        </td-->
+        <td align="CENTER" width="13%">
+          <input value="Ref" style="width:100%; height:24px" id="btnVIKRef" class="TigerButtons Out" onmouseover="bbc.MouseOver('VIKRef')" onmouseout="bbc.MouseOut('VIKRef')" onclick="bbc.MouseClick(event, 'VIKRef'); bbf.ApplyFilters();" type="button">
+        </td>
+        <!--td align="CENTER" width="3%">
+          &nbsp;
+        </td-->
+      </tr>
+    </tbody></table>
+  </td>
+
+  <!--td width="10%">
+    <table align="CENTER" border="0" cellpadding="0" cellspacing="1" height="10%" width="100%">
+      <tbody><tr height="50%">
+        <td colspan="3" align="CENTER" width="100%">
+          <input value="MK Lakers" style="width:100%; height:24px" id="btnMKL" class="TigerButtons OutMKL" onmouseover="bbc.MouseOver('MKL')" onmouseout="bbc.MouseOut('MKL')" onclick="bbc.MouseClick(event, 'MKL'); bbf.ApplyFilters();" type="button">
+        </td>
+      </tr>
+      <tr height="50%">
+        <td align="CENTER" width="42%">
+          <input value="S" style="width:100%; height:24px" id="btnMKL0" class="TigerButtons Out" onmouseover="bbc.MouseOver('MKL0')" onmouseout="bbc.MouseOut('MKL0')" onclick="bbc.MouseClick(event, 'MKL0'); bbf.ApplyFilters();" type="button">
+        </td>
+        <td align="CENTER" width="42%">
+          <input value="1" style="width:100%; height:24px" id="btnMKL1" class="TigerButtons Out" onmouseover="bbc.MouseOver('MKL1')" onmouseout="bbc.MouseOut('MKL1')" onclick="bbc.MouseClick(event, 'MKL1'); bbf.ApplyFilters();" type="button">
+        </td>
+        <td align="CENTER" width="13%">
+          <input value="Ref" style="width:100%; height:24px" id="btnMKLRef" class="TigerButtons Out" onmouseover="bbc.MouseOver('MKLRef')" onmouseout="bbc.MouseOut('MKLRef')" onclick="bbc.MouseClick(event, 'MKLRef'); bbf.ApplyFilters();" type="button">
+        </td>
+        <td align="CENTER" width="3%">
+          &nbsp;
+        </td>
+      </tr>
+    </tbody></table>
+  </td-->
+
+ </tr>
+</tbody></table>
+
+  </div>
+
+  <div class="FixtureListButtons">
+<input value="All Clubs" style="border-top:solid 1px black; width:80px; height:24px" id="btnAllClubs" name="AllClubs" class="TigerButtons Out" onmouseover="bbc.MouseOver(this.name)" onmouseout="bbc.MouseOut(this.name)" onclick="bbc.MouseClick(event, this.name); bbf.ApplyFilters();" type="button">
+<p></p>
+<input value="All Matches" style="width:80px; height:24px" id="btnAllMatches" name="AllMatches" class="TigerButtons Out" onmouseover="bba.MouseOver(this.name)" onmouseout="bba.MouseOut(this.name)" onclick="bba.MouseClick(event, this.name); bbf.ApplyFilters();" type="button">
+<input value="Results" style="width:80px; height:24px" id="btnResults" name="Results" class="TigerButtons Click" onmouseover="bba.MouseOver(this.name)" onmouseout="bba.MouseOut(this.name)" onclick="bba.MouseClick(event, this.name); bbf.ApplyFilters();" type="button">
+<input value="Fixtures" style="width:80px; height:24px" id="btnFixtures" name="Fixtures" class="TigerButtons Click" onmouseover="bba.MouseOver(this.name)" onmouseout="bba.MouseOut(this.name)" onclick="bba.MouseClick(event, this.name); bbf.ApplyFilters();" type="button">
+<p></p>
+<input value="All Periods" style="border-top:solid 1px black; width:80px; height:24px" id="btnAllPeriods" name="AllPeriods" class="TigerButtons Out" onmouseover="bbt.MouseOver(this.name)" onmouseout="bbt.MouseOut(this.name)" onclick="bbt.MouseClick(event, this.name); bbf.ApplyFilters();" type="button">
+
+<input value="Period 1" style="width:80px; height:24px" id="btnPeriod1" name="Period1" class="TigerButtons Out" onmouseover="bbt.MouseOver(this.name)" onmouseout="bbt.MouseOut(this.name)" onclick="bbt.MouseClick(event, this.name); bbf.ApplyFilters();" type="button">
+  <input value="September" style="height:18px; font-size: 8pt; font-weight: normal;" id="btnSep" name="Sep" class="TigerButtons Click" onmouseover="bbt.MouseOver(this.name)" onmouseout="bbt.MouseOut(this.name)" onclick="bbt.MouseClick(event, this.name); bbf.ApplyFilters();" type="button">
+  <input value="October" style="height:18px; font-size: 8pt; font-weight: normal;" id="btnOct" name="Oct" class="TigerButtons Click" onmouseover="bbt.MouseOver(this.name)" onmouseout="bbt.MouseOut(this.name)" onclick="bbt.MouseClick(event, this.name); bbf.ApplyFilters();" type="button">
+  <input value="November" style="height:18px; font-size: 8pt; font-weight: normal;" id="btnNov" name="Nov" class="TigerButtons Click" onmouseover="bbt.MouseOver(this.name)" onmouseout="bbt.MouseOut(this.name)" onclick="bbt.MouseClick(event, this.name); bbf.ApplyFilters();" type="button">
+  <input value="December" style="height:18px; font-size: 8pt; font-weight: normal;" id="btnDec" name="Dec" class="TigerButtons Click" onmouseover="bbt.MouseOver(this.name)" onmouseout="bbt.MouseOut(this.name)" onclick="bbt.MouseClick(event, this.name); bbf.ApplyFilters();" type="button">
+
+<input value="Period 2" style="width:80px; height:24px" id="btnPeriod2" name="Period2" class="TigerButtons Out" onmouseover="bbt.MouseOver(this.name)" onmouseout="bbt.MouseOut(this.name)" onclick="bbt.MouseClick(event, this.name); bbf.ApplyFilters();" type="button">
+  <input value="December" style="height:18px; font-size: 8pt; font-weight: normal;" id="btnDec1" name="Dec1" class="TigerButtons Click" onmouseover="bbt.MouseOver(this.name)" onmouseout="bbt.MouseOut(this.name)" onclick="bbt.MouseClick(event, this.name); bbf.ApplyFilters();" type="button">
+  <input value="January" style="height:18px; font-size: 8pt; font-weight: normal;" id="btnJan" name="Jan" class="TigerButtons Click" onmouseover="bbt.MouseOver(this.name)" onmouseout="bbt.MouseOut(this.name)" onclick="bbt.MouseClick(event, this.name); bbf.ApplyFilters();" type="button">
+  <input value="February" style="height:18px; font-size: 8pt; font-weight: normal;" id="btnFeb" name="Feb" class="TigerButtons Click" onmouseover="bbt.MouseOver(this.name)" onmouseout="bbt.MouseOut(this.name)" onclick="bbt.MouseClick(event, this.name); bbf.ApplyFilters();" type="button">
+  <!--input value="March" style="height:18px; font-size: 8pt; font-weight: normal;" id="btnMar" name="Mar" class="TigerButtons Click" onmouseover="bbt.MouseOver(this.name)" onmouseout="bbt.MouseOut(this.name)" onclick="bbt.MouseClick(event, this.name); bbf.ApplyFilters();" type="button"-->
+
+<input value="Period 3" style="width:80px; height:24px" id="btnPeriod3" name="Period3" class="TigerButtons Out" onmouseover="bbt.MouseOver(this.name)" onmouseout="bbt.MouseOut(this.name)" onclick="bbt.MouseClick(event, this.name); bbf.ApplyFilters();" type="button">
+  <!--input value="February" style="height:18px; font-size: 8pt; font-weight: normal;" id="btnFeb1" name="Feb1" class="TigerButtons Click" onmouseover="bbt.MouseOver(this.name)" onmouseout="bbt.MouseOut(this.name)" onclick="bbt.MouseClick(event, this.name); bbf.ApplyFilters();" type="button"-->
+  <input value="March" style="height:18px; font-size: 8pt; font-weight: normal;" id="btnMar" name="Mar" class="TigerButtons Click" onmouseover="bbt.MouseOver(this.name)" onmouseout="bbt.MouseOut(this.name)" onclick="bbt.MouseClick(event, this.name); bbf.ApplyFilters();" type="button">
+  <input value="April" style="height:18px; font-size: 8pt; font-weight: normal;" id="btnApr" name="Apr" class="TigerButtons Click" onmouseover="bbt.MouseOver(this.name)" onmouseout="bbt.MouseOut(this.name)" onclick="bbt.MouseClick(event, this.name); bbf.ApplyFilters();" type="button">
+  <input value="May" style="height:18px; font-size: 8pt; font-weight: normal;" id="btnMay" name="May" class="TigerButtons Click" onmouseover="bbt.MouseOver(this.name)" onmouseout="bbt.MouseOut(this.name)" onclick="bbt.MouseClick(event, this.name); bbf.ApplyFilters();" type="button">
+<p></p>
+<input value="All Divisions" style="border-top:solid 1px black; width:80px; height:24px" id="btnDivAll" name="DivAll" class="TigerButtons Out" onmouseover="bbd.MouseOver(this.name)" onmouseout="bbd.MouseOut(this.name)" onclick="bbd.MouseClick(event, this.name); bbf.ApplyFilters();" type="button">
+<input value="NL" style="width:80px; height:24px" id="btnDivNL" name="DivNL" class="TigerButtons Click" onmouseover="bbd.MouseOver(this.name)" onmouseout="bbd.MouseOut(this.name)" onclick="bbd.MouseClick(event, this.name); bbf.ApplyFilters();" type="button">
+<input value="SERL" style="width:80px; height:24px" id="btnDiv-1" name="Div-1" class="TigerButtons Click" onmouseover="bbd.MouseOver(this.name)" onmouseout="bbd.MouseOut(this.name)" onclick="bbd.MouseClick(event, this.name); bbf.ApplyFilters();" type="button">
+<!--input value="SERL 2" style="width:80px; height:24px" id="btnDiv-2" name="Div-2" class="TigerButtons Click" onmouseover="bbd.MouseOver(this.name)" onmouseout="bbd.MouseOut(this.name)" onclick="bbd.MouseClick(event, this.name); bbf.ApplyFilters();" type="button"-->
+<input value="Division 1" style="width:80px; height:24px" id="btnDiv1" name="Div1" class="TigerButtons Click" onmouseover="bbd.MouseOver(this.name)" onmouseout="bbd.MouseOut(this.name)" onclick="bbd.MouseClick(event, this.name); bbf.ApplyFilters();" type="button">
+<input value="Division 2" style="width:80px; height:24px" id="btnDiv2" name="Div2" class="TigerButtons Click" onmouseover="bbd.MouseOver(this.name)" onmouseout="bbd.MouseOut(this.name)" onclick="bbd.MouseClick(event, this.name); bbf.ApplyFilters();" type="button">
+<!--input value="Division 3" style="width:80px; height:24px" id="btnDiv3" name="Div3" class="TigerButtons Click" onmouseover="bbd.MouseOver(this.name)" onmouseout="bbd.MouseOut(this.name)" onclick="bbd.MouseClick(event, this.name); bbf.ApplyFilters();" type="button"-->
+
+  </div>
+
+  <script type="text/javascript" language="javascript">
+    var w = new WindowDimensions();
+    document.write('<DIV class="MainPage" style="height:' + (w.Height * 0.82) + '">');
+  </script>
+  <table style="width:100%; background-color:#ffffff; border-color:black; border-style:solid; border-width:1px" cellpadding="2" cellspacing="1">
+  <script type="text/javascript" language="javascript">
+        var RowCount = 1;
+        document.write(PaintFixtureListHeader());
+        // ClassName, TeamCodeHome, TeamCodeAway, TeamCodeReferee, TheDate, TheTime, Division, TeamNameHome, TeamNameAway, TeamNameReferee,
+        // FixtureCode, HomeScore, AwayScore, YYYYMMDD, Venue, Period, Month)
+        //document.write(PaintFixtureListRow('VikingsThree','VIK3','VIK2','LIT1','Sun 30 Sep 2012','18:30','2','Vikings 3','Vikings 2','Lions 1','VIK3VIK2','10','16','20120930',
+        // 'Ely Community College','1','1-09'));
+{% for f in fixture_list %}
+        document.write(PaintFixtureListRow('{{f.home_team.class_name}}','{{f.home_team.code}}','{{f.away_team.code}}','{{f.referee_team.code}}','{{f.date|date:"D d M Y"}}','{{f.time_text}}','{{f.division_text}}','{{f.home_team.short_name}}','{{f.away_team.short_name}}','{{f.referee_team.short_name}}','{{f.code}}{{do_internal}}','{{f.home_score_text}}','{{f.away_score_text}}',
+          '20120930','{{f.venue.name}}','{{f.season_period}}','{{f.season_period}}-{{f.date|date:"m"}}','{{f.changestatus_text}}','{{f.changenotes}}'));
+{% endfor %}
+
+  </script>
+<tr><td colspan=10 style="vertical-align: middle; text-align: center; border-top-width:1px; margin-top:0px; border-top-style:solid"><h2 style='vertical-align:middle; margin:10px'>Other Events</h2></td></tr>
+    <script>
+    {% for f in other_events %}
+        document.write("<tr><td class='other_event' style='text-align:center;'>{{f.date}}</td><td class='other_event'>&nbsp;</td><td class='other_event'>&nbsp;</td><td class='other_event' colspan=3>{{f.title}}</td><td class='other_event'>{{f.venue}}</td><td class='other_event'>&nbsp;</td><td class='other_event'>&nbsp;</td></tr>");
+{% endfor %}
+</script>
+  <tr><td colspan=10 style="text-align: center; border-top-width:1px; border-top-style:solid"><h2 style="margin:10px">CKL Playoffs</h2></td></tr>
+
+   <script>
+    {% for f in playoffs %}
+        document.write(PaintFixtureListRow('{{f.home_team.class_name}}','{{f.home_team.code}}','{{f.away_team.code}}','{{f.referee_team.code}}','{{f.date|date:"D d M Y"}}','{{f.time_text}}','{{f.division_text}}','{{f.home_team.short_name}}','{{f.away_team.short_name}}','{{f.referee_team.short_name}}','{{f.code}}','{{f.home_score_text}}','{{f.away_score_text}}','20120930','{{f.venue.name}}','{{f.season_period}}','{{f.season_period}}-{{f.date|date:"m"}}','{{f.changestatus}}','{{f.changenotes}}'));
+{% endfor %}
+</script>
+  </table>
+</p></p></p></p></p></p>
+
+
+  <script type="text/javascript" language="javascript">
+      document.write('</div>');
+  </script>
+
+
+
+</body></html>

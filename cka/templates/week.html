@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table>
+<tr>
+<td>
+<table>
+<tr><td colspan=5 align=center>Division 1</td></tr>
+{% for fix in division1 %}
+<tr>
+	<td>{{fix.home_team}}</td>
+  <td>{{fix.home_score}}</td>
+  <td>-</td>
+  <td>{{fix.away_score}}</td>
+  <td>{{fix.away_team}}</td>
+</tr>
+{% endfor %}
+</table>
+</td>
+
+<td>
+<table>
+<tr><td colspan=5 align=center>Division 2</td></tr>
+{% for fix in division2 %}
+<tr>
+	<td>{{fix.home_team}}</td>
+  <td>{{fix.home_score}}</td>
+  <td>-</td>
+  <td>{{fix.away_score}}</td>
+  <td>{{fix.away_team}}</td>
+</tr>
+{% endfor %}
+</table>
+</td>
+
+{% endblock %}

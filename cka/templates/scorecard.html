@@ -1,0 +1,56 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <HEAD>
+    <TITLE>{{fixture.code}}</TITLE>
+    
+    {% load static %}
+    <link href="{% static 'ckaleague/css/Scorecard.css' %}" type="text/css" rel="stylesheet" />	
+    <script type="text/javascript" src="{% static 'ckaleague/js/Scorecard.js' %}"></script>
+  </HEAD>
+<BODY>
+  <SCRIPT type='text/javascript' language='JavaScript'>
+   UploadDirectory = 'Upload' + '2012';
+   document.write('<TABLE BORDER=0 CELLSPACING=1 CELLPADDING=0 style="WIDTH:100%; HEIGHT:100%" BGCOLOR=White>');
+   document.write(PaintScorecardHeaderRow());
+
+   document.write(PaintScorecardRow1('{{fixture.division_text}}','{{fixture_time.date}}','{{fixture_time.time}}'));
+   document.write(PaintScorecardRow2('{{fixture.home_team.short_name}}{{fixture.home_rating}}','{{fixture.away_team.short_name}}{{fixture.away_rating}}',
+        '{{fixture.home_score}}','{{fixture.away_score}}','{{fixture.home_score_halftime}}','{{fixture.away_score_halftime}}'));
+   document.write(PaintScorecardPlayerGridHeader());
+   
+   {% for r in rows %}
+   document.write(PaintScorecardPlayerGrid("{{r.player}}",'{{r.home_status}}',
+                  "{{r.home_name}}{{r.home_extra_info}}",'{{r.home_goals}}',
+                  '{{r.home_penalties}}','&nbsp','{{r.away_status}}',
+                  "{{r.away_name}}{{r.away_extra_info}}",'{{r.away_goals}}','{{r.away_penalties}}',
+                  '&nbsp',false,false)); //{{r.home_u18}},{{r.away_u18}}));
+   {% endfor %}
+   
+   document.write(PaintScorecardSubGridHeader());
+  
+
+   {% for r in sub_rows %}
+   {% autoescape off %}
+   document.write(PaintScorecardSubGrid('{{r.player}}','{{r.home_for}}','{{r.home_at}}','{{r.home_status}}',
+                  "{{r.home_name}}{{r.home_extra_info}}",'{{r.home_goals}}', '{{r.home_penalties}}','&nbsp',
+                  '{{r.away_for}}','{{r.away_at}}','{{r.away_status}}',"{{r.away_name}}{{r.away_extra_info}}",'{{r.away_goals}}',
+                  '{{r.away_penalties}}','&nbsp',
+                  false,false)); // {{r.home_u18}},{{r.away_u18}}));
+   {% endautoescape %}
+   {% endfor %}
+   //document.write(PaintScorecardSubGrid('10','&nbsp','&nbsp','white','&nbsp','&nbsp','&nbsp','&nbsp','#5','2nd','YellowGreen','Halim Kusumaatmaja','1','&nbsp','&nbsp',false,false));
+   //document.write(PaintScorecardSubGrid('11','&nbsp','&nbsp','white','&nbsp','&nbsp','&nbsp','&nbsp','&nbsp','&nbsp','white','&nbsp','&nbsp','&nbsp','&nbsp',false,false));
+   //document.write(PaintScorecardSubGrid('12','&nbsp','&nbsp','white','&nbsp','&nbsp','&nbsp','&nbsp','&nbsp','&nbsp','white','&nbsp','&nbsp','&nbsp','&nbsp',false,false));
+   
+   
+   document.write(PaintScorecardRow3('{{fixture.notes}}<\/br><u>{{fixture.notes_by}}<\/u>', '{{fixture.home_captain.name}}'));
+   document.write(PaintScorecardRow4('{{fixture.away_captain.name}}'));
+   document.write(PaintScorecardRow5('{{fixture.referee.name}}','{{fixture.referee_team.name}}'));
+   document.write('<\/TABLE>');
+ {% if not fixture.is_valid %}
+ document.write("<p>INVALID SCORECARD - Players not in database are indicated with '*'")
+ {% endif %}
+  </SCRIPT>
+
+</BODY>
+</HTML>

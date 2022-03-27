@@ -1,0 +1,62 @@
+Please check existing players and make changes. Do not change the ID column!
+If player is not playing, please put False in the last column.
+If a U18 player is now over 18 please change the entry in the U18 columns.
+At the end of the sheet, leave one line gap and add any new players. Leave ID blank.
+ID,Name,Sex,U18,Active
+8068,Adam Twiss,M,False,True
+8180,Allie Kulcsar,F,False,True
+8046,Allison Brown,F,False,True
+8111,Alyssia Radford,F,True,True
+8205,Amanda Cook,F,False,True
+8192,Aren Clark,M,False,True
+8183,Barbara Fraser,F,False,True
+8048,Becky Stanford,F,False,True
+8187,Ben Revie,M,True,True
+8181,Chris Maybank,M,False,True
+8057,Christopher Brown,M,False,True
+8190,Clare McDonald,F,False,True
+8198,Craig Chatt,M,False,True
+8201,Daisy Wright,F,True,True
+8206,Dana Fraser,F,True,True
+8165,Dave Hodges,M,False,True
+8053,Dave McLeish,M,False,True
+8177,Deryn Gwynn,M,True,True
+8173,Dom McDonald,M,False,True
+8200,Dylan Lowe,M,True,True
+8170,Emily McLeish,F,True,True
+8172,Emma Hale,F,False,True
+8197,Emma McHale,F,False,True
+8195,Emma Peacock,F,False,True
+8091,Esther McLeish,F,False,True
+8185,Finn Clark,M,True,True
+8156,George Notley,M,False,True
+8161,Glen Kerrison,M,False,True
+8009,Hannah Brown,F,False,True
+8066,Helen Johnson,F,False,True
+8191,Jack Gillett,M,False,True
+8028,Jackie Smith,F,False,True
+8157,Jacob Stanforth,M,True,True
+8160,James McLeish,M,True,True
+8184,Jarrad Rippin,M,False,True
+8050,Jasmine Radford,F,False,True
+8085,Jim Kelly,M,False,True
+8082,Joseph McLeish,M,False,True
+8202,Joshua Ford,M,True,True
+8186,Kaitlyn Brooks,F,True,True
+8199,Keira Murdoch,F,True,True
+8189,Laura Henniker-Heaton,F,False,True
+8099,Lucy Lloyd,F,False,True
+8001,Martin Brown,M,False,True
+8086,Midge Gillies,F,False,True
+8204,Nathaniel Shiers,M,False,True
+8030,Olly Watts,M,False,True
+8130,Oscar Edwards,M,True,True
+8025,Philip Morton,M,False,True
+8203,Rachel Carpenter,F,False,True
+8102,Rosa Kelly,F,True,True
+8182,Sam Green,F,False,True
+8162,Sue White,F,False,True
+8194,Tom Grimshaw,M,False,True
+8047,Tracy Radford,F,False,True
+8188,Wendy Hagurs,F,False,True
+8159,William Cutforth,M,True,True

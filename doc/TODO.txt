@@ -1,0 +1,69 @@
+** Short term TODO list
+
+Pauls requests
+Fix tabbing around ref card - across playing and then down players in same team
+Make search work on surnames - typing letters searches not just on prefix but any part of name
+
+Make sure names are not used to determine 1st/2nd team
+
+
+
+Make fixtures, league table, ref cards available as JSON for other people to access and add to their websites ??
+Would make conversion to proper UI/data seperation easier.
+
+dev_team on LeagueTable needs to be set at some point from the owning team. Should
+make this a calculated field
+
+Scorecard checking - include duplicate player check and missing sub information.
+
+Possible problem with display of status colour on 'pie table'. Lots of confusion in my mind about what the numbers
+mean - need a single place where the mapping of status number to SERL, 1st, 2nd and None are.
+
+SERL matches - not enough lines in sub section 
+
+Make sure handling 'ignore for status' correctly and in the best way
+
+Need to rearchitect to split on server with REST API between backend and presentation component on server.
+
+Make sure code excludes walkovers (etc?) from status calculations
+
+Need to make it clear in spec that we need to have static pages so we can take snapshots however use of 'dynamic' web pages (ie using backbone) can be done for Admin pages.
+
+Make it obvious on upload page that scorecard is invalid / don't provide 'approve' link
+
+Half time score of 0 appears as empty string - score appears as '-12' for example.
+
+Loading of score card involving dev team and finding team name
+
+Prevent double approves
+
+Code a better way of determining if match has been played.
+
+Status Tie - Provide page for these; make it easier to add from status page.
+
+Put in a check to stop double approval
+Put in some integrity checks 
+
+On the 'approve' page fix so that new status/player check works and approve button is enabled
+
+Add script to do extract, copy to atwiss, put into archive directory and git commit
+
+Can I scrape from email4groups?
+
+Put pro-forma 'illegal' team email into system
+
+Think about adding more methods to models in appropriate way; restructure.
+
+Extractor script needs to flag GET that fail
+
+Handle the rare occasion when a subbed-off is allowed back on with agreement of sides (but still trap errounous double match entries for players)
+
+** Long Term
+Get scorecard submission through this server to work.
+Clone repo on CKA server.
+Stand up server on CKA machine.
+Everything now happens on this server
+wget will take snapshot for public pages
+
+If more detailed development is required, then need to sync repo on my machine.
+?? What about interaction with FL - can this be done on CKA server?

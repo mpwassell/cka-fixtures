@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+
+{% block content %}
+<table>
+{% for row in data %}
+<tr>
+	<td><a href='../../results/Upload/{{row.code}}.htm'>{{row.code}}</td><td>{{row.flag}}</td>
+</tr>
+{% endfor %}
+{% endblock %}

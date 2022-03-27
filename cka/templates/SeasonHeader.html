@@ -1,0 +1,181 @@
+<HTML>
+  {% load static %}
+<HEAD>
+  <META NAME="GENERATOR" Content="Microsoft Visual Studio 6.0">
+  <TITLE></TITLE>
+  <LINK rel="stylesheet" type="text/css" href="{% static 'ckaleague/css/Tigers.css' %}">
+</HEAD>
+
+<script language="JavaScript" src="{% static 'ckaleague/js/Mouse.js' %}"></script>
+<script language="JavaScript" src="{% static 'ckaleague/js/Tiger_Library.js' %}"></script>
+
+<SCRIPT Language=JavaScript>
+  var CurrentButton = "btnCIT0";
+</SCRIPT>
+
+<BODY BGCOLOR="#fffff" style="MARGIN-TOP: 0px; position: absolute; top:0px;">
+  <TABLE BORDER=0 ALIGN=center HEIGHT=10% WIDTH=100% CELLSPACING=0 CELLPADDING=1>
+    <TR>
+      <TD WIDTH=25%>
+        <TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=1 ALIGN=CENTER>
+          <TR HEIGHT=50%>
+            <TD WIDTH=100% ALIGN=LEFT COLSPAN=7>
+              <INPUT TYPE='button' Value='City' style='width:100%; height:24px' ID='btnCIT' class='TigerButtonsOff' onmouseover = "MouseOver('btnCIT0')" onmouseout = "MouseOut('btnCIT0')">
+            </TD>
+          </TR>
+          <TR HEIGHT=50%>
+            <TD WIDTH=20% ALIGN=LEFT>
+		      <INPUT TYPE='button' Value='SERL' style='width:98%; height:24px' ID='btnCIT0' class='TigerButtonsOff' onmouseover = "MouseOver('btnCIT0')" onmouseout = "MouseOut('btnCIT0')" onclick="MouseClick('btnCIT0', 'CIT0', 'SEASONMAIN', 'SEASONMENU')">
+            </TD>
+            <!--TD WIDTH=20% ALIGN=LEFT>
+		      <INPUT TYPE='button' Value='SERL2' style='width:98%; height:24px' ID='btnCAM2' class='TigerButtonsOff' onmouseover = "MouseOver('btnCAM2')" onmouseout = "MouseOut('btnCAM2')" onclick="MouseClick('btnCAM2', 'CAM2', 'SEASONMAIN', 'SEASONMENU')">
+            </TD-->
+            <TD WIDTH=12% ALIGN=LEFT>
+              <INPUT TYPE='button' Value='1' style='width:98%; height:24px' ID='btnCIT1' class='TigerButtonsOff' onmouseover = "MouseOver('btnCIT1')" onmouseout = "MouseOut('btnCIT1')" onclick="MouseClick('btnCIT1', 'CIT1', 'SEASONMAIN', 'SEASONMENU')">
+            </TD>
+            <TD WIDTH=12% ALIGN=LEFT>
+              <INPUT TYPE='button' Value='2' style='width:98%; height:24px' ID='btnCIT2' class='TigerButtonsOff' onmouseover = "MouseOver('btnCIT2')" onmouseout = "MouseOut('btnCIT2')" onclick="MouseClick('btnCIT2', 'CIT2', 'SEASONMAIN', 'SEASONMENU')">
+            </TD>
+            <TD WIDTH=12% ALIGN=LEFT>
+              <INPUT TYPE='button' Value='3' style='width:98%; height:24px' ID='btnCIT3' class='TigerButtonsOff' onmouseover = "MouseOver('btnCIT3')" onmouseout = "MouseOut('btnCIT3')" onclick="MouseClick('btnCIT3', 'CIT3', 'SEASONMAIN', 'SEASONMENU')">
+            </TD>
+            <TD WIDTH=12% ALIGN=LEFT>
+              <INPUT TYPE='button' Value='4' style='width:98%; height:24px' ID='btnCIT4' class='TigerButtonsOff' onmouseover = "MouseOver('btnCIT4')" onmouseout = "MouseOut('btnCIT4')" onclick="MouseClick('btnCIT4', 'CIT4', 'SEASONMAIN', 'SEASONMENU')">
+            </TD>
+            <TD WIDTH=12% ALIGN=LEFT>
+              <INPUT TYPE='button' Value='5' style='width:98%; height:24px' ID='btnCIT5' class='TigerButtonsOff' onmouseover = "MouseOver('btnCIT5')" onmouseout = "MouseOut('btnCIT5')" onclick="MouseClick('btnCIT5', 'CIT5', 'SEASONMAIN', 'SEASONMENU')">
+            </TD>
+			</TR>
+        </TABLE>
+      </TD>
+
+      <TD WIDTH=10%>
+        <TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=1 ALIGN=CENTER>
+          <TR HEIGHT=50%>
+            <TD WIDTH=100% ALIGN=LEFT COLSPAN=3>
+              <INPUT TYPE='button' Value='Lions' style='width:100%; height:24px' ID='btnLIT' class='TigerButtonsOff' onmouseover = "MouseOver('btnLIT')" onmouseout = "MouseOut('btnLIT')">
+            </TD>
+          </TR>
+          <TR HEIGHT=50%>
+            <TD WIDTH=33% ALIGN=LEFT>
+              <INPUT TYPE='button' Value='1' style='width:98%; height:24px' ID='btnLIT1' class='TigerButtonsOff' onmouseover = "MouseOver('btnLIT1')" onmouseout = "MouseOut('btnLIT1')" onclick="MouseClick('btnLIT1', 'LIT1', 'SEASONMAIN', 'SEASONMENU')">
+            </TD>
+            <TD WIDTH=33% ALIGN=LEFT>
+              <INPUT TYPE='button' Value='2' style='width:98%; height:24px' ID='btnLIT2' class='TigerButtonsOff' onmouseover = "MouseOver('btnLIT2')" onmouseout = "MouseOut('btnLIT2')" onclick="MouseClick('btnLIT2', 'LIT2', 'SEASONMAIN', 'SEASONMENU')">
+            </TD>
+            <!--TD WIDTH=33% ALIGN=LEFT>
+              <INPUT TYPE='button' Value='3' style='width:98%; height:24px' ID='btnLIT3' class='TigerButtonsOff' onmouseover = "MouseOver('btnLIT3')" onmouseout = "MouseOut('btnLIT3')" onclick="MouseClick('btnLIT3', 'LIT3', 'SEASONMAIN', 'SEASONMENU')">
+            </TD-->
+          </TR>
+        </TABLE>
+      </TD>
+
+      <TD WIDTH=18%>
+        <TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=1 ALIGN=CENTER>
+          <TR HEIGHT=50%>
+            <TD WIDTH=100% ALIGN=LEFT COLSPAN=5>
+              <INPUT TYPE='button' Value='Phoenix' style='width:100%; height:24px' ID='btnPHO' class='TigerButtonsOff' onmouseover = "MouseOver('btnPHO')" onmouseout = "MouseOut('btnPHO')">
+            </TD>
+          </TR>
+          <TR HEIGHT=50%>
+            <!--TD WIDTH=20% ALIGN=LEFT>
+              <INPUT TYPE='button' Value='SERL' style='width:98%; height:24px' ID='btnPHO0' class='TigerButtonsOff' onmouseover = "MouseOver('btnPHO0')" onmouseout = "MouseOut('btnPHO0')" onclick="MouseClick('btnPHO0', 'PHO0', 'SEASONMAIN', 'SEASONMENU')">
+            </TD-->
+            <TD WIDTH=16% ALIGN=LEFT>
+              <INPUT TYPE='button' Value='1' style='width:98%; height:24px' ID='btnPHO1' class='TigerButtonsOff' onmouseover = "MouseOver('btnPHO1')" onmouseout = "MouseOut('btnPHO1')" onclick="MouseClick('btnPHO1', 'PHO1', 'SEASONMAIN', 'SEASONMENU')">
+            </TD>
+            <TD WIDTH=16% ALIGN=LEFT>
+              <INPUT TYPE='button' Value='2' style='width:98%; height:24px' ID='btnPHO2' class='TigerButtonsOff' onmouseover = "MouseOver('btnPHO2')" onmouseout = "MouseOut('btnPHO2')" onclick="MouseClick('btnPHO2', 'PHO2', 'SEASONMAIN', 'SEASONMENU')">
+            </TD>
+            <TD WIDTH=16% ALIGN=LEFT>
+              <INPUT TYPE='button' Value='3' style='width:98%; height:24px' ID='btnPHO3' class='TigerButtonsOff' onmouseover = "MouseOver('btnPHO3')" onmouseout = "MouseOut('btnPHO3')" onclick="MouseClick('btnPHO3', 'PHO3', 'SEASONMAIN', 'SEASONMENU')">
+            </TD>
+            <!--TD WIDTH=16% ALIGN=LEFT>
+              <INPUT TYPE='button' Value='4' style='width:98%; height:24px' ID='btnPHO4' class='TigerButtonsOff' onmouseover = "MouseOver('btnPHO4')" onmouseout = "MouseOut('btnPHO4')" onclick="MouseClick('btnPHO4', 'PHO4', 'SEASONMAIN', 'SEASONMENU')">
+            </TD-->
+            <!--TD WIDTH=16% ALIGN=LEFT>
+              <INPUT TYPE='button' Value='5' style='width:98%; height:24px' ID='btnPHO5' class='TigerButtonsOff' onmouseover = "MouseOver('btnPHO5')" onmouseout = "MouseOut('btnPHO5')" onclick="MouseClick('btnPHO5', 'PHO5', 'SEASONMAIN', 'SEASONMENU')">
+            </TD-->		
+          </TR>
+        </TABLE>
+      </TD>
+
+      <TD WIDTH=18%>
+        <TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=1 ALIGN=CENTER>
+          <TR HEIGHT=50%>
+            <TD WIDTH=100% ALIGN=LEFT COLSPAN=6>
+              <INPUT TYPE='button' Value='Tigers' style='width:100%; height:24px' ID='btnTIG' class='TigerButtonsOff' onmouseover = "MouseOver('btnTIG')" onmouseout = "MouseOut('btnTIG')" />
+            </TD>
+          </TR>
+          <TR HEIGHT=50%>
+            <TD WIDTH=20% ALIGN=LEFT>
+              <INPUT TYPE='button' Value='SERL' style='width:98%; height:24px' ID='btnTIG0' class='TigerButtonsOff' onmouseover = "MouseOver('btnTIG0')" onmouseout = "MouseOut('btnTIG0')" onclick="MouseClick('btnTIG0', 'TIG0', 'SEASONMAIN', 'SEASONMENU')">
+            </TD>
+            <TD WIDTH=16% ALIGN=LEFT>
+              <INPUT TYPE='button' Value='1' style='width:98%; height:24px' ID='btnTIG1' class='TigerButtonsOff' onmouseover = "MouseOver('btnTIG1')" onmouseout = "MouseOut('btnTIG1')" onclick="MouseClick('btnTIG1', 'TIG1', 'SEASONMAIN', 'SEASONMENU')">
+            </TD>
+            <TD WIDTH=16% ALIGN=LEFT>
+              <INPUT TYPE='button' Value='2' style='width:98%; height:24px' ID='btnTIG2' class='TigerButtonsOff' onmouseover = "MouseOver('btnTIG2')" onmouseout = "MouseOut('btnTIG2')" onclick="MouseClick('btnTIG2', 'TIG2', 'SEASONMAIN', 'SEASONMENU')">
+            </TD>
+            <TD WIDTH=16% ALIGN=LEFT>
+              <INPUT TYPE='button' Value='3' style='width:98%; height:24px' ID='btnTIG3' class='TigerButtonsOff' onmouseover = "MouseOver('btnTIG3')" onmouseout = "MouseOut('btnTIG3')" onclick="MouseClick('btnTIG3', 'TIG3', 'SEASONMAIN', 'SEASONMENU')">
+            </TD>
+            <TD WIDTH=16% ALIGN=LEFT>
+              <INPUT TYPE='button' Value='4' style='width:98%; height:24px' ID='btnTIG4' class='TigerButtonsOff' onmouseover = "MouseOver('btnTIG4')" onmouseout = "MouseOut('btnTIG4')" onclick="MouseClick('btnTIG4', 'TIG4', 'SEASONMAIN', 'SEASONMENU')">
+            </TD>
+			 <!--TD WIDTH=16% ALIGN=LEFT>
+              <INPUT TYPE='button' Value='5' style='width:98%; height:24px' ID='btnTIG5' class='TigerButtonsOff' onmouseover = "MouseOver('btnTIG5')" onmouseout = "MouseOut('btnTIG5')" onclick="MouseClick('btnTIG5', 'TIG5', 'SEASONMAIN', 'SEASONMENU')">
+            </TD-->	
+          </TR>
+        </TABLE>
+      </TD>
+
+      <TD WIDTH=8%>
+        <TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=1 ALIGN=CENTER>
+          <TR HEIGHT=50%>
+            <TD WIDTH=100% ALIGN=LEFT COLSPAN=2>
+              <INPUT TYPE='button' Value='Uni' style='width:100%; height:24px' ID='btnUNI' class='TigerButtonsOff' onmouseover = "MouseOver('btnUNI')" onmouseout = "MouseOut('btnUNI')">
+            </TD>
+          </TR>
+          <TR HEIGHT=50%>
+            <TD WIDTH=20% ALIGN=LEFT>
+              <INPUT TYPE='button' Value='1' style='width:98%; height:24px' ID='btnUNI1' class='TigerButtonsOff' onmouseover = "MouseOver('btnUNI1')" onmouseout = "MouseOut('btnUNI1')" onclick="MouseClick('btnUNI1', 'UNI1', 'SEASONMAIN', 'SEASONMENU')">
+            </TD>
+            <TD WIDTH=20% ALIGN=LEFT>
+              <INPUT TYPE='button' Value='2' style='width:98%; height:24px' ID='btnUNI2' class='TigerButtonsOff' onmouseover = "MouseOver('btnUNI2')" onmouseout = "MouseOut('btnUNI2')" onclick="MouseClick('btnUNI2', 'UNI2', 'SEASONMAIN', 'SEASONMENU')">
+            </TD>
+          </TR>
+        </TABLE>
+      </TD>
+
+      <TD WIDTH=21%>
+        <TABLE WIDTH=100% BORDER=0 CELLSPACING=0 CELLPADDING=1 ALIGN=CENTER>
+          <TR HEIGHT=50%>
+            <TD WIDTH=100% ALIGN=LEFT COLSPAN=5>
+              <INPUT TYPE='button' Value='Vikings' style='width:100%; height:24px' ID='btnVIK' class='TigerButtonsOff' onmouseover = "MouseOver('btnVIK')" onmouseout = "MouseOut('btnVIK')">
+            </TD>
+          </TR>
+          <TR HEIGHT=50%>
+            <!--TD WIDTH=28% ALIGN=LEFT>
+              <INPUT TYPE='button' Value='SERL' style='width:98%; height:24px' ID='btnVIK0' class='TigerButtonsOff' onmouseover = "MouseOver('btnVIK0')" onmouseout = "MouseOut('btnVIK0')" onclick="MouseClick('btnVIK0', 'VIK0', 'SEASONMAIN', 'SEASONMENU')">
+            </TD-->
+            <TD WIDTH=18% ALIGN=LEFT>
+              <INPUT TYPE='button' Value='1' style='width:98%; height:24px' ID='btnVIK1' class='TigerButtonsOff' onmouseover = "MouseOver('btnVIK1')" onmouseout = "MouseOut('btnVIK1')" onclick="MouseClick('btnVIK1', 'VIK1', 'SEASONMAIN', 'SEASONMENU')">
+            </TD>
+            <TD WIDTH=18% ALIGN=LEFT>
+              <INPUT TYPE='button' Value='2' style='width:98%; height:24px' ID='btnVIK2' class='TigerButtonsOff' onmouseover = "MouseOver('btnVIK2')" onmouseout = "MouseOut('btnVIK2')" onclick="MouseClick('btnVIK2', 'VIK2', 'SEASONMAIN', 'SEASONMENU')">
+            </TD>
+            <TD WIDTH=18% ALIGN=LEFT>
+              <INPUT TYPE='button' Value='3' style='width:98%; height:24px' ID='btnVIK3' class='TigerButtonsOff' onmouseover = "MouseOver('btnVIK3')" onmouseout = "MouseOut('btnVIK3')" onclick="MouseClick('btnVIK3', 'VIK3', 'SEASONMAIN', 'SEASONMENU')">
+            </TD>
+            <!--TD WIDTH=18% ALIGN=LEFT>
+              <INPUT TYPE='button' Value='4' style='width:98%; height:24px' ID='btnVIK4' class='TigerButtonsOff' onmouseover = "MouseOver('btnVIK4')" onmouseout = "MouseOut('btnVIK4')" onclick="MouseClick('btnVIK4', 'VIK4', 'SEASONMAIN', 'SEASONMENU')">
+            </TD-->
+          </TR>
+        </TABLE>
+      </TD>
+    </TR>
+  </TABLE>
+
+</BODY>
+</HTML>

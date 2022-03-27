@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<style>
+.cka-large-font {
+	font-size:20px
+}
+
+.cka-large-font h2 {
+	font-size:20px
+}
+
+</style>
+
+<div class="cka-large-font">
+<a href="fixtures">Fixtures</a></p>
+<a href="division/1">Division 1 Table</a></p>
+<a href="division/2">Division 2 Table</a></p>
+<a href="division/3">Division 3 Table</a></p>
+<a href="division/scorers/1">Division 1 Scorers</a></p>
+<a href="division/scorers/2">Division 2 Scorers</a></p>
+<a href="division/scorers/SERL">SERL Scorers</a></p>
+<a href="division/scorers/NL">NL Scorers</a></p>
+<a href="season/all">Players Scores For Season</a></p>
+<a href="player/status">Player Status</a></p>
+<a href="player/gametime">Player Gametime</a></p>
+<a href="player/status_usage">Status Usage</a></p>
+<a href="player/all_players">Players This Season</a></p>
+</div>
+{% if club_admin  %}
+<div class="cka-large-font">
+<h2>Club Admin</h2>
+<a href="view/manage/players/{{club_id}}">Edit Players</a></p>
+</div>
+{% endif %}
+
+{% if referee %}
+<div class="cka-large-font">
+<h2>Referee</h2>
+<a href="scorecard/fixtures">Submit Scorecard</a></p>
+</div>
+{% endif %}
+
+{% if league_admin  %}
+<div class="cka-large-font">
+<h2>League Admin</h2>
+<a href="scorecard/approve">Edit or Approve Scorecards</a></p>
+<a href="view/manage/redo_player_statistics">Recalculate Player Statistics</a></p>
+<a href="view/manage/redo_league_tables">Recalculate League Tables</a></p>
+<a href="view/manage/redo_player_status">Recalculate Player Status (Current season)</a></p>
+<a href="view/manage/redo_match_status">Recalculate Match Status (Current season)</a></p>
+<a href="view/manage/redo_status_valid">Recalculate Match Status Validity (Current season)</a></p>
+<a href="view/manage/recalculate_match_status_points">Recalculate Match Status Points (Current season)</a></p>
+<a href="view/manage/check_scorecards">Check scorecards (Current season)</a></p>
+<a href="scorecard/ref_rating">Ref Rating Report</a></p>
+</br>
+<a href="view/manage/players/merge">Merge Players</a></p>
+</br>
+<a href="view/manage/players/CIT">Manage City Players</a></p>
+<a href="view/manage/players/PHO">Manage Phoenix Players</a></p>
+<a href="view/manage/players/LIT">Manage Lions Players</a></p>
+<a href="view/manage/players/TIG">Manage Tigers Players</a></p>
+<a href="view/manage/players/UNI">Manage University Players</a></p>
+<a href="view/manage/players/VIK">Manage Vikings Players</a></p>
+<a href="view/manage/players/MKL">Manage Lakers Players</a></p>
+</div>
+{% endif %}
+
+{% endblock %}

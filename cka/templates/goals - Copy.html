@@ -1,0 +1,87 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+    <title></title>
+{% load staticfiles %}
+    <link rel="stylesheet" type="text/css" href="{% static 'ckaleague/css/Tigers.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'ckaleague/css/Statistics.css'%}">
+    <script language="javascript" type="text/javascript">
+		var CurrentButton = 'btnALL';
+	</script>
+    <script type="text/javascript" language="javascript" src="{% static 'ckaleague/js/CKA.js' %}"></script>
+    <script type="text/javascript" language="javascript" src="{% static 'ckaleague/js/Tiger_Library.js' %}"></script>
+    <script type="text/javascript" language="javascript" src="{% static 'ckaleague/js/Statistics.js' %}"></script>
+	<script language="javascript" type="text/javascript">
+		UploadDirectory = 'Upload';
+	</script>
+    
+</head>
+
+<body style="background-color:#ffffff; MARGIN-TOP: 0px">
+<div class="StatisticsTitle">
+CKA Player Statistics Report Division {{division}} - 2017/2018
+<div class="LastUpdated"> Last updated:  {{last_update}}</div>
+</div>
+{% if division == '1' %}
+<div class="StatisticsButtons">
+<input id="btnALL" class="TigerButtonsOn" type="button" onclick="MouseClick('btnALL');FilterRow('XXX', 'TEAMCODE', 'ALL');" onmouseout="MouseOut('btnALL')" onmouseover="MouseOver('btnALL')" style="width:64px; height:24px;" value="ALL">
+<input id="btnCIT1" class="TigerButtonsOff" type="button" onclick="MouseClick('btnCIT1');FilterRow('XXX', 'TEAMCODE', 'CIT1');" onmouseout="MouseOut('btnCIT1')" onmouseover="MouseOver('btnCIT1')" style="width:64px; height:24px" value="City 1">
+<!--input id="btnCIT2" class="TigerButtonsOff" type="button" onclick="MouseClick('btnCIT2');FilterRow('XXX', 'TEAMCODE', 'CIT2');" onmouseout="MouseOut('btnCIT2')" onmouseover="MouseOver('btnCIT2')" style="width:64px; height:24px" value="City 2"-->
+<input id="btnLIT1" class="TigerButtonsOff" type="button" onclick="MouseClick('btnLIT1');FilterRow('XXX', 'TEAMCODE', 'LIT1');" onmouseout="MouseOut('btnLIT1')" onmouseover="MouseOver('btnLIT1')" style="width:64px; height:24px" value="Lions 1">
+<input id="btnPHO1" class="TigerButtonsOff" type="button" onclick="MouseClick('btnPHO1');FilterRow('XXX', 'TEAMCODE', 'PHO1');" onmouseout="MouseOut('btnPHO1')" onmouseover="MouseOver('btnPHO1')" style="width:64px; height:24px" value="Phoenix 1">
+<input id="btnTIG1" class="TigerButtonsOff" type="button" onclick="MouseClick('btnTIG1');FilterRow('XXX', 'TEAMCODE', 'TIG1');" onmouseout="MouseOut('btnTIG1')" onmouseover="MouseOver('btnTIG1')" style="width:64px; height:24px" value="Tigers 1">
+<input id="btnTIG2" class="TigerButtonsOff" type="button" onclick="MouseClick('btnTIG2');FilterRow('XXX', 'TEAMCODE', 'TIG2');" onmouseout="MouseOut('btnTIG2')" onmouseover="MouseOver('btnTIG2')" style="width:64px; height:24px" value="Tigers 2">
+<input id="btnVIK1" class="TigerButtonsOff" type="button" onclick="MouseClick('btnVIK1');FilterRow('XXX', 'TEAMCODE', 'VIK1');" onmouseout="MouseOut('btnVIK1')" onmouseover="MouseOver('btnVIK1')" style="width:64px; height:24px" value="Vikings 1">
+<input id="btnUNI1" class="TigerButtonsOff" type="button" onclick="MouseClick('btnUNI1');FilterRow('XXX', 'TEAMCODE', 'UNI1');" onmouseout="MouseOut('btnUNI1')" onmouseover="MouseOver('btnUNI1')" style="width:64px; height:24px" value="Uni 1">
+
+</div>
+{% else %}
+{% if division == '2' %}
+<div class="StatisticsButtons">
+<input id="btnALL" class="TigerButtonsOn" type="button" onclick="MouseClick('btnALL');FilterRow('XXX', 'TEAMCODE', 'ALL');" onmouseout="MouseOut('btnALL')" onmouseover="MouseOver('btnALL')" style="width:64px; height:24px;" value="ALL">
+<input id="btnCIT2" class="TigerButtonsOff" type="button" onclick="MouseClick('btnCIT2');FilterRow('XXX', 'TEAMCODE', 'CIT2');" onmouseout="MouseOut('btnCIT2')" onmouseover="MouseOver('btnCIT2')" style="width:64px; height:24px" value="City 2">
+<input id="btnCIT3" class="TigerButtonsOff" type="button" onclick="MouseClick('btnCIT3');FilterRow('XXX', 'TEAMCODE', 'CIT3');" onmouseout="MouseOut('btnCIT3')" onmouseover="MouseOver('btnCIT3')" style="width:64px; height:24px" value="City 3">
+<!--input id="btnLIT1" class="TigerButtonsOff" type="button" onclick="MouseClick('btnLIT1');FilterRow('XXX', 'TEAMCODE', 'LIT1');" onmouseout="MouseOut('btnLIT1')" onmouseover="MouseOver('btnLIT1')" style="width:64px; height:24px" value="Lions 1"-->
+<input id="btnLIT2" class="TigerButtonsOff" type="button" onclick="MouseClick('btnLIT2');FilterRow('XXX', 'TEAMCODE', 'LIT2');" onmouseout="MouseOut('btnLIT2')" onmouseover="MouseOver('btnLIT2')" style="width:64px; height:24px" value="Lions 2">
+<!--input id="btnPHO2" class="TigerButtonsOff" type="button" onclick="MouseClick('btnPHO2');FilterRow('XXX', 'TEAMCODE', 'PHO2');" onmouseout="MouseOut('btnPHO2')" onmouseover="MouseOver('btnPHO2')" style="width:64px; height:24px" value="Phoenix 2"-->
+<input id="btnPHO2" class="TigerButtonsOff" type="button" onclick="MouseClick('btnPHO2');FilterRow('XXX', 'TEAMCODE', 'PHO2');" onmouseout="MouseOut('btnPHO2')" onmouseover="MouseOver('btnPHO2')" style="width:64px; height:24px" value="Phoenix 2">
+<input id="btnPHO3" class="TigerButtonsOff" type="button" onclick="MouseClick('btnPHO3');FilterRow('XXX', 'TEAMCODE', 'PHO3');" onmouseout="MouseOut('btnPHO3')" onmouseover="MouseOver('btnPHO3')" style="width:64px; height:24px" value="Phoenix 3">
+<input id="btnTIG3" class="TigerButtonsOff" type="button" onclick="MouseClick('btnTIG3');FilterRow('XXX', 'TEAMCODE', 'TIG3');" onmouseout="MouseOut('btnTIG3')" onmouseover="MouseOver('btnTIG3')" style="width:64px; height:24px" value="Tigers 3">
+
+<input id="btnVIK2" class="TigerButtonsOff" type="button" onclick="MouseClick('btnVIK2');FilterRow('XXX', 'TEAMCODE', 'VIK2');" onmouseout="MouseOut('btnVIK2')" onmouseover="MouseOver('btnVIK2')" style="width:64px; height:24px" value="Vikings 2">
+<input id="btnVIK3" class="TigerButtonsOff" type="button" onclick="MouseClick('btnVIK3');FilterRow('XXX', 'TEAMCODE', 'VIK3');" onmouseout="MouseOut('btnVIK3')" onmouseover="MouseOver('btnVIK3')" style="width:64px; height:24px" value="Vikings 3">
+
+</div>
+{% else %}
+{% if division == '3' %} 
+<div class="StatisticsButtons">
+<input id="btnALL" class="TigerButtonsOn" type="button" onclick="MouseClick('btnALL');FilterRow('XXX', 'TEAMCODE', 'ALL');" onmouseout="MouseOut('btnALL')" onmouseover="MouseOver('btnALL')" style="width:64px; height:24px;" value="ALL">
+<!---input id="btnLIT2" class="TigerButtonsOff" type="button" onclick="MouseClick('btnLIT2');FilterRow('XXX', 'TEAMCODE', 'LIT2');" onmouseout="MouseOut('btnLIT2')" onmouseover="MouseOver('btnLIT2')" style="width:64px; height:24px" value="Lions 2">
+<input id="btnLIT3" class="TigerButtonsOff" type="button" onclick="MouseClick('btnLIT3');FilterRow('XXX', 'TEAMCODE', 'LIT3');" onmouseout="MouseOut('btnLIT3')" onmouseover="MouseOver('btnLIT3')" style="width:64px; height:24px" value="Lions 3 (Dev)" --->
+<input id="btnCIT4" class="TigerButtonsOff" type="button" onclick="MouseClick('btnCIT4');FilterRow('XXX', 'TEAMCODE', 'CIT4');" onmouseout="MouseOut('btnCIT4')" onmouseover="MouseOver('btnCIT4')" style="width:64px; height:24px" value="City 4">
+<input id="btnCIT5" class="TigerButtonsOff" type="button" onclick="MouseClick('btnCIT5');FilterRow('XXX', 'TEAMCODE', 'CIT5');" onmouseout="MouseOut('btnCIT5')" onmouseover="MouseOver('btnCIT5')" style="width:64px; height:24px" value="City 5 (Dev)">
+<input id="btnPHO4" class="TigerButtonsOff" type="button" onclick="MouseClick('btnPHO4');FilterRow('XXX', 'TEAMCODE', 'PHO4');" onmouseout="MouseOut('btnPHO4')" onmouseover="MouseOver('btnPHO4')" style="width:64px; height:24px" value="Phoenix 4">
+<input id="btnTIG4" class="TigerButtonsOff" type="button" onclick="MouseClick('btnTIG4');FilterRow('XXX', 'TEAMCODE', 'TIG4');" onmouseout="MouseOut('btnTIG4')" onmouseover="MouseOver('btnTIG4')" style="width:64px; height:24px" value="Tigers 4">
+<input id="btnTIG5" class="TigerButtonsOff" type="button" onclick="MouseClick('btnTIG5');FilterRow('XXX', 'TEAMCODE', 'TIG5');" onmouseout="MouseOut('btnTIG5')" onmouseover="MouseOver('btnTIG5')" style="width:64px; height:24px" value="Tigers 5 (Dev)">
+<input id="btnUNI2" class="TigerButtonsOff" type="button" onclick="MouseClick('btnUNI2');FilterRow('XXX', 'TEAMCODE', 'UNI2');" onmouseout="MouseOut('btnUNI2')" onmouseover="MouseOver('btnUNI2')" style="width:64px; height:24px" value="Uni 2">
+<input id="btnVIK4" class="TigerButtonsOff" type="button" onclick="MouseClick('btnVIK4');FilterRow('XXX', 'TEAMCODE', 'VIK4');" onmouseout="MouseOut('btnVIK4')" onmouseover="MouseOver('btnVIK4')" style="width:64px; height:24px" value="Vikings 4">
+</div>
+
+{% endif %}
+{% endif %}
+{% endif %}
+
+<div class="MainPage" style="height:790; overflow-y:auto">
+<table cellspacing="1" cellpadding="2" style="width:100%; background-color:#ffffff; border-color:black; border-style:solid; border-width:1px">
+<script language="javascript" type="text/javascript">
+var RowCount = 1;
+document.write(PaintStatisticsHeader());
+{% for p in players %}
+{% if p.total > 0 %}
+document.write(PaintStatisticsRow( '{{p.team.code}}', '{{p.team.class_name}}', '{{p.player.name}}', '{{p.team.short_name}}','{{p.games}}','{{p.goals}}','{{p.penalties}}','{{p.total}}','{{p.goal_avg}}')); 
+{% endif %}
+{% endfor %}
+</script>
+</table>
+</div>
+</body>

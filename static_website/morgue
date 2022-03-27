@@ -1,0 +1,15 @@
+<div style="float:left">
+<table border=1>
+    <tr><td width='10%'>1</td><td class="droppable" width='90%'></td></tr>
+    <tr><td>2</td><td class="droppable"></td></tr> 
+    <tr><td>3</td><td class="droppable"></td></tr>
+    <tr><td>4</td><td class="droppable"></td></tr>
+    <tr><td>5</td><td class="droppable"></td></tr>
+    <tr><td>6</td><td class="droppable"></td></tr>
+    <tr><td>7</td><td class="droppable"></td></tr>
+    <tr><td>8</td><td class="droppable"></td></tr>
+</table>
+</div>
+<div id="player_list" >
+<div class="draggable">Fred Blogs</div>
+</div>

@@ -1,0 +1,81 @@
+BODY
+{
+	background-color:#ffffff;
+	margin: 0px;
+	padding: 0px;
+}
+.SquadListTitle
+{
+	color: darkblue;
+	font-family: 'verdana';
+	font-size: 18pt;
+	text-align: left;
+	position: absolute;
+	top: 5px;
+	left: 15px;
+}
+.SquadListButtons
+{
+	position: absolute;
+	top: 15px;
+	right: 10px;
+	text-align: right;
+}
+.LastUpdated
+{
+	font-family: tahoma;
+	font-size:8pt;
+}
+.MainPage
+{
+	position: absolute;
+	top: 60px;
+	bottom: 2px;
+	left: 20%;
+	width: 58%;
+	text-align: center;
+	background-color: #ffffff;
+	overflow:auto;
+}
+.TigerButtons
+{
+	border-right: 1px solid;
+	border-top: white 1px solid;
+	font-weight: bold;
+	font-size: 9pt;
+	border-left: white 1px solid;
+	color: black;
+	border-bottom: 1px solid;
+	font-family: arial;
+	background-color: orange;
+	width: 80px;
+	height: 24px;
+}
+.TigerButtonsOn
+{
+	border-right: 1px solid;
+	border-top: white 1px solid;
+	font-weight: bold;
+	font-size: 9pt;
+	border-left: white 1px solid;
+	color: black;
+	border-bottom: 1px solid;
+	font-family: arial;
+	background-color: gold;
+	width: 80px;
+	height: 24px;
+}
+.TigerButtonsOff
+{
+	border-right: 1px solid;
+	border-top: white 1px solid;
+	font-weight: bold;
+	font-size: 9pt;
+	border-left: white 1px solid;
+	color: black;
+	border-bottom: 1px solid;
+	font-family: arial;
+	background-color: darkorange;
+	width: 80px;
+	height: 24px;
+}

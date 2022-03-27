@@ -1,0 +1,35 @@
+Please check existing players and make changes. Do not change the ID column!
+If player is not playing, please put False in the last column.
+If a U18 player is now over 18 please change the entry in the U18 columns.
+At the end of the sheet, leave one line gap and add any new players. Leave ID blank.
+ID,Name,Sex,U18,Active
+4116,Alison Reed,F,False,True
+4138,Andy Credland,M,False,True
+8115,Chloe Darlow,F,False,True
+4038,Chris White,F,False,True
+4021,Corinne Bowes,F,False,True
+4197,Danni Weldon,F,False,True
+4150,Fiona Hill,F,False,True
+4098,Gary Cole,M,False,True
+4172,Hannah Lindsay,F,False,True
+4177,Helen Vidler,F,False,True
+4036,Howard Laffling,M,False,True
+4200,John Lindsay,M,False,True
+4157,John McLellan,M,False,True
+4175,Kathryn Bullough,F,True,True
+4142,Lisa Adcock,F,False,True
+4198,Lucy Bunker,F,False,True
+4060,Lucy Purser,F,False,True
+4005,Mark Wassell,M,False,True
+4196,Natalie Corden,F,False,True
+4199,Omar Terywall,M,False,True
+4201,Paolo Andrich,M,False,True
+4123,Patrick Loo,M,False,True
+4004,Paul Bullough,M,False,True
+4183,Peter Tasker,M,False,True
+4129,Phil Tedder,M,False,True
+4180,Phil Ward,M,False,True
+4020,Rhian Benstead,F,False,True
+4191,Safi Terywall,M,True,True
+4190,Saif Terywall,M,True,True
+4112,Simon Hall,M,False,True

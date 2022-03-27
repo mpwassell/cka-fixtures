@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="/static/django_tables2/themes/paleblue/css/screen.css" />
+    <link href="/static/admin/css/base.css" type="text/css" rel="stylesheet">
+    <link href="/static/admin/css/dashboard.css" type="text/css" rel="stylesheet">
+    <title>{% block title %}Cambridgeshire Korfball Association League{% endblock %}</title>
+</head>
+
+<body class="dashboard">
+    <div id="container>">
+        <div id="header">
+            <div id="branding">
+                <h1 id="site-name">Cambridgeshire Korfball Association League</h1>
+            </div>
+            <div id="user-tools">
+                {% if user.username %}
+                    Welcome <strong>{{user.username}}</strong>. <a href='/cka/logout?next=/cka'>Logout</a>
+                {% else %}
+                    Welcome. <a href='/cka/login?next=/cka'>Login</a>
+                {% endif %}
+            </div>
+            </div>
+            <div class="breadcrumbs">
+                <a href="/cka">Home</a>
+            </div>
+        
+
+        <div id="content" class="colMS">
+            {% block content %}{% endblock %}
+        </div>
+    </div>
+
+</body>
+</html>

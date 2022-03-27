@@ -1,0 +1,63 @@
+Please check existing players and make changes. Do not change the ID column!,,,,
+If player is not playing, please put False in the last column.,,,
+If a U18 player is now over 18 please change the entry in the U18 columns.,,,,
+At the end of the sheet, leave one line gap and add any new players. Leave ID blank.,,,
+ID,Name,Sex,U18,Active
+8068,Adam Twiss,M,FALSE,TRUE
+8180,Allie Kulcsar,F,FALSE,TRUE
+8046,Allison Brown,F,FALSE,TRUE
+8111,Alyssia Radford,F,TRUE,TRUE
+8169,Annabelle Marsh,F,TRUE,FALSE
+8192,Aren Clark,M,FALSE,TRUE
+8183,Barbara Fraser,F,FALSE,TRUE
+8019,Barry Andrew,M,FALSE,FALSE
+8048,Becky Stanford,F,FALSE,TRUE
+8187,Ben Revie,M,TRUE,TRUE
+8176,Ben Sirota,M,TRUE,FALSE
+8057,Chris Brown,M,FALSE,TRUE
+8181,Chris Maybank,M,FALSE,TRUE
+8190,Clare McDonald,F,FALSE,TRUE
+8165,Dave Hodges,M,FALSE,TRUE
+8053,Dave McLeish,M,FALSE,TRUE
+8177,Deryn Gwynn,M,TRUE,TRUE
+8173,Dom McDonald,M,FALSE,TRUE
+8170,Emily McLeish,F,TRUE,TRUE
+8172,Emma Hale,F,FALSE,TRUE
+8195,Emma Peacock,F,FALSE,TRUE
+8091,Esther McLeish,F,FALSE,TRUE
+8185,Finn Clark,M,TRUE,TRUE
+8156,George Notley,M,FALSE,TRUE
+8041,Georgina Radford,F,FALSE,FALSE
+8161,Glen Kerrison,M,FALSE,TRUE
+8009,Hannah Brown,F,FALSE,TRUE
+8066,Helen Johnson,F,FALSE,TRUE
+8191,Jack Gillett,M,FALSE,TRUE
+8028,Jackie Smith,F,FALSE,TRUE
+8157,Jacob Stanforth,M,TRUE,TRUE
+8160,James McLeish,M,TRUE,TRUE
+8039,Jamie Cranwell,M,FALSE,FALSE
+8184,Jarrad Rippin,M,FALSE,TRUE
+8050,Jasmine Radford,F,FALSE,TRUE
+8085,Jim Kelly,M,FALSE,TRUE
+8082,Joseph McLeish,M,FALSE,TRUE
+8186,Kaitlyn Brooks,F,TRUE,TRUE
+8193,Kaitlyn Pogoly,F,FALSE,FALSE
+8067,Kat Morton,F,FALSE,FALSE
+8196,Kiera Henninger-Heaton,F,FALSE,FALSE
+8189,Laura Henniker-Heaton,F,FALSE,TRUE
+8007,Laura Matthews,F,FALSE,FALSE
+8099,Lucy Lloyd,F,FALSE,TRUE
+8001,Martin Brown,M,FALSE,TRUE
+8086,Midge Gillies,F,FALSE,TRUE
+8030,Olly Watts,M,FALSE,TRUE
+8130,Oscar Edwards,M,TRUE,TRUE
+8025,Philip Morton,M,FALSE,TRUE
+8102,Rosa Kelly,F,TRUE,TRUE
+8182,Sam Green,F,FALSE,TRUE
+8179,Stanley Goretzki,M,TRUE,FALSE
+8166,Stuart Marsh,M,FALSE,FALSE
+8162,Sue White,F,FALSE,TRUE
+8194,Tom Grimshaw,M,FALSE,TRUE
+8047,Tracy Radford,F,FALSE,TRUE
+8188,Wendy Hagurs,F,FALSE,TRUE
+8159,William Cutforth,M,TRUE,TRUE

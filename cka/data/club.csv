@@ -1,0 +1,38 @@
+"BEA";"Bearsted";TRUE;"AWAY";
+"BEC";"Bec";TRUE;"AWAY";
+"BIR";"Birmingham";TRUE;"AWAY";
+"CAM";"Cambridge";TRUE;"PERSE";
+"CAS";"Castle";TRUE;"AWAY";
+"CIT";"City";FALSE;"KK";1000
+"CRO";"Croydon";TRUE;"AWAY";
+"CUP";"Cup Match";TRUE;"PERSE";
+"DRA";"Norwich Dragons";TRUE;"AWAY";
+"HIG";"Highbury";TRUE;"AWAY";
+"ICE";"Norwich Ice";TRUE;"AWAY";
+"INV";"Invicta";TRUE;"AWAY";
+"KIN";"Kingfisher";TRUE;"AWAY";
+"KIT";"Kites";FALSE;"NETH";2000
+"KNI";"Knights";FALSE;"PERSE";7000
+"KWK";"Kwiek";TRUE;"AWAY";
+"KWV";"KwiekVicta";TRUE;"AWAY";
+"LIT";"Lions";FALSE;"LIT";6000
+"LUT";"Luton Hatters";TRUE;"AWAY";
+"MAN";"Manchester";TRUE;"AWAY";
+"MIT";"Mitcham";TRUE;"AWAY";
+"MKB";"MK Bucks";TRUE;"AWAY";
+"NCT";"Norwich City";TRUE;"AWAY";
+"NDO";"North Downs";TRUE;"AWAY";
+"NKN";"Norwich Knights";TRUE;"AWAY";
+"NOM";"Nomads";TRUE;"AWAY";
+"NOR";"Norwich City";TRUE;"AWAY";
+"NOT";"Nottingham";TRUE;"AWAY";
+"OXF";"Oxford";TRUE;"AWAY";
+"PHO";"Phoenix";FALSE;"CRC";4000
+"SUP";"Supernova";TRUE;"AWAY";
+"TIG";"Tigers";FALSE;"PERSE";3000
+"TOR";"Tornadoes";TRUE;"AWAY";
+"TOT";"Tottenham";TRUE;"AWAY";
+"UNI";"University";FALSE;"KK";5000
+"VIK";"Vikings";FALSE;"ECC";8000
+"WLW";"Wildcats";TRUE;"AWAY";
+"WOK";"Woking";TRUE;"AWAY";

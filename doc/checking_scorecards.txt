@@ -1,0 +1,11 @@
+Checking scorecards
+
+We start the match with home attack 1 (H1) scoring goals at one end and away attack 1 (A1) scoring goals at the other. After two goals, it would be home attack 2 (H2) and away attack 2 (A2) scoring goals. And so on.
+
+At the end of the match there are two possibilities:
+H1 / A1 are attacking.
+In this case H2 + A2 needs to be even and H1+A1 is 0 or 1 more than H2 + A2So
+0 <= (H1 + A1) - (H2 + A2) <= 1
+H2 / A2 are attackingIn this case, H1 + A1 will be even and H2 + H2 is 2 or 1 less than H1+H2. So
+1 <= (H1 + A1) - (H2 + A2) <= 2
+Taking these together, or'ing,  we have0 <= (H1 + A1) - (H2 + A2) <= 2

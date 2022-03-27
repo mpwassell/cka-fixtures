@@ -1,0 +1,27 @@
+Setup on CKA server.
+
+Adam has enabled sudo access for cka account
+
+Add results@cambskorfball.co.uk to Bitbucket. Password is same.
+
+Follow
+
+https://uwsgi-docs.readthedocs.io/en/latest/tutorials/Django_and_nginx.html
+
+Should transfer CKA server on my Windows OS to use Linux VM so that I am using same environment as CKA server.
+
+-----
+
+1. Install uwsgi. Adds to init.d so can be made to start on reboot. Apps file are in /etc/uwsgi
+
+- sudo apt install uwsgi
+
+(this install old version)
+
+Use pip in virtualenv
+
+
+2.
+
+uwsgi --socket mysite.sock --module cka_server.wsgi --chmod-socket=666
+

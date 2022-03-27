@@ -1,0 +1,232 @@
+BODY
+{
+	background-color:#ffffff;
+	margin: 0px;
+	padding: 0px;
+}
+
+table.other_event  {
+    width:100%;
+    background-color:#dddddd;
+    border-color:black;
+    border-style:solid;
+    border-width:2px;
+    margin:2px;
+}
+
+td.other_event {
+    background-color:#dddddd;
+    border-style:solid;
+    border-width:0px;
+    border-color:black;
+    padding:2px;
+    margin:2px;
+    font-family:Arial;
+    font-weight:bold;
+    font-size:9pt;
+}
+
+.FixtureListTitle
+{
+    position: absolute;
+    top: 10px;
+    left: 24px;
+	color: #0000a0;
+	font-family: 'verdana';
+	font-size: 18pt;
+	text-align: left;
+}
+.LastUpdated
+{
+	font-family: tahoma;
+	font-size:8pt;
+}
+
+.Tip
+{
+    position: absolute;
+    left: 111px;
+    top: 122px;
+	color: #0000a0;
+	font-family: tahoma;
+	font-size:8pt;
+}
+.Tooltip
+{
+    position: absolute;
+    left: 311px;
+    top: 12px;
+    z-index: 200;
+}
+.TooltipHeader
+{
+    font-weight: bold;
+    font-family: arial;
+    border-top: 1px solid #A5CFE9;
+    border-left: 1px solid #A5CFE9;
+    border-right: 1px solid #A5CFE9;
+    padding: 3px;
+    font-size: 11px;
+    color: #4B7A98;
+    background: #D5EBF9;
+}
+.TooltipBody
+{
+    font-weight: normal;
+    font-family: arial;
+    border: 1px solid #A5CFE9;
+    padding: 3px;
+    font-size: 11px;
+    color: #1B4966;
+    background: #FFFFFF;
+}
+
+.FixtureListFilterButtons
+{
+    position: absolute;
+    top: 64px;
+    left: 24px;
+    width:100%;
+}
+
+.FixtureListButtons
+{
+    position: absolute;
+    top: 160px;
+    left: 25px;
+    width: 80px;
+}
+.FixtureListButtons INPUT
+{
+    border-left:solid 1px black;
+}
+
+.MainPage
+{
+	position: absolute;
+	top: 160px;
+	left: 111px;
+	width: 85%;
+	text-align: center;
+	background-color: #ffffff;	
+}
+
+.TigerButtons
+{
+	border-top: #000000 1px solid;
+	border-right: #000000 1px solid;
+	border-bottom: #000000 1px solid;
+	border-left: #000000 1px solid;
+	font-weight: bold;
+	font-size: 9pt;
+	color: #000000;
+	font-family: arial;
+	width: 80px;
+	height: 24px;
+	margin-bottom:1px;
+}
+.Over
+{
+	background-color: #ffa500;
+}
+.Click
+{
+	background-color: #ffd700;
+}
+.Out
+{
+	background-color: #ff8c00;
+}
+
+.OverCIT
+{
+    color: #000000;
+    BACKGROUND-COLOR: #FF5000;
+}
+.OutCIT
+{
+    color: #000000;
+    BACKGROUND-COLOR: #FF0000;
+}
+.ClickCIT
+{
+    color: #000000;
+    BACKGROUND-COLOR: #FF0000;
+}
+
+.OverLIT
+{
+    color: #BFFF33;
+    BACKGROUND-COLOR: #4F51FF;
+}
+.OutLIT
+{
+    color: #BFFF33;
+    BACKGROUND-COLOR: #0000FF;
+}
+.ClickLIT
+{
+    color: #BFFF33;
+    BACKGROUND-COLOR: #0000FF;
+}
+
+.OverPHO
+{
+    color:#BFFF33;
+    BACKGROUND-COLOR: #0BAF0A;
+}
+.OutPHO
+{
+    color:#BFFF33;
+    BACKGROUND-COLOR: #008000;
+}
+.ClickPHO
+{
+    color:#BFFF33;
+    BACKGROUND-COLOR: #008000;
+}
+
+.OverTIG
+{
+    BACKGROUND-COLOR: #ffa500;
+}
+.OutTIG
+{
+    BACKGROUND-COLOR: #ff8c00;
+}
+.ClickTIG
+{
+    BACKGROUND-COLOR: #ffd700;
+}
+
+.OverUNI
+{
+    color: #000000;
+    BACKGROUND-COLOR: #FFFFFF;
+}
+.OutUNI
+{
+    color: #000000;
+    BACKGROUND-COLOR: #F0F0F0;
+}
+.ClickUNI
+{
+    color: #000000;
+    BACKGROUND-COLOR: #F0F0F0;
+}
+
+.OverVIK
+{
+    color: #000000;
+    BACKGROUND-COLOR: #FFFF00;
+}
+.OutVIK
+{
+    color: #000000;
+    BACKGROUND-COLOR: #FEFF7F;
+}
+.ClickVIK
+{
+    color: #000000;
+    BACKGROUND-COLOR: #FEFF7F;
+}

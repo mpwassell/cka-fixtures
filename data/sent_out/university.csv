@@ -1,0 +1,71 @@
+Please check existing players and make changes. Do not change the ID column!
+If player is not playing, please put False in the last column.
+If a U18 player is now over 18 please change the entry in the U18 columns.
+At the end of the sheet, leave one line gap and add any new players. Leave ID blank.
+ID,Name,Sex,U18,Active
+5303,Adam Jouth,M,False,True
+5264,Adam Mason,M,False,True
+5314,Adam Smith,M,False,True
+5309,Adam South,M,False,True
+5318,Ahmed Mudassar,M,False,True
+5266,Alex Gourd,M,False,True
+5311,Ali Khalid,M,False,True
+5312,Alice Coppock,F,False,True
+5294,Alice Fletcher-Etherington,F,False,True
+5256,Alice Skipski,F,False,True
+5088,Anna Lerner,F,False,True
+5265,Anna Paus,F,False,True
+5237,Anoeska van de Moosdijk,F,False,True
+5066,Ben Jones,M,False,True
+5308,Ben Stoddart-Stones,M,False,True
+5300,Beth Mason,F,False,True
+5315,Bethany Campbell,F,False,True
+5316,Byron Henson,M,False,True
+5289,Carla Groeland,F,False,True
+5298,Charlotte Leahy,F,False,True
+5279,Chloe Marsden,F,False,True
+5297,Clifford Wilhot,M,False,True
+5260,Dan Crenol,M,False,True
+5272,Dhruva Aaradhya,M,False,True
+5281,Divya Karthikeyan,F,False,True
+5248,Edward Holt,M,False,True
+5310,Emily Servante,F,False,True
+5302,Emily Young,F,False,True
+5320,Emma Charlesworth,F,False,True
+5295,Francesco Beberfrasier,F,False,True
+5259,Hajime Shinohara,M,False,True
+5307,Haruka Kobayashi,F,False,True
+5313,Heather Goodwin,F,False,True
+5225,Jack,M,False,True
+5267,Jack Hugo,M,False,True
+5216,Jack Stockdale,M,False,True
+5254,Jade Doughty,F,False,True
+5284,Joe Pengelly,M,False,True
+5292,Karan Gupta,M,False,True
+5293,Kate Sheffer,F,False,True
+5299,Lauren Carroll,F,False,True
+5288,Leo Jurascheck,M,False,True
+5285,Leonie Hondeborg,F,False,True
+5277,Liam Woodcock,M,False,True
+5274,Lorna Radford,F,False,True
+5321,Lorna Scott,F,False,True
+5290,Lottie Plaschkes,F,False,True
+5261,Louisa Carlisle,F,False,True
+5278,Mathias Fjaellegaard Jensen,M,False,True
+5291,Mimi Das,F,False,True
+5305,Mudassar Ahmed,M,False,True
+5275,Nadia Ayed,F,False,True
+5287,Nicole Deacon-Smith,F,False,True
+5296,Oisin Huhn,M,False,True
+5306,Olivia Barber,F,False,True
+5247,Olly Bell,M,False,True
+5283,Paul Barnes,M,False,True
+5319,Paulina Rowicka,F,False,True
+5269,Rachel Scott,F,False,True
+5271,Roshni Mansfield,F,False,True
+5301,Sam Galvin,M,False,True
+5317,Samantha Flint,F,False,True
+5304,Sharna Willis,F,False,True
+5250,Tom Stockdale,M,False,True
+5280,Will Coleman,M,False,True
+5286,William Corbyn,M,False,True

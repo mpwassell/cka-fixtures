@@ -1,0 +1,68 @@
+Fixtures changes
+Send email to fixtures, results, howard
+Home, away, reffing club - get from club record. Should there be more than one?
+
+-------------------------------------------
+to Howard
+Can you clarify who is to receive these notifications and what the expected action is.
+
+1. Notification from a club that a fixture needs to be changed. This can
+then be highlighted in the fixtures list so players and referees don't
+turn up for matches which aren't happening.
+2. Notification from the home club that a fixture change has been agreed.
+
+Cheers
+Howard Laffling <hjlaffling@sky.com>
+	
+13/11/2016
+	
+to me
+They should go to the Fixtures Officer, but of course that post is
+vacant at the moment. It might be a good idea to copy the Results
+Officer too in case the Fixtures Officer is away, especially for 1.
+
+At present I think they should go to you and me. I'll try and do the
+changes to the fixtures list in the short term. A shared online
+spreadsheet would be useful.
+
+If we had web forms, then 1 and 2 could also copy the home, away and
+refereeing club (need single points of contact - we could use
+cambskorfball email addresses e.g. tigers_fixtures@cambskorfball.co.uk
+to make things easier to manage, or an email group).
+
+The actions for 1. and 2. are updates to the fixtures list.
+
+I'd be interested If you've suggestions for people who might be
+approached to be fixtures officer. I've not got a magic wand can't fix
+the fixtures issues without help, assistance and cooperation from others.
+
+By the way, I was thinking it might be helpful to split the 'notes' part
+of the web scorecard into 2 : 'public match commentary' and 'private
+notes'. The former is extra information about the match e.g. lots of
+missed penalties, close until the last 5 minutes etc. and the latter for
+things like cards, behaviour comments etc.
+Mark Wassell <mpwassell@gmail.com>
+	
+13/11/2016
+	
+to Howard
+Hi,
+
+How about for this for the way the forms would be accessed, look and work:
+
+User accesses a page with the list of fixtures that haven't been played (defined as those fixtures without results). Alongside each fixture are two buttons 'Change Pending'   and 'Change Approved'.
+
+Change Pending Form
+Refilled with fixture details - teams, time, ref club and venue.
+Fields to fill in:
+Reason for change
+Club, Name and email of person making the change.
+
+On clicking the 'Submit' button an email is sent to: Fixtures officer, results officer, home and away club contacts, referee club contact and CCed person who submitted the form.
+Request is logged.
+Results officer checks request and processes it - fixture moved to 31st May and flagged as 'Change Pending'.
+
+Change Approved is similar except:
+Pickers available to change time, date and venue or the fixture.
+Emails sent to same people as above.
+Results officer checks request and processes it - fixture moved to indicated time and flagged as 'Change Approved'

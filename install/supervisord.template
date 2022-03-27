@@ -1,0 +1,8 @@
+[program:$appname]
+command=$apppath/manage.py run_gunicorn -b unix:/var/tmp/$appname.sock --settings=settings.$settings_name --workers=3
+environment=PATH="$apppath/bin:/usr/local/bin:/usr/bin"
+directory=$apppath
+user=django
+autostart=true
+autorestart=true
+redirect_stderr=True

@@ -1,0 +1,81 @@
+BODY
+{
+	background-color:#ffffff;
+	margin: 0px;
+	padding: 0px;
+}
+.StatisticsTitle
+{
+    position: absolute;
+    top: 10px;
+    left: 170px;
+	color: #0000a0;
+	font-family: 'verdana';
+	font-size: 18pt;
+	text-align: left;
+}
+.LastUpdated
+{
+	font-family: tahoma;
+	font-size:8pt;
+}
+.StatisticsButtons
+{
+    position: absolute;
+    top: 60px;
+    left: 100px;
+    width: 63px;
+    border-top:solid 1px black;
+    border-left:solid 1px black;
+}
+.MainPage
+{
+	position: absolute;
+	top: 60px;
+	left:170px;
+	width: 50%;
+	text-align: center;
+	background-color: #ffffff;	
+}
+.TigerButtons
+{
+	border-right: 1px solid;
+	border-top: #ffffff 1px solid;
+	font-weight: bold;
+	font-size: 9pt;
+	border-left: #ffffff 1px solid;
+	color: #000000;
+	border-bottom: 1px solid;
+	font-family: arial;
+	background-color: #ffa500;
+	width: 80px;
+	height: 24px;
+}
+.TigerButtonsOn
+{
+	border-right: 1px solid;
+	border-top: #ffffff 1px solid;
+	font-weight: bold;
+	font-size: 9pt;
+	border-left: #ffffff 1px solid;
+	color: #000000;
+	border-bottom: 1px solid;
+	font-family: arial;
+	background-color: #ffd700;
+	width: 80px;
+	height: 24px;
+}
+.TigerButtonsOff
+{
+	border-right: 1px solid;
+	border-top: #ffffff 1px solid;
+	font-weight: bold;
+	font-size: 9pt;
+	border-left: #ffffff 1px solid;
+	color: #000000;
+	border-bottom: 1px solid;
+	font-family: arial;
+	background-color: #ff8c00;
+	width: 80px;
+	height: 24px;
+}

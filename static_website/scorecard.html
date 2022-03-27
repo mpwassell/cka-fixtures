@@ -1,0 +1,371 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN">
+<html>
+<head>
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <script src="./js/jquery/combobox.js"></script>
+
+    <script type="text/javascript" src="./js/underscore/underscore-min.js"></script>
+    <script type="text/javascript" src="./js/database.js"></script>
+    <script type="text/javascript" src="./js/scorecardentry.js"></script>
+    <script type="text/javascript" src="./js/combobox.js"></script>
+    <script type="text/javascript" src="./js/timepicker.min.js"></script>
+    <script type="text/javascript" src="./js/selectizer.js"></script>
+    <link rel="stylesheet" href="scorecard.css">
+    <link rel="stylesheet" href="combobox.css">
+    <link rel="stylesheet" href="timepicker.css">
+    <link rel="stylesheet" href="selectizer.css">
+    <script language="javascript">
+    $(function() {
+        setupForm();
+    });
+     </script>
+
+
+</head>
+
+<body>
+
+
+
+<input name="referer" value="{{referer}}" type=hidden>
+
+<!-- Tab indexes are four digits - first two are the group, next three are the index into group in steps of 10. -->
+
+<table width="100%" height="100%" cellspacing="1px" cellpadding="1px" border="0px" style="border:0px solid black">
+<!--colgroup>
+    <col width="1.74%">
+    <col width="2.77%">
+    <col width="4.77%">
+    <col width="19.59%">
+    <col width="5.06%">
+    <col width="5.68%">
+    <col width="1.74%">
+    <col width="3.92%">
+    <col width="1.00%">
+    <col width="3.77%">
+    <col width="2.77%">
+    <col width="4.77%">
+    <col width="1.00%">
+    <col width="3.92%">
+    <col width="1.74%">
+    <col width="13.79%">
+    <col width="5.06%">
+    <col width="6.98%">
+    <col width="9.00%">
+    <col width="1.74%">
+</colgroup -->  
+<tbody>
+<tr class="RowHeightDefault">
+    <td>&nbsp;</td>
+    <td colspan="6" rowspan="3" class="LargeFont">Cambridgeshire Korfball League</td>
+    <td colspan="8" rowspan="2" align="center">&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
+    <td class="TextRight">Date&nbsp;</td>
+    <td class="CellBottom">
+        <input name="txtDate" id="txtDate" title="Enter date of match" tabindex=10010 >
+    </td>
+    <td>&nbsp;</td>
+</tr>
+
+
+<tr class="RowHeightDefault">
+    <td>&nbsp;</td>
+    <td colspan="2">&nbsp;</td>
+    <td class="TextRight">Time&nbsp;</td>
+    <td class="CellBottom">
+        <input style="color: rgb(192, 192, 192);" name="txtTime" id="txtTime" type="text"
+            title="Select match time and edit" tabindex=10020>
+        <span id="TimeWarning" class="Warning" style="visibility:hidden; display:none"></span>
+    </td>
+    <td>&nbsp;</td>
+</tr>
+
+<tr class="RowHeightDefault">
+    <td>&nbsp;</td>
+    <td class="TextCenter">FT</td>
+    <td colspan="5">&nbsp;</td>
+    <td class="TextCenter">FT</td>
+    <td colspan="3">&nbsp;</td>
+    <td class="TextRight">Division&nbsp;</td>
+    <td class="TextLeft">
+    <select name="cboDivision" id="cboDivision" style="width:75%; text-align:left" class="CellInput ScoreFont TextLeft" tabindex="10030" title="Choose the division this match is played in">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="" selected='selected'></option>
+    </select>
+    </td>
+    <td>&nbsp;</td>
+</tr>
+              
+ <tr class="RowHeightDefault">
+    <td>&nbsp;</td>
+    <td colspan="5" rowspan="2" class="TextBottom with-border">
+    <select name="cboHome_Team" id="cboHome_Team" style="width:100%; font-weight:bold" class="TeamFont" title="Choose the name of the home team" tabindex=10040>
+    </select></td>
+    <td>&nbsp;</td>
+    <td rowspan="2" class="CellAll TextCenter ft-box">
+              <input name="txtHome_Score_FT" id="txtHome_Score_FT" maxlength="2" class="TextCenter ScoreFont CellInput"  title="Enter the Full Time score for the home team" type="text" value="" tabindex=10050>
+    </td>
+    <td>&nbsp;</td>
+    <td class="TextCenter">HT</td>
+    <td rowspan="2" class="TextCenter LargeFont" style="vertical-align:bottom">V</td>
+    <td class="TextCenter">HT</td>
+    <td>&nbsp;</td>
+    <td rowspan="2" class="CellAll TextCenter ScoreFontCellInput">
+      <input name="txtAway_Score_FT" id="txtAway_Score_FT" maxlength="2" class="TextCenter ScoreFont CellInput" tabindex="10080" title="Enter the Full Time score for the away team" type="text" value="">
+    </td>
+    <td>&nbsp;</td>
+    <td colspan="4" rowspan="2" class="TextRight TextBottom">
+        <select name="cboAway_Team" id="cboAway_Team" style="width:100%; font-weight:bold" class="TeamFont" tabindex="10090" title="Choose the name of the away team">
+        </select></td>
+    <td>&nbsp;</td>
+</tr>
+
+
+<tr class="RowHeightDefault">
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class="CellAll">
+      <input name="txtHome_Score_HT" id="txtHome_Score_HT" maxlength="2" class="TextCenter ScoreFont CellInput" tabindex="10060" title="Enter the Half Time score for the home team" type="text" value="" >
+    </td>
+    <td class="CellAll">
+      <input name="txtAway_Score_HT" id="txtAway_Score_HT" maxlength="2" class="TextCenter ScoreFont CellInput" tabindex="10070" title="Enter the Half Time score for the away team" type="text" value="">
+    </td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+</tr>
+
+<tr class="RowHeightDefault SmallFont">
+    <td>&nbsp;</td>
+    <td colspan="2" class="TextLeft TextTop">Home Team</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td colspan="3" class="TextCenter TextTop">Home Score</td>
+    <td>&nbsp;</td>
+    <td colspan="3" class="TextCenter TextTop">Away Score</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td class="TextRight TextTop">Away Team</td>
+    <td>&nbsp;</td>
+</tr>
+
+
+<tr class="RowHeightDefault MediumFont">
+    <td>&nbsp;</td>
+    <td colspan="5">
+    <select name="cboRefHomeRating" id="cboRefHomeRating" style="width:100%;" class="WhenFont" tabindex="10090" title="Enter the referee's rating of the Home Team">
+        <option value="7">EXEMPLARY - attitude and sportsmanship was exemplary</option>
+        <option value="6">VERY GOOD - Attitude and sportsmanship was very good</option>
+        <option value="5">GOOD - Attitude and sportsmanship was good</option>
+        <option value="4">OK - Attitude and sportsmanship was ok</option>
+        <option value="3">POOR - A few incidents of poor attitude or bad sportsmanship</option>
+        <option value="2">VERY POOR - There were several incidents of poor attitude and bad sportsmanship</option>
+        <option value="1">UNACCEPTABLE - The attitude and sportsmanship was at an unacceptably bad level</option>
+        <option value="" selected="selected">Enter your rating of the home team's behaviour</option>
+    </select></td>
+    <td colspan="9" class="TextCenter TextTop">&lt;--- Referee's Rating of Team ---&gt;</td>
+    <td colspan="4">
+        <select name="cboRefAwayRating" id="cboRefAwayRating" style="width:100%;" class="WhenFont" tabindex="10100" title="Enter the referee's rating of the Away Team">
+            <option value="7">EXEMPLARY - attitude and sportsmanship was exemplary throughout</option>
+            <option value="6">VERY GOOD - Attitude and sportsmanship was very good</option>
+            <option value="5">GOOD - Attitude and sportsmanship was good</option>
+            <option value="4">OK - Attitude and sportsmanship was ok</option>
+            <option value="3">POOR - A few incidents of poor attitude or bad sportsmanship</option>
+            <option value="2">VERY POOR - There were several incidents of poor attitude and bad sportsmanship</option>
+            <option value="1">UNACCEPTABLE - The attitude and sportsmanship was at an unacceptably bad level</option>
+            <option value="" selected="selected">Enter your rating of the away team's behaviour</option>
+        </select>
+    </td>
+    <td>&nbsp;</td>
+</tr>
+
+<!-- From https://jsfiddle.net/enigmarm/z7Mzt/ -->
+<!--div class="watermark1">First Attack</div>
+<div class="watermark2">First Attack</div-->
+
+<tr class="RowHeightDefault MediumFont TextCenter" id="playerHeader">
+    <td>&nbsp;</td>
+    <td colspan="2" class="player-num-header">Player</td>
+    <td class="CellAll CellShade">Name</td>
+    <td class="CellAll CellShade">U18</td>
+    <td class="CellAll CellShade">Pens</td>
+    <td colspan="4" class="CellAll CellShade">Goals</td>
+    <td colspan="2" class="player-num-header">Player</td>
+    <td colspan="4" class="CellAll CellShade">Name</td>
+    <td class="CellAll CellShade">U18</td>
+    <td class="CellAll CellShade">Pens</td>
+    <td class="CellAll CellShade">Goals</td>
+    <td>&nbsp;</td>
+</tr>
+<tr class="RowHeightDefault MediumFont TextCenter" id="playerRow">
+    <td>&nbsp;</td>
+    <td colspan="2" class="player-num" >8</td>
+    <td class="CellAll playerNameHome"></td>
+    <td class="CellAll "><input type="checkbox" class="playerU18Home"/></td>
+    <td class="CellAll "><input type="text" class="playerPenaltiesHome no-border"/></td>
+    <td colspan="4" class="CellAll "><input type="text"  class="playerGoalsHome no-border " /></td>
+    <td colspan="2" class="player-num">8</td>
+    <td colspan="4" class="CellAll playerNameAway"></td>
+    <td class="CellAll "><input type="checkbox" class="playerU18Away" /></td>
+    <td class="CellAll "><input type="text" class="playerPenaltiesAway no-border" /></td>
+    <td class="CellAll "><input type="text" class="playerGoalsAway no-border" /></td>
+    <td>&nbsp;</td>
+</tr>
+
+<tr class="RowHeightDefault MediumFont TextCenter" id="playerSubHeader">
+    <td>&nbsp;</td>
+    <td colspan="1" class="CellAll CellShade">For</td>
+    <td colspan="1" class="CellAll CellShade">When</td>
+    <td class="CellAll CellShade">Name</td>
+    <td class="CellAll CellShade">U18</td>
+    <td class="CellAll CellShade">Pens</td>
+    <td colspan="4" class="CellAll CellShade">Goals</td>
+    <td class="CellAll CellShade">For</td>
+    <td class="CellAll CellShade">When</td>
+    <td colspan="4" class="CellAll CellShade">Name</td>
+    <td class="CellAll CellShade">U18</td>
+    <td class="CellAll CellShade">Pens</td>
+    <td class="CellAll CellShade">Goals</td>
+    <td>&nbsp;</td>
+</tr>
+<tr class="RowHeightDefault MediumFont TextCenter" id="playerSubRow">
+    <td>&nbsp;</td>
+    <td class="player-sub-for"><input class="no-border playerSubForHome" type="text" maxlength="2"></td>
+    <td class="CellAll playerSubWhen"><select class="no-border playerSubWhenHome" >
+       <option>1st</option><option>HT</option><option>2nd</option><option selected='selected'/>
+       </select></td>
+    <td class="CellAll playerSubNameHome"><select id="playerSubNameHomeSelect_8" class="no-border player-select"/></td>
+    <td class="CellAll "><input type="checkbox" id="playerU18" class="playerSubU18Home" /></td>
+    <td class="CellAll "><input type="text" id="playerSubPenalties" class="no-border playerSubPenaltiesHome" /></td>
+    <td colspan="4" class="CellAll "><input type="text" id="playerSubGoals" class="no-border playerSubGoalsHome"/></td>
+
+    <td class="player-sub-for"><input type="text" class='no-border playerSubForAway'/></td>
+    <td class="CellAll playerSubWhen"><select class="no-border playerSubWhenAway">
+       <option>1st</option><option>HT</option><option>2nd</option><option selected='selected'/>
+       </select></td>
+    <td colspan="4" class="CellAll playerSubNameAway"><select id="playerSubNameAwaySelect_8" class="no-border player-select"/></td>
+    <td class="CellAll "><input type="checkbox" class="playerSubU18Away" /></td>
+    <td class="CellAll "><input type="text" class="no-border playerSubPenaltiesAway" /></td>
+    <td class="CellAll "><input type="text" class="no-border playerSubGoalsAway"/></td>
+    <td>&nbsp;</td>
+</tr>
+<!--tr class="RowHeightDefault MediumFont TextCenter" id="playerSubRow">
+    <td>&nbsp;</td>
+    <td colspan=5><div class="addSubRow">Add New Row For Subs<div></td>
+    <td colspan=6>&nbsp;</td>
+    <td colspan=5><div class="addSubRow">Add New Row For Subs</div></td>
+</tr-->
+
+
+<tr class="RowHeightDefault">
+    <td>&nbsp;</td>
+    <td colspan="3" class="TextLeft TextBottom">Public Match Commentary</td>
+    <td>&nbsp;</td>
+    <td class="NotesFont TextRight">Written by&nbsp;</td>
+    <td colspan="4" class="TextLeft CellBottom">
+        <input name="txtWritten_By" id="txtWritten_By" style="width:80%" class="CellInput TextLeft TextBottom MediumFont" tabindex="40000" title="Enter the name of the person who wrote the match comments" type="text" value="">
+    </td>
+    <td>&nbsp;</td>
+    <td colspan="3" class="TextRight TextBottom">Home Captain&nbsp;</td>
+    <td colspan="5" class="TextLeft CellBottom SmallFont TextBottom">
+                     <select class="player-select" id="homeCaptain" tabindex=50000 ></select>
+    </td>
+    <td>&nbsp;</td>
+</tr>
+
+              <tr class="RowHeightDefault">
+                  <td>&nbsp;</td>
+                  <td colspan="9" rowspan="3" class="TextLeft">
+                    <textarea name="txtNotes" id="txtNotes" rows="5" class="TextLeft WhenFont" style="width:99%; font-family: tahoma"
+                    tabindex="40010" title="Enter the public notes for the match" value="" ></textarea>
+                  </td>
+                  <td colspan="4" class="TextRight TextBottom">Away Captain&nbsp;</td>
+                  <td colspan="5" class="TextLeft CellBottom SmallFont TextBottom">
+                 <select class=" player-select" id="awayCaptain" tabindex=50010>
+        </select>
+                  </td><td>&nbsp;</td>
+              </tr>
+
+              <tr class="RowHeightDefault">
+                <td>&nbsp;</td>
+                  <td colspan="4" class="TextRight TextBottom">Referee&nbsp;</td>
+                  <td colspan="3" class="TextLeft CellBottom SmallFont TextBottom">
+                    <input class="playerCombo" name="txtReferee" id="txtReferee" tabindex=50020>
+                    </select>
+
+                  </td>
+                  <td class="TextRight TextBottom">Club&nbsp;</td>
+                  <td class="TextLeft CellBottom SmallFont TextBottom">
+                      <input name="txtReferee_Club" id="txtReferee_Club" style="width:100%;" class="TextLeft CellInput"
+                         tabindex="50030" title="Enter the name of the club that the referee represents" type="text" value="">
+                       
+                  </td>
+                  <td>&nbsp;</td>
+              </tr>
+              <tr class="RowHeightDefault">
+                <td>&nbsp;</td>
+                <td colspan="4" class="TextRight TextBottom">Ref's Email Address&nbsp;</td>
+                <td colspan="5" class="TextLeft CellBottom SmallFont TextBottom">
+                  <input name="txtEmailAddress" id="txtEmailAddress" style="width:100%;" class="TextLeft CellInput" tabindex="50040" title="Enter the email address name of the person submitting the scorecard" type="email" value="">
+                </td>
+                <td>&nbsp;</td>             
+              </tr> 
+<tr>
+     <td>&nbsp;</td>
+     <td colspan=3>Referee's private notes for match</td>
+</tr>
+<tr class="RowHeightDefault">
+                  <td>&nbsp;</td>
+                  <td colspan="9" rowspan="3" class="TextLeft">
+                    <textarea name="txtPrivateNotes" id="txtPrivateNotes" rows="5" class="TextLeft WhenFont" style="width:99%; font-family: tahoma"
+                    tabindex="40020" title="Enter the private notes for the match" value="" ></textarea>
+                  </td>
+                  <td colspan=8>&nbsp;</td>
+                  <td><div id="submit" tabindex=90000>Submit</div></td>
+              </tr>
+</tbody>
+</table>
+</p>
+
+<div id="warningDialog" style="display:none">
+The scorecard has the following issues:
+<ul id="warningList">
+</ul></p>
+Click 'Cancel' to close this dialog and correct the problems on the scorecard.
+Click 'Submit' to submit the scorecard anyway.</p>
+<div id="cancelBtn">Cancel</div>
+<div id="warningDialogSubmit">Submit</div>
+</div>
+
+<div id="submitOutcomeDialog" style="display:none">
+<div id="submitMsg"></div></p>
+<div id="submitXML" style='font-size: 10px'></div></p>
+<div id="submitOutcomeDialogClose">Close</div>
+</div>
+
+
+
+<!--
+<div id="add_players" >
+
+<ul id="sortable1" class="connectedSortable">
+  
+</ul>
+ 
+<ul id="sortable2" class="connectedSortable">
+
+</ul>
+
+</div>-->
+
+</body>
+</html>

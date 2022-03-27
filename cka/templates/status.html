@@ -1,0 +1,85 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN" "http://www.w3.org/TR/html4/strict.dtd">
+<html><head>
+<meta http-equiv="content-type" content="text/html; charset=windows-1252">
+    <title></title>
+{% load static %}
+    <link rel="stylesheet" type="text/css" href="{% static 'ckaleague/css/Tigers.css'%}">
+    <link rel="stylesheet" type="text/css" href="{% static 'ckaleague/css/StatusList.css'%}">
+    <script type="text/javascript" language="javascript" src="{% static 'ckaleague/js/CKA.js' %}"></script>
+    <script type="text/javascript" language="javascript" src="{% static 'ckaleague/js/Tiger_Library.js' %}"></script>
+    <script type="text/javascript" language="javascript" src="{% static 'ckaleague/js/Button.js' %}"></script>
+    <script type="text/javascript" language="javascript" src="{% static 'ckaleague/js/StatusList.js' %}"></script>
+    <script type="text/javascript" language="javascript">
+      var CurrentButton = 'btnCIT';
+      var CurrentPeriod = {{show_period}};
+      var RowID = "XXX"
+
+      var arrReportFrom = new Array('', '{{from1}}', '{{from2}}', '{{from3}}');
+      var arrReportTo   = new Array('', '{{to1}}', '{{to2}}', '{{to3}}');
+
+      function PageLoad()
+      {
+        FilterRowByPeriod('{{show_period}}');
+      }
+    </script>
+</head>
+
+<body style="background-color:#ffffff; MARGIN-TOP: 0px"  onload="PageLoad()">
+
+<div class="StatusListTitle">
+<span>CKA Status List Report - {{title}}</span>
+<span id="ReportFrom"></span>
+<span>to </span>
+<span id="ReportTo"></span>
+<div class="LastUpdated">Last Update: {{last_update}} </div>
+</div>
+
+<div class="StatusListPeriod"> Period </div>
+
+<div class="StatusListPeriodButtons">
+<input id="btnPeriod1" class="TigerButtonsOn"  type="button" onclick="FilterRowByPeriod('1')" style="left:0px;"  value="1">
+<input id="btnPeriod2" class="TigerButtonsOff" type="button" onclick="FilterRowByPeriod('2')" style="left:-2px;" value="2">
+<input id="btnPeriod3" class="TigerButtonsOff" type="button" onclick="FilterRowByPeriod('3')" style="left:-4px;" value="3">
+</div>
+
+<div class="StatusListButtons">
+<input id="btnCIT" class="TigerButtonsOn" type="button" onclick="MouseClick('btnCIT');FilterRow('CIT');" onmouseout="MouseOut('btnCIT')" onmouseover="MouseOver('btnCIT')" style="border-top:solid 1px black; width:68px; height:24px" value="City">
+<input id="btnLIT" class="TigerButtonsOff" type="button" onclick="MouseClick('btnLIT');FilterRow('LIT');" onmouseout="MouseOut('btnLIT')" onmouseover="MouseOver('btnLIT')" style="width:68px; height:24px" value="Lions">
+<input id="btnPHO" class="TigerButtonsOff" type="button" onclick="MouseClick('btnPHO');FilterRow('PHO');" onmouseout="MouseOut('btnPHO')" onmouseover="MouseOver('btnPHO')" style="width:68px; height:24px" value="Phoenix">
+<input id="btnTIG" class="TigerButtonsOff" type="button" onclick="MouseClick('btnTIG');FilterRow('TIG');" onmouseout="MouseOut('btnTIG')" onmouseover="MouseOver('btnTIG')" style="width:68px; height:24px" value="Tigers">
+<input id="btnUNI" class="TigerButtonsOff" type="button" onclick="MouseClick('btnUNI');FilterRow('UNI');" onmouseout="MouseOut('btnUNI')" onmouseover="MouseOver('btnUNI')" style="width:68px; height:24px" value="University">
+<input id="btnVIK" class="TigerButtonsOff" type="button" onclick="MouseClick('btnVIK');FilterRow('VIK');" onmouseout="MouseOut('btnVIK')" onmouseover="MouseOver('btnVIK')" style="width:68px; height:24px" value="Vikings">
+</div>
+
+<div class="MainPage" style="height:790; overflow-y:auto">
+<table cellspacing="1" cellpadding="2" style="width:100%; background-color:#ffffff; border-color:black; border-style:solid; border-width:1px">
+
+<TR>
+  <TD class=BlackOnOrange WIDTH=10%>Club</TD>
+  <TD class=BlackOnOrange style='text-align:left' WIDTH=40%>Name</TD>
+  <TD class=BlackOnOrange WIDTH=20%>Status</TD>
+  <TD class=BlackOnOrange WIDTH=10%>SERL/NL</TD>
+  <TD class=BlackOnOrange WIDTH=10%>1st Team</TD>
+  <TD class=BlackOnOrange WIDTH=10%>2nd Team</TD>
+</TR>
+
+<script language="javascript" type="text/javascript">
+var RowCount = 1;
+{% for a_row in data %}
+document.write(PaintStatusListRow( '{{a_row.club}}', '{{a_row.team}}', '{{a_row.name}}', '{{a_row.club_name}}', 
+  '{{a_row.team_long}}', '{{a_row.period}}', '{{a_row.serl_score}}', '{{a_row.first_score}}', '{{a_row.second_score}}', 
+  '{{a_row.serl_indicator}}', '{{a_row.first_indicator}}', '{{a_row.second_indicator}}')); 
+{% endfor %}
+</script>
+<tbody>
+</tbody>
+
+</table>
+
+T1 - Indicates First Team Status Tie.</br>
+T2 - Indicates Second Team Status Tie.</br>
+* - Indicates tie resolved to that player</br>
+All ties need to be resolved before first match of period or within two weeks whichever is the sooner.</br>
+
+</div>
+</body>

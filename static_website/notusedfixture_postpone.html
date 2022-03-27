@@ -1,0 +1,23 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+  <HEAD>
+    <TITLE>Fixture Postponement Request Form</TITLE>
+    
+    {% load staticfiles %}
+    <link href="{% static 'ckaleague/css/Scorecard.css' %}" type="text/css" rel="stylesheet" />	
+    <script type="text/javascript" src="{% static 'ckaleague/js/Scorecard.js' %}"></script>
+  </HEAD>
+<BODY>
+
+<h1>Fixture Postponement Request: {{title}}</h1>
+
+<table>
+<tr>
+	<td>Home Team: {{home_team}}</td><td>Away Team: {{away_team}}</td>
+    <td>Date: {{datetime}}</td><td>Venue: {{venue}}</td>
+</tr>
+<tr>
+	<td>Reason For Postponement<td>
+		
+
+</BODY>

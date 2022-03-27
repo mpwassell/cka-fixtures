@@ -1,0 +1,1 @@
+SELECT code, home_score, away_Score, abs(home_score-away_score) sc FROM cka_fixture where season=2016 and ((home_team_id like 'PHO%' and home_score>away_score) or( away_Team_id like 'PHO%' and away_score> home_score)) ORDER BY sc DESC

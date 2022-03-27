@@ -1,0 +1,48 @@
+Please check existing players and make changes. Do not change the ID column!,,,,
+If player is not playing, please put False in the last column.,,,
+If a U18 player is now over 18 please change the entry in the U18 columns.,,,,
+At the end of the sheet, leave one line gap and add any new players. Leave ID blank.,,,
+ID,Name,Sex,U18,Active
+4040,Adrian Dobbyne,M,FALSE,FALSE
+4116,Alison Reed,F,FALSE,TRUE
+4138,Andy Credland,M,FALSE,TRUE
+4167,Anna Pavlitski,F,FALSE,FALSE
+4131,Carol Townsend,F,FALSE,FALSE
+8115,Chloe Darlow,F,FALSE,TRUE
+4038,Chris White,F,FALSE,TRUE
+4021,Corinne Bowes,F,FALSE,TRUE
+4197,Danni Weldon,F,FALSE,TRUE
+4185,Dawn Jepson,F,FALSE,FALSE
+4083,Etienne Van Niekerk,M,FALSE,FALSE
+4193,Female Guest 1,F,FALSE,FALSE
+4150,Fiona Hill,F,FALSE,TRUE
+4098,Gary Cole,M,FALSE,TRUE
+4189,Hannah Bullough,F,TRUE,FALSE
+4172,Hannah Lindsay,F,FALSE,TRUE
+4126,Hannah Ward,F,FALSE,FALSE
+4177,Helen Vidler,F,FALSE,TRUE
+4195,Howai Lam,M,FALSE,FALSE
+4036,Howard Laffling,M,FALSE,TRUE
+4157,John McLellan,M,FALSE,TRUE
+4175,Kathryn Bullough,F,TRUE,TRUE
+4006,Kevin White,M,FALSE,FALSE
+4188,Laura Hopewell,F,FALSE,FALSE
+4184,Laura Moody,F,FALSE,FALSE
+4142,Lisa Adcock,F,FALSE,TRUE
+4060,Lucy Purser,F,FALSE,TRUE
+4192,Male Guest 1,M,FALSE,FALSE
+4005,Mark Wassell,M,FALSE,TRUE
+4196,Natalie Corden,F,FALSE,TRUE
+4123,Patrick Loo,M,FALSE,TRUE
+4004,Paul Bullough,M,FALSE,TRUE
+4183,Peter Tasker,M,FALSE,TRUE
+4129,Phil Tedder,M,FALSE,TRUE
+4180,Phil Ward,M,FALSE,TRUE
+4020,Rhian Benstead,F,FALSE,TRUE
+4191,Safi Terywall,M,TRUE,TRUE
+4190,Saif Terywall,M,TRUE,TRUE
+4133,Sarah Carter,F,FALSE,FALSE
+4030,Sarah Schechter,F,FALSE,FALSE
+4112,Simon Hall,M,FALSE,TRUE
+4187,Waisum Lam,M,FALSE,FALSE
+4186,William Moody,M,TRUE,FALSE

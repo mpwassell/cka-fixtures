@@ -1,0 +1,52 @@
+Please check existing players and make changes. Do not change the ID column!
+If player is not playing, please put False in the last column.
+If a U18 player is now over 18 please change the entry in the U18 columns.
+At the end of the sheet, leave one line gap and add any new players. Leave ID blank.
+ID,Name,Sex,U18,Active
+6095,Adam Gledhill,M,False,True
+6123,Adam Housden,M,False,True
+6124,Adam Stanford,M,False,True
+6011,Alex Andrews,M,False,True
+6118,Andrew Cusick,M,False,True
+6045,Andy Dunlop,M,False,True
+6098,Anita Rakauskaite,F,False,True
+6119,Carl Skipper,M,False,True
+6134,Charlotte Rutherford,F,False,True
+6102,Chelsea Harrison,F,False,True
+6096,Chris Farnell,M,False,True
+6090,Chris Sainter,M,False,True
+6126,Chris Tull,M,False,True
+6049,Dan Clarke,M,False,True
+6111,Danny Mathie,M,False,True
+6129,Eleanor Johnson,F,False,True
+6099,Emily Kelly,F,True,True
+6073,Emma Wilkinson,F,False,True
+6063,Hannah Murfitt,F,False,True
+6128,Heather Yeadon,F,False,True
+6130,Heather Yeardon,F,False,True
+6110,Jack Barry,M,False,True
+6068,Jackie Anderson,F,False,True
+6112,Jake Medcalf,M,False,True
+6105,James Chinery-Colyer,M,False,True
+6116,Jenny Barlow,F,False,True
+6082,Joseph Murfitt,M,False,True
+6101,Justyna Skorzewska,F,False,True
+6000,Laura Neaves,F,False,True
+6113,Leon Harding,M,False,True
+6002,Lindsey Neaves,F,False,True
+6125,Louise Place,F,False,True
+6120,Lucy Lloyd,F,False,True
+6115,Matt Fukes,M,False,True
+6132,Neil Place,M,False,True
+6041,Nicola Clarke,F,False,True
+6117,Oriol Obradors,M,False,True
+6078,Ryan Middleton,M,False,True
+6122,Sallie Ward,F,False,True
+6023,Sara Neaves,F,False,True
+6131,Steve Harrison,M,False,True
+6133,Suzi Cullum,F,False,True
+6121,Tim Neaves,M,False,True
+6004,Tom Brennand,M,False,True
+6097,Tom Kelly,M,False,True
+6093,Tom Rosselli,M,False,True
+6127,Wendy Lee,F,False,True

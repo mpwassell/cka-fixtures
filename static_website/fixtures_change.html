@@ -1,0 +1,108 @@
+<!DOCTYPE html PUBLIC "-//W3C//Dth XHTML 1.0 Transitional//EN">
+<html>
+<head>
+    <title>CKA League Fixtures Change and Postpone Requests</title>
+    <script language="javascript">
+        //Create a new DateBox object with a date delimiter of "/" and date format of "UK" (eg "dd/mm/yyyy")
+        var dateBox = new DateBox("/", "UK", "DateWarning");
+
+        //Create a new TimeBox object with a time delimiter of ":" and time format of "hh:mm")
+        var timeBox = new TimeBox(":", "hhmm", "TimeWarning");
+    </script>
+
+    <script src="//code.jquery.com/jquery-1.10.2.js"></script>
+    <script src="//code.jquery.com/ui/1.11.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.2/themes/smoothness/jquery-ui.css">
+    <script src="./js/jquery/combobox.js"></script>
+
+    <script type="text/javascript" src="./js/underscore/underscore-min.js"></script>
+    <script type="text/javascript" src="./js/database.js"></script>
+    <script type="text/javascript" src="./js/fixtures.js"></script>
+    <script type="text/javascript" src="./js/combobox.js"></script>
+    <script type="text/javascript" src="./js/timepicker.min.js"></script>
+    <link rel="stylesheet" href="fixtures.css">
+    <link rel="stylesheet" href="combobox.css">
+    <link rel="stylesheet" href="timepicker.css">
+    <script language="javascript">
+    $(function() {
+        setupPage();
+    });
+     </script>
+
+
+</head>
+<center><h2>CKA League Fixtures Change and Postpone Requests</h2></center>
+Use this page if you are the home club for a fixture and you want to do one of the following:
+<ul>
+    <li>You want to indicate that the fixture needs to be changed. Click 'Pending' against the fixture in the list below.
+    <li>You want to indicate that the change to the fixture has been agreed. Click 'Agreed' against the fixture in the list below.
+</ul>
+
+Note that:
+<ul>
+<li>Under CKL <a href="http://www.cambskorfball.co.uk/cka_league_rules.htm">rules</a>, fixture changes are only permitted under exceptional circumstances and so you will need to provide a strong reason for the change.
+<li>CKL rules explicitly rule out 'inability to field a full strength team'.
+<li>Fixtures Officer approval is always required, even if both teams agree.
+<li>Refereeing clubs don't need to agree to a fixture change as refereeing
+commitments can be swapped.
+</ul>
+
+Once you have filled in the form and clicked submit, the following will be sent emails:
+<ul>
+    <li>Results and Fixtures Officers.
+    <li>Representative of home and away clubs.
+    <li>Representative of refereeing club.
+</ul>
+
+<!--
+1. Notification from a club that a fixture needs to be changed. This can
+then be highlighted in the fixtures list so players and referees don't
+turn up for matches which aren't happening.
+2. Notification from the home club that a fixture change has been agreed.
+-->
+<body>
+<table class="fixtures" id="fixtures">
+<tr>
+    <th>Date</th>
+    <th>Time</th>
+    <th>Venue</th>
+    <th>Division</th>
+    <th>Home Team</th>
+    <th>Away Team</th>
+    <th>Referee</th>
+    <th>Change</th>
+</tr>
+</table>
+
+
+<div id="fixtureChangePendingDialog" title="Change Pending" style="display:none">
+<table class="fixtures" id="pendingFixture">
+<tr><th>Date</th><th>Time</th><th>Venue</th><th>Home Team</th><th>Away Team</th><th>Referee</th></tr>
+</table>
+Reason For Pending Change:</p>
+<textarea cols=60 rows=10 id="pendingReason"></textarea>
+<p>Your details:
+Name: <input id="name">
+Club: <input id="club">
+Email: <input id="email">
+<div id="result"></div>
+<div id="pendingSubmitBtn">Submit</div>
+</div>
+
+
+<div id="fixtureChangeAgreedDialog" class="userDialog" title="Change agreed" style="display:none">
+<table class="fixtures" id="agreedFixture">
+<tr><th></th><th>Date</th><th>Time</th><th>Venue</th><th>Home Team</th><th>Away Team</th><th>Referee</th></tr>
+</table>
+Reason For Change:</p>
+<textarea cols=60 rows=10 id="agreedReason"></textarea>
+<p>Your details:
+Name: <input id="name">
+Club: <input id="club">
+Email: <input id="email">
+<div id="agreedSubmitBtn">Submit</div> 
+  
+</div>
+
+
+

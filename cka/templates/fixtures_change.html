@@ -1,0 +1,62 @@
+<html>
+<head>
+{% load static %}
+
+ 	<script type="text/javascript" language="javascript" src="{% static 'ckaleague/js/underscore/underscore-min.js' %}"></script>
+  <script type="text/javascript" language="javascript" src="{% static 'ckaleague/js/jquery/jquery-1.9.1.js' %}"></script>
+  <script type="text/javascript" language="javascript" src="{% static 'ckaleague/js/jquery/jquery-ui-1.12.1/jquery-ui.min.js' %}"></script>
+  <script type="text/javascript" language="javascript" src="{% static 'ckaleague/js/fixtures_change.js' %}"></script>
+
+	<link rel="stylesheet" type="text/css" href="{% static 'ckaleague/js/jquery/jquery-ui-1.12.1/jquery-ui.min.css'%}">
+  <link rel="stylesheet" type="text/css" href="{% static 'ckaleague/css/fixtures_change.css'%}">
+</head>
+
+<body>
+<table id="fixtures" class="fixtures"></table>
+</body>
+
+<div id="userDialog" class="userDialog" title="Change Pending">
+    
+  <form action="fixture/do_change" method="post">
+    {% csrf_token %}
+    <input type="hidden" name="id" id="id">
+    <input type="hidden" name="home_team" id="home_team_input">
+    <input type="hidden" name="away_team" id="away_team_input">
+
+    <b>Match Details</b>
+    <table id="approvedMatchDetails">
+      <tr><td>Date</td><td>Time</td><td>Home Team</td><td/><td>Away Team</td><td>Referee</td><td>Venue</td></tr>
+      <tr>
+        <td><input type="text" id="datepicker" name="date" class="date"/></td>
+        <td><input type="text" id="time_input" name="time" class="time" /></td>
+        <td class="home_team"/><td>vs</td>
+        <td class="away_team"/>
+        <td><select name="referee" id="referee_select"/></td>
+        <td><select name="venue" id="venue_select"/></td>
+      </tr>
+    </table>
+    <table id="pendingMatchDetails">
+       <tr><td>Date</td><td>Time</td><td>Home Team</td><td/><td>Away Team</td><td>Referee</td><td>Venue</td></tr>
+       <td id="date"/>
+       <td id="time" class="time"/>
+       <td class="home_team"/><td>vs</td>
+       <td class="away_team"/>
+       <td id="referee"/>
+       <td id="venue"/>
+    </table>
+    </p>
+    <b>Reason for Change</b></p>
+    <textarea name="reason" cols="40" rows="5" autofocus></textarea></p>
+
+    <b>Your details</b></p>
+    <table>
+      <tr><td>Name</td><td><input name="name" type="text" ></td></tr>
+      <tr><td>Email</td><td><input name="email" type="text"/></td></tr>
+      <tr><td>Club</td><td><select name="club" id="club_select"></select></td></tr>
+    </table>
+    </p>
+    <input type="submit"/>
+  </form>
+</div>
+
+</html>

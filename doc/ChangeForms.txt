@@ -1,0 +1,11 @@
+1. List of unplayed fixtures with buttons 'Change Pending' and 'Change Approved'.
+
+Page reads JSON of all fixtures.
+Static page with JS function for each button.
+
+JS functions for buttons
+USing fixture data
+Builds form HTML
+Pickers for date and time.
+List for venue
+Click Submit sends 'postpone' request to server that does emailing.

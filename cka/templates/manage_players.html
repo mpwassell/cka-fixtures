@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% load render_table from django_tables2 %}
+{% block content %}
+
+
+</p><a href="add/{{club_id}}">Add New Player</a></p>
+<h1>Active Players</h1> 
+{% render_table active_players %}
+<br/><br/>
+<h1>Inactive Players</h1> 
+{% render_table inactive_players %}
+
+{% endblock %}
